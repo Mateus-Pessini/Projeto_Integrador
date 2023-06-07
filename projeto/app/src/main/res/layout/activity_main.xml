@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="1280dp"
+    android:layout_height="800dp"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/fundo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="1280dp"
+        android:layout_height="50dp"
+        android:background="@color/cabecalho">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:src="@drawable/titulo_launcher_background"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:text="DentiCare"
+            android:textStyle="bold"
+            android:textSize="33dp"
+            android:textColor="#0069BA"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="9dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="230dp"
+        android:layout_height="750dp"
+        android:background="@color/lateral"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="150dp"
+            android:text="Agendamentos"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Consultas"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Gerar PDF"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Cadastrar Clientes"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/gentium_basic"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Cadastrar Fotos"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Sair"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
