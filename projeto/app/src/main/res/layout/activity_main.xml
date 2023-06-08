@@ -16,9 +16,9 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="35dp"
-            android:src="@drawable/titulo_launcher_background"
+            android:src="@drawable/titulo"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:layout_width="300dp"
@@ -37,66 +37,126 @@
         android:background="@color/lateral"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="170dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="55dp"
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="35dp"
             android:layout_marginTop="150dp"
-            android:text="Agendamentos"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:layout_marginLeft="10dp">
 
-        <TextView
-            android:layout_width="170dp"
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/calendario"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:text="Agendamentos"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/document"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:text="Consultas"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/pdf"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:text="Gerar PDF"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/pessoa"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="10dp"
+                android:text="Cadastrar Clientes"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="210dp"
             android:layout_height="34dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:text="Consultas"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
 
-        <TextView
-            android:layout_width="170dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:text="Gerar PDF"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/img"/>
 
-        <TextView
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:text="Cadastrar Clientes"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="10dp"
+                android:text="Cadastrar Fotos"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
 
-        <TextView
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:text="Cadastrar Fotos"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:src="@drawable/exit"/>
 
-        <TextView
-            android:layout_width="170dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:text="Sair"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="10dp"
+                android:text="Sair"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
