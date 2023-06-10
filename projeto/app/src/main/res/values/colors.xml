@@ -13,4 +13,7 @@
     <color name="sobreonome">#284B63</color>
     <color name="vermelho">#FB5959</color>
     <color name="verde">#86FA73</color>
+    <color name="red">#DD0606</color>
+    <color name="green">#0ADD06</color>
+    <color name="yellow">#DDD406</color>
 </resources>
