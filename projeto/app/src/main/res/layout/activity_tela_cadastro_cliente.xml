@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="1280dp"
+    android:layout_height="800dp"
     tools:context=".tela_cadastro_cliente"
     android:orientation="vertical"
     android:background="@color/fundo">
@@ -45,8 +45,7 @@
                 android:layout_width="210dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="150dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/column">
+                android:layout_marginLeft="10dp">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -104,9 +103,10 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
-                android:layout_height="56dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:background="@drawable/column">
 
                 <ImageView
                     android:layout_width="40dp"

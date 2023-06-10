@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Denticare"
         tools:targetApi="31">
         <activity
+            android:name=".tela_gerar_pdf"
+            android:exported="false" />
+        <activity
+            android:name=".tela_atua_cdst"
+            android:exported="false" />
+        <activity
+            android:name=".tela_confir_remo_cdst"
+            android:exported="false" />
+        <activity
+            android:name=".tela_remo_cliente"
+            android:exported="false" />
+        <activity
             android:name=".tela_cadastro_cliente"
             android:exported="false" />
         <activity
