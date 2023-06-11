@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Denticare"
         tools:targetApi="31">
         <activity
+            android:name=".tela_cancelar_consulta"
+            android:exported="false" />
+        <activity
+            android:name=".tela_confirma_consulta"
+            android:exported="false" />
+        <activity
             android:name=".tela_consulta"
             android:exported="false" />
         <activity
