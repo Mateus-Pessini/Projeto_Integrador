@@ -3,16 +3,16 @@ package com.example.denticare;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btConsultas;
-    private Button btAgendamento;
-    private Button btGerarPDF;
-    private Button btCadastrarCliente;
-    private Button btCadastrarFotos;
+    private TextView btConsultas;
+    private TextView btAgendamento;
+    private TextView btGerarPDF;
+    private TextView btCadastrarCliente;
+    private TextView btCadastrarFotos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
