@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="1280dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/cabecalho">
 
         <ImageView
@@ -18,7 +18,7 @@
             android:layout_height="35dp"
             android:src="@drawable/titulo"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="17dp"/>
 
         <TextView
             android:layout_width="300dp"
@@ -26,8 +26,8 @@
             android:text="DentiCare"
             android:textStyle="bold"
             android:textSize="33dp"
-            android:textColor="#0069BA"
-            android:layout_marginTop="5dp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="12dp"
             android:layout_marginLeft="9dp"/>
     </LinearLayout>
     <LinearLayout
@@ -37,7 +37,7 @@
 
         <LinearLayout
             android:layout_width="230dp"
-            android:layout_height="750dp"
+            android:layout_height="730dp"
             android:background="@color/lateral"
             android:orientation="vertical">
 
@@ -104,7 +104,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
-                android:layout_height="56dp"
+                android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp">
 
@@ -115,7 +115,7 @@
 
                 <TextView
                     android:layout_width="170dp"
-                    android:layout_height="56dp"
+                    android:layout_height="58dp"
                     android:layout_marginLeft="10dp"
                     android:text="Cadastrar Clientes"
                     android:textColor="@color/black"
@@ -124,7 +124,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
-                android:layout_height="56dp"
+                android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp">
 
@@ -135,7 +135,7 @@
 
                 <TextView
                     android:layout_width="170dp"
-                    android:layout_height="56dp"
+                    android:layout_height="58dp"
                     android:layout_marginLeft="10dp"
                     android:text="Cadastrar Fotos"
                     android:textColor="@color/black"

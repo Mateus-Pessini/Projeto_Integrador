@@ -7,15 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lateral">#3C6E71</color>
-    <color name="fundo">#D9D9D9</color>
-    <color name="cabecalho">#353535</color>
+    <color name="lateral">#A9D0F5</color>
+    <color name="fundo">#FFFFFFFF</color>
+    <color name="cabecalho">#000066</color>
     <color name="sobreonome">#284B63</color>
     <color name="vermelho">#FB5959</color>
     <color name="verde">#86FA73</color>
     <color name="red">#DD0606</color>
     <color name="green">#0ADD06</color>
     <color name="yellow">#DDD406</color>
-    <color name="azul">#1D448F</color>
+    <color name="azul">#FFFFFFFF</color>
     <color name="verdebotao">#2CC761</color>
+    <color name="azulclaro">#80ace9</color>
 </resources>

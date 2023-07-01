@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="1280dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/cabecalho">
 
         <ImageView
@@ -18,7 +18,7 @@
             android:layout_height="35dp"
             android:src="@drawable/titulo"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="17dp"/>
 
         <TextView
             android:layout_width="300dp"
@@ -26,8 +26,8 @@
             android:text="DentiCare"
             android:textStyle="bold"
             android:textSize="33dp"
-            android:textColor="#0069BA"
-            android:layout_marginTop="5dp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="12dp"
             android:layout_marginLeft="9dp"/>
     </LinearLayout>
     <LinearLayout
@@ -94,11 +94,11 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="180dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="70dp"
                     android:layout_marginTop="20dp"
-                    android:text="Não Tem Conta?"
+                    android:text="Não Tem Cadastro?"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -107,7 +107,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="20dp"
                     android:text="Cadastre-se Aqui"
-                    android:textColor="@color/purple_700"
+                    android:textColor="#000066"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -131,7 +131,7 @@
             <ImageView
                 android:layout_width="600dp"
                 android:layout_height="500dp"
-                android:src="@drawable/medicoazulpng"
+                android:src="@drawable/medicosemfundo"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="50dp"/>
             
