@@ -414,7 +414,7 @@
                 <Button
                     android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:backgroundTint="@color/verde"
+                    android:backgroundTint="@color/verdebotao"
                     android:text="Salvar"
                     android:textColor="@color/black"
                     android:textStyle="bold"

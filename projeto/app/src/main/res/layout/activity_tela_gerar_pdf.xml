@@ -213,7 +213,7 @@
                     android:textSize="25dp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="30dp"
-                    android:backgroundTint="@color/verde"/>
+                    android:backgroundTint="@color/verdebotao"/>
 
             </LinearLayout>
         </LinearLayout>

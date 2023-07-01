@@ -109,7 +109,8 @@
                     android:text="Cadastre-se Aqui"
                     android:textColor="#000066"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/tvCadastrar"/>
             </LinearLayout>
             <Button
                 android:layout_width="300dp"
@@ -120,7 +121,8 @@
                 android:layout_marginTop="40dp"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:id="@+id/btLogar"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

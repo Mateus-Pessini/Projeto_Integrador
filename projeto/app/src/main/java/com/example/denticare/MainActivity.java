@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView btGerarPDF;
     private TextView btCadastrarCliente;
     private TextView btCadastrarFotos;
+    private TextView btSair;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btGerarPDF = findViewById(R.id.btGerarPDF);
         btCadastrarCliente = findViewById(R.id.btCadastrarCliente);
         btCadastrarFotos = findViewById(R.id.btCadastrarFotos);
+        btSair = findViewById(R.id.btSair);
 
         btConsultas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,14 +50,21 @@ public class MainActivity extends AppCompatActivity {
         btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_cadastro_cliente.class);
+                Intent intent = new Intent(MainActivity.this, tela_escolha_cadastro.class);
                 startActivity(intent);
             }
         });
         btCadastrarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_escolha_cadastro.class);
+                Intent intent = new Intent(MainActivity.this, tela_esclh_client_foto.class);
+                startActivity(intent);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, tela_login.class);
                 startActivity(intent);
             }
         });

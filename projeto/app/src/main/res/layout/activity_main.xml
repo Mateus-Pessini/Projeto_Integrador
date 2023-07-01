@@ -164,7 +164,8 @@
                     android:text="Sair"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/btSair"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

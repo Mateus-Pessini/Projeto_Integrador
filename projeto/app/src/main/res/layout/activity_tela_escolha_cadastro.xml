@@ -16,7 +16,7 @@
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/green"/>
+        android:backgroundTint="@color/verdebotao"/>
 
     <Button
         android:layout_width="350dp"
@@ -38,6 +38,6 @@
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/red"/>
+        android:backgroundTint="@color/vermelho"/>
 
 </LinearLayout>

@@ -944,7 +944,7 @@
                         android:layout_height="55dp"
                         android:text="Continuar"
                         android:textStyle="bold"
-                        android:backgroundTint="@color/verde"
+                        android:backgroundTint="@color/verdebotao"
                         android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_marginLeft="40dp"/>
