@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="429dp"
+    android:layout_height="325dp"
+    tools:context=".CancelaConsulta"
+    android:orientation="vertical"
+    android:background="@color/fundo">
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:text="  Você Realmente quer"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:text="Cancelar essa Consulta"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="25dp"/>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dp">
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="Não"
+            android:backgroundTint="@color/vermelho"
+            android:layout_marginLeft="55dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="Sim"
+            android:backgroundTint="@color/verdebotao"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="1280dp"
+    android:layout_height="800dp"
+    tools:context=".AtualizaCad"
+    android:orientation="vertical"
+    android:background="@color/fundo">
+
+    <LinearLayout
+        android:layout_width="1280dp"
+        android:layout_height="70dp"
+        android:background="@color/cabecalho">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:src="@drawable/titulo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="17dp"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:text="DentiCare"
+            android:textStyle="bold"
+            android:textSize="33dp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="9dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="730dp"
+            android:background="@color/lateral"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/calendario"/>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Agendamentos"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/document"/>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Consultas"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/pdf"/>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Gerar PDF"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/column">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/pessoa"/>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="58dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Cadastrar Clientes"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/img"/>
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="58dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Cadastrar Fotos"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastro Cliente"
+                android:textSize="50dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"/>
+
+            <View
+                android:layout_width="650dp"
+                android:layout_height="5dp"
+                android:background="@android:color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="700dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pesquise qual Cliente deseja Atualizar"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="500dp"
+                android:layout_height="100dp">
+
+                <Spinner
+                    android:layout_width="450dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/borda1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="400dp">
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/vermelho"
+                    android:text="Cancelar"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="560dp"/>
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:text="Continuar"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="30dp"
+                    android:backgroundTint="@color/verdebotao"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

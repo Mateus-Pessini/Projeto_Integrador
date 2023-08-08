@@ -12,52 +12,52 @@
         android:theme="@style/Theme.Denticare"
         tools:targetApi="31">
         <activity
-            android:name=".tela_cadastro_inicial"
+            android:name=".CadInicial"
             android:exported="false" />
         <activity
-            android:name=".tela_login"
+            android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".tela_cancelar_consulta"
+            android:name=".CancelaConsulta"
             android:exported="false" />
         <activity
-            android:name=".tela_confirma_consulta"
+            android:name=".ConfirmaConsulta"
             android:exported="false" />
         <activity
-            android:name=".tela_consulta"
+            android:name=".Consulta"
             android:exported="false" />
         <activity
-            android:name=".tela_add_foto"
+            android:name=".AddFoto"
             android:exported="false" />
         <activity
-            android:name=".tela_esclh_client_foto"
+            android:name=".SelClienteFoto"
             android:exported="false" />
         <activity
-            android:name=".tela_gerar_pdf"
+            android:name=".GeraPDF"
             android:exported="false" />
         <activity
-            android:name=".tela_atua_cdst"
+            android:name=".AtualizaCad"
             android:exported="false" />
         <activity
-            android:name=".tela_confir_remo_cdst"
+            android:name=".ConfirmDelete"
             android:exported="false" />
         <activity
-            android:name=".tela_remo_cliente"
+            android:name=".DeleteCliente"
             android:exported="false" />
         <activity
-            android:name=".tela_cadastro_cliente"
+            android:name=".CadCliente"
             android:exported="false" />
         <activity
-            android:name=".tela_escolha_cadastro"
+            android:name=".OpcoesCad"
             android:exported="false" />
         <activity
-            android:name=".tela_agendamento"
+            android:name=".Agenda"
             android:exported="false" />
         <activity
-            android:name=".tela_agenda_hora"
+            android:name=".AgendaHorario"
             android:exported="false" />
         <activity
-            android:name=".tela_agend_escolha_cliente"
+            android:name=".AgendaCliente"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

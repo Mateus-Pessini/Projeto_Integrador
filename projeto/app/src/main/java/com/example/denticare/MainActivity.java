@@ -29,42 +29,42 @@ public class MainActivity extends AppCompatActivity {
         btConsultas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_consulta.class);
+                Intent intent = new Intent(MainActivity.this, Consulta.class);
                 startActivity(intent);
             }
         });
         btAgendamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_agendamento.class);
+                Intent intent = new Intent(MainActivity.this, Agenda.class);
                 startActivity(intent);
             }
         });
         btGerarPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_gerar_pdf.class);
+                Intent intent = new Intent(MainActivity.this, GeraPDF.class);
                 startActivity(intent);
             }
         });
         btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_escolha_cadastro.class);
+                Intent intent = new Intent(MainActivity.this, OpcoesCad.class);
                 startActivity(intent);
             }
         });
         btCadastrarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_esclh_client_foto.class);
+                Intent intent = new Intent(MainActivity.this, SelClienteFoto.class);
                 startActivity(intent);
             }
         });
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, tela_login.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
         });
