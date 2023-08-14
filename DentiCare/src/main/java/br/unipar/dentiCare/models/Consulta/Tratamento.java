@@ -1,8 +1,10 @@
 package br.unipar.dentiCare.models.Consulta;
 
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @DynamicUpdate
@@ -13,5 +15,18 @@ public class Tratamento {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dentesId")
+    private List<Dentes> dentesId;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "consultaId")
+    private Consulta consultaId;
+
+    private String ds_observacao;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pessoaId")
+    private Pessoa pessoaId;
 
 }
