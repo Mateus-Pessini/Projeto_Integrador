@@ -20,5 +20,5 @@ public class Timelapse {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "itensTimelapseId")
-    private List<itensTimelapse>  itensTimelapse;
+    private List<ItensTimelapse>  itensTimelapse;
 }

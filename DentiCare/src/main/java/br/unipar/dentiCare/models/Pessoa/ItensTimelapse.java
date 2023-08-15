@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @DynamicUpdate
 @Table(name = "itensTimelapse")
-public class itensTimelapse {
+public class ItensTimelapse {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
