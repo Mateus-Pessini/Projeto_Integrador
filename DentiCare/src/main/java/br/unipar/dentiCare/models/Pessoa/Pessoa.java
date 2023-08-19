@@ -1,6 +1,6 @@
 package br.unipar.dentiCare.models.Pessoa;
 
-import br.unipar.dentiCare.enums.tpPessoaEnum;
+import br.unipar.dentiCare.enums.TpPessoaEnum;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class Pessoa {
     @Size(min = 3, max = 60)
     private String email;
 
-    private tpPessoaEnum tpPessoa;
+    private TpPessoaEnum tpPessoa;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "pessoaId")

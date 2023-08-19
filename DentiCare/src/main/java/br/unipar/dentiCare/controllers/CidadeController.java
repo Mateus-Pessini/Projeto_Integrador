@@ -1,0 +1,37 @@
+package br.unipar.dentiCare.controllers;
+
+import br.unipar.dentiCare.models.Pessoa.Cidade;
+import br.unipar.dentiCare.services.CidadeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+
+@RestController
+@RequestMapping("/cidade")
+@Api(tags = "Endereços", description = "Rota relacionada com Endereço")
+public class CidadeController {
+
+    @Autowired
+    CidadeService cidadeService;
+
+    @PostMapping
+    @ApiOperation(value = "Insere Cidade")
+    public Cidade insert(@Valid @RequestBody Cidade cidade) throws Exception{
+        return cidadeService.insert(cidade);
+    }
+
+    @GetMapping
+    @ApiOperation(value = "Retorna uma lista de Cidades")
+    public List<Cidade> findAll(){return cidadeService.findAll();}
+
+    @GetMapping(path = "/{id}")
+    @ApiOperation(value = "Retorna uma Cidade pelo Id")
+    public Cidade findById(@PathVariable Long id) throws Exception{
+        return cidadeService.findById(id);
+    }
+
+}
