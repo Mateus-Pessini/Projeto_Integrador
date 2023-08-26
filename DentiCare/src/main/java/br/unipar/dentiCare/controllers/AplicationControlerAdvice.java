@@ -29,6 +29,6 @@ public class AplicationControlerAdvice {
                 listaErros.add(error.getField() + ": " + error.getDefaultMessage());
             }
 
-            return new ApiErrorMessage(listaErros);
+            return new ApiErrorMessage(listaErros); 
         }
 }

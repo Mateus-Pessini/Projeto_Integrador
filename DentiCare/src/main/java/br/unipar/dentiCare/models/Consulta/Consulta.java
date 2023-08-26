@@ -31,10 +31,10 @@ public class Consulta {
     private String nrtelefone;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paisId")
+    @JoinColumn(name = "pessoaId")
     private Pessoa pessoaId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paisId")
+    @JoinColumn(name = "dentistaId")
     private Dentista dentistaId;
 }
