@@ -20,7 +20,7 @@ public class UsuarioService {
         List<UsuarioDTO> usuarioDTOs = new ArrayList<>();
 
         for (Usuario usuario : usuarios) {
-            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getLogin(), usuario.getPessoa(), usuario.getRole(), usuario.getStatus());
+            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getLogin(), usuario.getRole(), usuario.getStatus());
             usuarioDTOs.add(usuarioDTO);
         }
         return usuarioDTOs;
@@ -32,7 +32,7 @@ public class UsuarioService {
         Usuario retorno = usuarioRepository.findUsuarioById(id);
 
         if(retorno!= null) {
-            UsuarioDTO usuarioDTO = new UsuarioDTO(retorno.getId(), retorno.getLogin(), retorno.getPessoa(), retorno.getRole(), retorno.getStatus());
+            UsuarioDTO usuarioDTO = new UsuarioDTO(retorno.getId(), retorno.getLogin(), retorno.getRole(), retorno.getStatus());
             return usuarioDTO;
         }else{
             throw new Exception("Usuário com ID " + id + " Não Identificada");

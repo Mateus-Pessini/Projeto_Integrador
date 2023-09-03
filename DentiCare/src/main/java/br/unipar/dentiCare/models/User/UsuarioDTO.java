@@ -9,8 +9,6 @@ public class UsuarioDTO {
 
     private String login;
 
-    private Pessoa pessoa;
-
     private UsuarioRole role;
 
     private Boolean status;
@@ -18,10 +16,9 @@ public class UsuarioDTO {
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(Long id, String login, Pessoa pessoa, UsuarioRole role, Boolean status) {
+    public UsuarioDTO(Long id, String login, UsuarioRole role, Boolean status) {
         this.id = id;
         this.login = login;
-        this.pessoa = pessoa;
         this.role = role;
         this.status = status;
     }
@@ -43,15 +40,6 @@ public class UsuarioDTO {
     public void setLogin(String login) {
         this.login = login;
     }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
     public UsuarioRole getRole() {
         return role;
     }

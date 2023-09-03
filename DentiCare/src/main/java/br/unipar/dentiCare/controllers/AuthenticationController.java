@@ -1,13 +1,11 @@
 package br.unipar.dentiCare.controllers;
 
-import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.User.AuthenticationDTO;
 import br.unipar.dentiCare.models.User.LoginResponseDTO;
 import br.unipar.dentiCare.models.User.RegisterDTO;
 import br.unipar.dentiCare.models.User.Usuario;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import br.unipar.dentiCare.security.TokenService;
-import br.unipar.dentiCare.services.PessoaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +35,6 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
-    @Autowired
-    private PessoaService pessoaService;
-
     @ApiOperation(value = "Realiza Login na Aplicação")
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
@@ -59,8 +54,7 @@ public class AuthenticationController {
 
         if (this.repository.findByLogin(data.getLogin()) != null) return ResponseEntity.badRequest().build();
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
-        Pessoa pessoa = pessoaService.findById(data.getPessoaId());
-        Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus(), pessoa);
+        Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus());
         this.repository.save(newUser);
 
         return ResponseEntity.ok().build();
