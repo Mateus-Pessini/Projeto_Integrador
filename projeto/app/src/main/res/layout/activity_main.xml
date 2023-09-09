@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="1280dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="@color/fundo">
 
     <LinearLayout
-        android:layout_width="1280dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/cabecalho">
 
@@ -18,7 +18,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="14dp"
-            android:src="@drawable/titulo" />
+            android:src="@drawable/titulo"/>
 
         <TextView
             android:layout_width="300dp"
@@ -32,20 +32,22 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="230dp"
-            android:layout_height="730dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@color/lateral"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -53,19 +55,18 @@
                     android:src="@drawable/calendario"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Agendamentos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btAgendamento"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp">
 
                 <ImageView
@@ -74,19 +75,18 @@
                     android:src="@drawable/document"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Consultas"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btConsultas"/>
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp">
 
                 <ImageView
@@ -95,14 +95,13 @@
                     android:src="@drawable/pdf"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Gerar PDF"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btGerarPDF"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
@@ -116,14 +115,13 @@
                     android:src="@drawable/pessoa"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="58dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Cadastrar Clientes"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btCadastrarCliente"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
@@ -137,40 +135,20 @@
                     android:src="@drawable/img"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="58dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Cadastrar Fotos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btCadastrarFotos"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="56dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/exit"/>
-
-                <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Sair"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:id="@+id/btSair"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <ImageView

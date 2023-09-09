@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="1280dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".AtualizaCad"
     android:orientation="vertical"
     android:background="@color/fundo">
 
     <LinearLayout
-        android:layout_width="1280dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/cabecalho">
 
@@ -32,20 +32,23 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="230dp"
-            android:layout_height="730dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@color/lateral"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/column">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -53,8 +56,8 @@
                     android:src="@drawable/calendario"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Agendamentos"
                     android:textColor="@color/black"
@@ -62,9 +65,9 @@
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp">
 
                 <ImageView
@@ -73,8 +76,8 @@
                     android:src="@drawable/document"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Consultas"
                     android:textColor="@color/black"
@@ -82,9 +85,9 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp">
 
                 <ImageView
@@ -93,8 +96,8 @@
                     android:src="@drawable/pdf"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="34dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Gerar PDF"
                     android:textColor="@color/black"
@@ -103,10 +106,9 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
-                android:layout_height="60dp"
+                android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/column">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -114,9 +116,9 @@
                     android:src="@drawable/pessoa"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="58dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Cadastrar Clientes"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -134,18 +136,20 @@
                     android:src="@drawable/img"/>
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:layout_height="58dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Cadastrar Fotos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <TextView
@@ -218,5 +222,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
