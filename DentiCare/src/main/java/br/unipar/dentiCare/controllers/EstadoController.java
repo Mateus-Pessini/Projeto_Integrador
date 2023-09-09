@@ -2,50 +2,46 @@ package br.unipar.dentiCare.controllers;
 
 import br.unipar.dentiCare.models.Pessoa.Estado;
 import br.unipar.dentiCare.services.EstadoService;
+import javax.validation.Valid;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/estado")
-@Api(tags = "Endereços", description = "Rota relacionada com Endereço")
+@RequestMapping("/estado")
+@Api(tags = "Endereços", description = "Endpoints para operações relacionadas a endereços")
 public class EstadoController {
 
     @Autowired
     EstadoService estadoService;
 
     @PostMapping
-    @ApiOperation(value = "Insere um Estado")
+    @ApiOperation(value = "Insere Estado")
     public Estado insert(@Valid @RequestBody Estado estado) throws Exception{
         return estadoService.insert(estado);
     }
 
-    @PutMapping
-    @ApiOperation(value = "Edita um Estado")
-    public Estado edit(@Valid @RequestBody Estado estado) throws Exception{
-        return estadoService.edit(estado);
-    }
-
-    @DeleteMapping(path = "/{id}")
-    @ApiOperation(value = "Remove um Estado")
-    public void remove(@PathVariable Long id) throws Exception{
-        estadoService.remove(id);
-    }
 
     @GetMapping
-    @ApiOperation("Retorna uma lista de Estados")
+    @ApiOperation(value = "Lista os Estados")
     public List<Estado> findAll(){
         return estadoService.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    @ApiOperation(value = "Busca um Estado pelo id")
-    public Estado findById(@PathVariable Long id) throws Exception{
+    @ApiOperation(value = "Busca um Estado pelo seu id")
+    public Estado findById(@PathVariable Long id) throws Exception {
         return estadoService.findById(id);
     }
-
 }

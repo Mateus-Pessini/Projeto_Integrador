@@ -1,9 +1,11 @@
 package br.unipar.dentiCare.controllers;
 
+
 import br.unipar.dentiCare.models.Consulta.Tratamento;
 import br.unipar.dentiCare.services.TratamentoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
