@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @DynamicUpdate
 @Table(name = "Pessoa")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa {
 
     @Id

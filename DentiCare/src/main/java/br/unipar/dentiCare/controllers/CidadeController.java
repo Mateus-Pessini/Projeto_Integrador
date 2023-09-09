@@ -18,9 +18,9 @@ public class CidadeController {
     @Autowired
     CidadeService cidadeService;
 
-    @PostMapping
     @ApiOperation(value = "Insere Cidade")
-    public Cidade insert(@Valid @RequestBody Cidade cidade) throws Exception{
+    @PostMapping
+    public Cidade insert(@RequestBody @Valid Cidade cidade) throws Exception{
         return cidadeService.insert(cidade);
     }
 
