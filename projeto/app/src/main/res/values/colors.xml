@@ -19,4 +19,7 @@
     <color name="azul">#FFFFFFFF</color>
     <color name="verdebotao">#89d631</color>
     <color name="azulclaro">#80ace9</color>
+    <color name="azulzinho">#1E90FF</color>
+    <color name="cinza">#363636</color>
+    <color name="vermelinho">#FF6347</color>
 </resources>

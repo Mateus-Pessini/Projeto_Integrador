@@ -8,53 +8,53 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView btConsultas;
-    private TextView btAgendamento;
-    private TextView btGerarPDF;
-    private TextView btCadastrarCliente;
-    private TextView btCadastrarFotos;
+    private TextView btConsultaRecep;
+    private TextView btAgendarRecep;
+    private TextView btPdfRecep;
+    private TextView btCadClienteRecep;
+    private TextView btCadFotoRecep;
     private TextView btSair;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btConsultas = findViewById(R.id.btConsultas);
-        btAgendamento = findViewById(R.id.btAgendamento);
-        btGerarPDF = findViewById(R.id.btGerarPDF);
-        btCadastrarCliente = findViewById(R.id.btCadastrarCliente);
-        btCadastrarFotos = findViewById(R.id.btCadastrarFotos);
+        btConsultaRecep = findViewById(R.id.btConsultaRecep);
+        btAgendarRecep = findViewById(R.id.btAgendarRecep);
+        btPdfRecep = findViewById(R.id.btPdfRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btSair = findViewById(R.id.btSair);
 
-        btConsultas.setOnClickListener(new View.OnClickListener() {
+        btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Consulta.class);
                 startActivity(intent);
             }
         });
-        btAgendamento.setOnClickListener(new View.OnClickListener() {
+        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Agenda.class);
                 startActivity(intent);
             }
         });
-        btGerarPDF.setOnClickListener(new View.OnClickListener() {
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GeraPDF.class);
                 startActivity(intent);
             }
         });
-        btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, OpcoesCad.class);
                 startActivity(intent);
             }
         });
-        btCadastrarFotos.setOnClickListener(new View.OnClickListener() {
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SelClienteFoto.class);
