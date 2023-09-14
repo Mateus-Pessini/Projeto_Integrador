@@ -1,5 +1,6 @@
 package com.example.denticare;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,13 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CancelaConsulta#newInstance} factory method to
+ * Use the {@link OpcaoCadUsuario#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CancelaConsulta extends Fragment {
+public class OpcaoCadUsuario extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,8 +25,11 @@ public class CancelaConsulta extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btOpcaoCadastrar;
+    private Button btOpcaoAtualizar;
+    private Button btOpcaoRemover;
 
-    public CancelaConsulta() {
+    public OpcaoCadUsuario() {
         // Required empty public constructor
     }
 
@@ -34,11 +39,11 @@ public class CancelaConsulta extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CancelaConsulta.
+     * @return A new instance of fragment OpcaoCadUsuario.
      */
     // TODO: Rename and change types and number of parameters
-    public static CancelaConsulta newInstance(String param1, String param2) {
-        CancelaConsulta fragment = new CancelaConsulta();
+    public static OpcaoCadUsuario newInstance(String param1, String param2) {
+        OpcaoCadUsuario fragment = new OpcaoCadUsuario();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +64,19 @@ public class CancelaConsulta extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cancela_consulta, container, false);
+        return inflater.inflate(R.layout.fragment_opcao_cad_usuario, container, false);
+
+        btOpcaoCadastrar.findViewById(R.id.btOpcaoCadastrar);
+        btOpcaoAtualizar.findViewById(R.id.btOpcaoAtualizar);
+        btOpcaoRemover.findViewById(R.id.btOpcaoRemover);
+
+        btOpcaoCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().this, CadCliente.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

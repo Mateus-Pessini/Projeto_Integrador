@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".OpcoesCad"
+    android:layout_height="wrap_content"
+    tools:context=".OpcaoCadUsuario"
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btOpcaoCadastrar"
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="28dp"
@@ -19,6 +19,7 @@
         android:backgroundTint="@color/verdebotao"/>
 
     <Button
+        android:id="@+id/btOpcaoAtualizar"
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
@@ -30,6 +31,7 @@
         android:backgroundTint="@color/yellow"/>
 
     <Button
+        android:id="@+id/btOpcaoRemover"
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
@@ -40,4 +42,4 @@
         android:textStyle="bold"
         android:backgroundTint="@color/vermelho"/>
 
-</LinearLayout>
+</FrameLayout>

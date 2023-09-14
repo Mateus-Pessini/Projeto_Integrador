@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="429dp"
-    android:layout_height="325dp"
-    tools:context=".CancelaConsulta"
-    android:orientation="vertical"
-    android:background="@color/fundo">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirDelete">
 
     <TextView
         android:layout_width="400dp"
@@ -21,38 +18,38 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:text="Cancelar essa Consulta"
+        android:text="Remover esse Cadastro?"
         android:textSize="35dp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginLeft="25dp"/>
+        android:layout_marginLeft="20dp"/>
 
     <LinearLayout
         android:layout_width="400dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_marginTop="70dp">
 
         <Button
-            android:layout_width="140dp"
-            android:layout_height="60dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:text="Não"
             android:backgroundTint="@color/vermelho"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="75dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="30dp"/>
+            android:textSize="20dp"/>
 
         <Button
-            android:layout_width="140dp"
-            android:layout_height="60dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:text="Sim"
             android:backgroundTint="@color/verdebotao"
             android:layout_marginLeft="30dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="30dp"/>
+            android:textSize="20dp"/>
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

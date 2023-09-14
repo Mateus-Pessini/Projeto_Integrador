@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OpcoesCad.class);
+                Intent intent = new Intent(MainActivity.this, OpcaoCadUsuario.class);
                 startActivity(intent);
             }
         });

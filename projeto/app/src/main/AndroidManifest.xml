@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Denticare"
         tools:targetApi="31">
         <activity
+            android:name=".DadosDentista"
+            android:exported="false" />
+        <activity
             android:name=".CadCell"
             android:exported="false" />
         <activity
@@ -30,12 +33,6 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".CancelaConsulta"
-            android:exported="false" />
-        <activity
-            android:name=".ConfirmaConsulta"
-            android:exported="false" />
-        <activity
             android:name=".Consulta"
             android:exported="false" />
         <activity
@@ -51,16 +48,10 @@
             android:name=".AtualizaCad"
             android:exported="false" />
         <activity
-            android:name=".ConfirmDelete"
-            android:exported="false" />
-        <activity
             android:name=".DeleteCliente"
             android:exported="false" />
         <activity
             android:name=".CadCliente"
-            android:exported="false" />
-        <activity
-            android:name=".OpcoesCad"
             android:exported="false" />
         <activity
             android:name=".Agenda"

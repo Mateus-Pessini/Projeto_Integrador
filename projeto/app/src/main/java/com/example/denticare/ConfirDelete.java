@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CancelaConsulta#newInstance} factory method to
+ * Use the {@link ConfirDelete#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CancelaConsulta extends Fragment {
+public class ConfirDelete extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class CancelaConsulta extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CancelaConsulta() {
+    public ConfirDelete() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class CancelaConsulta extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CancelaConsulta.
+     * @return A new instance of fragment ConfirDelete.
      */
     // TODO: Rename and change types and number of parameters
-    public static CancelaConsulta newInstance(String param1, String param2) {
-        CancelaConsulta fragment = new CancelaConsulta();
+    public static ConfirDelete newInstance(String param1, String param2) {
+        ConfirDelete fragment = new ConfirDelete();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class CancelaConsulta extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cancela_consulta, container, false);
+        return inflater.inflate(R.layout.fragment_confir_delete, container, false);
     }
 }

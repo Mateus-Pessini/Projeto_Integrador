@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ConfirmDelete extends AppCompatActivity {
+public class DadosDentista extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirmdelete);
+        setContentView(R.layout.activity_dados_dentista);
     }
 }
