@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgendaHorario"
+    tools:context=".agendamento.AgendaHorario"
     android:orientation="vertical"
     android:background="@color/fundo">
 
@@ -1005,7 +1005,7 @@
                         android:layout_width="250dp"
                         android:layout_height="55dp"
                         android:text="Cancelar"
-                        android:backgroundTint="@color/vermelho"
+                        android:background="@drawable/botaovermelho"
                         android:textColor="@color/black"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -1015,7 +1015,7 @@
                         android:layout_height="55dp"
                         android:text="Continuar"
                         android:textStyle="bold"
-                        android:backgroundTint="@color/verdebotao"
+                        android:background="@drawable/botaoverde"
                         android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_marginLeft="40dp"/>

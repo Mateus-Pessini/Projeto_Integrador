@@ -1,14 +1,16 @@
-package com.example.denticare;
+package com.example.denticare.cell;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AgendaHorario extends AppCompatActivity {
+import com.example.denticare.R;
+
+public class AgendCell extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agendahorario);
+        setContentView(R.layout.activity_agend_cell);
     }
 }

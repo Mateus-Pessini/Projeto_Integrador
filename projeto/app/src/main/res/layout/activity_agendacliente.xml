@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgendaCliente"
+    tools:context=".agendamento.AgendaCliente"
     android:orientation="vertical"
     android:background="@color/fundo">
 
@@ -299,7 +299,7 @@
                     <Button
                         android:layout_width="180dp"
                         android:layout_height="60dp"
-                        android:backgroundTint="@color/vermelho"
+                        android:background="@drawable/botaovermelho"
                         android:text="Cancelar"
                         android:textStyle="bold"
                         android:textSize="25dp"
@@ -314,7 +314,7 @@
                         android:textSize="25dp"
                         android:textColor="@color/black"
                         android:layout_marginLeft="30dp"
-                        android:backgroundTint="@color/verdebotao"/>
+                        android:background="@drawable/botaoverde"/>
 
                 </LinearLayout>
             </LinearLayout>

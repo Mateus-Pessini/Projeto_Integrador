@@ -1,10 +1,12 @@
-package com.example.denticare;
+package com.example.denticare.agendamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.example.denticare.R;
 
 public class Consulta extends AppCompatActivity {
 

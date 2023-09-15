@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CancelaConsulta">
+    tools:context=".confirmacoes.CancelaConsulta">
 
     <TextView
         android:layout_width="400dp"
@@ -34,7 +34,7 @@
             android:layout_width="140dp"
             android:layout_height="60dp"
             android:text="Não"
-            android:backgroundTint="@color/vermelho"
+            android:background="@drawable/botaovermelho"
             android:layout_marginLeft="55dp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
             android:layout_width="140dp"
             android:layout_height="60dp"
             android:text="Sim"
-            android:backgroundTint="@color/verdebotao"
+            android:background="@drawable/botaoverde"
             android:layout_marginLeft="30dp"
             android:textColor="@color/black"
             android:textStyle="bold"

@@ -1,14 +1,16 @@
-package com.example.denticare;
+package com.example.denticare.cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AgendCell extends AppCompatActivity {
+import com.example.denticare.R;
+
+public class AtualizaCad extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agend_cell);
+        setContentView(R.layout.activity_atualizacad);
     }
 }

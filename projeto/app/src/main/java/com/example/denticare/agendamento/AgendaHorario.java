@@ -1,14 +1,16 @@
-package com.example.denticare;
+package com.example.denticare.agendamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DeleteCliente extends AppCompatActivity {
+import com.example.denticare.R;
+
+public class AgendaHorario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deletecliente);
+        setContentView(R.layout.activity_agendahorario);
     }
 }

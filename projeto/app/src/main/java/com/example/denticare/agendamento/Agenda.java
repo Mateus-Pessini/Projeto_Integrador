@@ -1,4 +1,4 @@
-package com.example.denticare;
+package com.example.denticare.agendamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.denticare.R;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;

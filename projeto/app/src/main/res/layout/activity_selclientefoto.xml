@@ -274,7 +274,7 @@
                     android:textSize="25dp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="700dp"
-                    android:backgroundTint="@color/verdebotao"/>
+                    android:background="@drawable/botaoverde"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

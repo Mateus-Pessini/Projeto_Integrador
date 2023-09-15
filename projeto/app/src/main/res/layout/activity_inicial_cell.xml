@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".InicialCell"
+    tools:context=".cell.InicialCell"
     android:orientation="vertical">
 
  <include layout="@layout/activity_tool_bar"/>

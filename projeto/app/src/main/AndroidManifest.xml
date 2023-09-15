@@ -15,25 +15,25 @@
             android:name=".DadosDentista"
             android:exported="false" />
         <activity
-            android:name=".CadCell"
+            android:name=".cell.CadCell"
             android:exported="false" />
         <activity
-            android:name=".AgendCell"
+            android:name=".cell.AgendCell"
             android:exported="false" />
         <activity
-            android:name=".ToolBarActivity"
+            android:name=".nomelogo.ToolBarActivity"
             android:exported="false" />
         <activity
-            android:name=".InicialCell"
+            android:name=".cell.InicialCell"
             android:exported="false" />
         <activity
-            android:name=".CadInicial"
+            android:name=".cadastro.CadInicial"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".cadastro.Login"
             android:exported="false" />
         <activity
-            android:name=".Consulta"
+            android:name=".agendamento.Consulta"
             android:exported="false" />
         <activity
             android:name=".AddFoto"
@@ -45,22 +45,22 @@
             android:name=".GeraPDF"
             android:exported="false" />
         <activity
-            android:name=".AtualizaCad"
+            android:name=".cadastro.AtualizaCad"
             android:exported="false" />
         <activity
-            android:name=".DeleteCliente"
+            android:name=".cadastro.DeleteCliente"
             android:exported="false" />
         <activity
-            android:name=".CadCliente"
+            android:name=".cadastro.CadCliente"
             android:exported="false" />
         <activity
-            android:name=".Agenda"
+            android:name=".agendamento.Agenda"
             android:exported="false" />
         <activity
-            android:name=".AgendaHorario"
+            android:name=".agendamento.AgendaHorario"
             android:exported="false" />
         <activity
-            android:name=".AgendaCliente"
+            android:name=".agendamento.AgendaCliente"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

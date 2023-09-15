@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".OpcaoCadUsuario"
+    tools:context=".opcoes.OpcaoCadUsuario"
     android:orientation="vertical">
 
     <Button
@@ -16,7 +16,7 @@
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/verdebotao"/>
+        android:background="@drawable/botaoverde"/>
 
     <Button
         android:id="@+id/btOpcaoAtualizar"
@@ -28,7 +28,7 @@
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/yellow"/>
+        android:background="@drawable/botaoamarelo"/>
 
     <Button
         android:id="@+id/btOpcaoRemover"
@@ -40,6 +40,6 @@
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/vermelho"/>
+        android:background="@drawable/botaovermelho"/>
 
-</FrameLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.denticare;
+package com.example.denticare.cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.denticare.MainActivity;
+import com.example.denticare.R;
 
 public class Login extends AppCompatActivity {
 
