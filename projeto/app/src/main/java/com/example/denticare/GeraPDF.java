@@ -10,5 +10,9 @@ public class GeraPDF extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerapdf);
+
+        // Chame o método para ocultar a barra de navegação
+        NavigationUtil.hideNavigation(this);
+
     }
 }

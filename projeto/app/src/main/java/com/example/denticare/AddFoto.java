@@ -10,5 +10,9 @@ public class AddFoto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addfoto);
+
+        // Chame o método para ocultar a barra de navegação
+        NavigationUtil.hideNavigation(this);
+
     }
 }

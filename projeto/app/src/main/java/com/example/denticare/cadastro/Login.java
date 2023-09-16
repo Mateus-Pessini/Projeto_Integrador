@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.denticare.MainActivity;
+import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 
 public class Login extends AppCompatActivity {
@@ -19,6 +20,9 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Chame o método para ocultar a barra de navegação
+        NavigationUtil.hideNavigation(this);
 
         tvCadastrar = findViewById(R.id.tvCadastrar);
         btLogar =findViewById(R.id.btLogar);

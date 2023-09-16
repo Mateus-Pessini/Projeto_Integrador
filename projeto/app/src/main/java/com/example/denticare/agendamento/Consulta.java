@@ -6,6 +6,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 
 public class Consulta extends AppCompatActivity {
@@ -15,6 +16,9 @@ public class Consulta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
+
+        // Chame o método para ocultar a barra de navegação
+        NavigationUtil.hideNavigation(this);
 
         tableLayout = findViewById(R.id.tableLayout);
         

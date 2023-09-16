@@ -70,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginHorizontal="5dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:id="@+id/btAgendarRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -91,13 +92,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginHorizontal="5dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:background="@drawable/column"
+                android:id="@+id/btMeusDados">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"
-                    android:id="@+id/btMeusDados"/>
+                    android:src="@drawable/pessoa"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -112,7 +114,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:id="@+id/btConsultaRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -132,7 +135,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:id="@+id/btPdfRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -153,7 +157,7 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/column">
+                android:id="@+id/btCadClienteRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -173,7 +177,8 @@
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:id="@+id/btCadFotoRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -194,7 +199,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginHorizontal="5dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:id="@+id/btSair">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -386,7 +392,8 @@
                     android:text="Cancelar"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="25dp"/>
+                    android:textSize="25dp"
+                    android:id="@+id/btDdCancel"/>
 
                 <Button
                     android:layout_width="200dp"
@@ -396,7 +403,8 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="25dp"
-                    android:layout_marginLeft="70dp"/>
+                    android:layout_marginLeft="70dp"
+                    android:id="@+id/btDdSalvar"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

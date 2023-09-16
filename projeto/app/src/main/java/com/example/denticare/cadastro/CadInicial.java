@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.denticare.MainActivity;
+import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 
 public class CadInicial extends AppCompatActivity {
@@ -20,6 +21,9 @@ public class CadInicial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadinicial);
+
+        // Chame o método para ocultar a barra de navegação
+        NavigationUtil.hideNavigation(this);
 
         tvLogin = findViewById(R.id.tvLogin);
         btLogar1 = findViewById(R.id.btLogar1);
