@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class DadosDentista extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class DadosDentista extends AppCompatActivity {
     private LinearLayout btPdfRecep;
     private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
-    private LinearLayout btMeusDados;
+    private LinearLayout btCadClienteRecep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class DadosDentista extends AppCompatActivity {
 
         btDdCancel = findViewById(R.id.btDdCancel);
         btDdSalvar = findViewById(R.id.btDdSalvar);
-        btMeusDados = findViewById(R.id.btMeusDados);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btAgendarRecep = findViewById(R.id.btAgendarRecep);
         btPdfRecep = findViewById(R.id.btPdfRecep);
         btSair = findViewById(R.id.btSair);
@@ -100,10 +101,10 @@ public class DadosDentista extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btMeusDados.setOnClickListener(new View.OnClickListener() {
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DadosDentista.this, DadosDentista.class);
+                Intent intent = new Intent(DadosDentista.this, OpcaoCadUsuario.class);
                 startActivity(intent);
             }
         });

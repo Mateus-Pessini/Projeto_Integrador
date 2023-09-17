@@ -1,16 +1,32 @@
 package com.example.denticare.agendamento;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.denticare.DadosDentista;
+import com.example.denticare.GeraPDF;
+import com.example.denticare.MainActivity;
 import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
+import com.example.denticare.SelClienteFoto;
+import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class Consulta extends AppCompatActivity {
 
+    private LinearLayout btAgendarRecep;
+    private LinearLayout btPdfRecep;
+    private LinearLayout btCadFotoRecep;
+    private LinearLayout btSair;
+    private LinearLayout btMeusDados;
+    private LinearLayout btCadClienteRecep;
     private TableLayout tableLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +35,13 @@ public class Consulta extends AppCompatActivity {
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
+
+        btMeusDados = findViewById(R.id.btMeusDados);
+        btAgendarRecep = findViewById(R.id.btAgendarRecep);
+        btPdfRecep = findViewById(R.id.btPdfRecep);
+        btSair = findViewById(R.id.btSair);
+        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
 
         tableLayout = findViewById(R.id.tableLayout);
         
@@ -45,6 +68,50 @@ public class Consulta extends AppCompatActivity {
 
             tableLayout.addView(row);
         }
+
+        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, Agenda.class);
+                startActivity(intent);
+            }
+        });
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, GeraPDF.class);
+                startActivity(intent);
+            }
+        });
+
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, SelClienteFoto.class);
+                startActivity(intent);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        btMeusDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, DadosDentista.class);
+                startActivity(intent);
+            }
+        });
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, OpcaoCadUsuario.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
