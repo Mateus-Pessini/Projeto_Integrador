@@ -57,10 +57,6 @@ public class GeraPDF extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GeraPDF.this, MainActivity.class);
                 startActivity(intent);
-
-                // Exibir uma mensagem de confirmação
-                Toast.makeText(GeraPDF.this, "Dados salvos com sucesso!", Toast.LENGTH_SHORT).show();
-
             }
         });
 

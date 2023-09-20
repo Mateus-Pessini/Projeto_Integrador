@@ -99,8 +99,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"
-                    android:id="@+id/btMeusDados"/>
+                    android:src="@drawable/pessoa"/>
 
                 <TextView
                     android:layout_width="match_parent"
