@@ -30,9 +30,6 @@
             android:name=".cadastro.CadInicial"
             android:exported="false" />
         <activity
-            android:name=".cadastro.Login"
-            android:exported="false" />
-        <activity
             android:name=".agendamento.Consulta"
             android:exported="false" />
         <activity
@@ -64,6 +61,9 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".cadastro.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
