@@ -69,7 +69,9 @@
                 android:background="@drawable/borda2"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="30dp"
+                android:hint="Digite seu e-mail"
+                android:padding="15dp"/>
 
             <TextView
                 android:layout_width="100dp"
@@ -81,13 +83,29 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"/>
 
-            <EditText
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:background="@drawable/borda2"
-                android:textColor="@color/black"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxStrokeWidth="2dp"
+                app:endIconMode="custom"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="68dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edCriarSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/borda2"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
+                    android:drawableEnd="@drawable/iconevisivel"
+                    android:hint="Digite sua senha"
+                    android:padding="15dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
