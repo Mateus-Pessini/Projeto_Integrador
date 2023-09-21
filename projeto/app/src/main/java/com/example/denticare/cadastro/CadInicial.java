@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.denticare.MainActivity;
@@ -16,6 +18,7 @@ public class CadInicial extends AppCompatActivity {
 
     private TextView tvLogin;
     private Button btLogar1;
+    private RadioGroup btRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class CadInicial extends AppCompatActivity {
 
         tvLogin = findViewById(R.id.tvLogin);
         btLogar1 = findViewById(R.id.btLogar1);
+        btRadioGroup = findViewById(R.id.btRadioGroup);
 
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,4 +49,5 @@ public class CadInicial extends AppCompatActivity {
         });
 
     }
+
 }

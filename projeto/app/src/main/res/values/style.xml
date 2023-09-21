@@ -11,4 +11,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
+    <style name="RadioButtonCustomStyle">
+        <item name="android:button">@drawable/custom_radio_button</item>
+    </style>
+
 </resources>

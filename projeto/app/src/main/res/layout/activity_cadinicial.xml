@@ -88,53 +88,70 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"/>
+
             <LinearLayout
-                android:layout_width="500dp"
-                android:layout_height="55dp">
-                <RadioButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/checkbox"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"/>
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:text="Sou Dentista"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginLeft="5dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="500dp"
-                android:layout_height="55dp">
-                <RadioButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/checkbox"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"/>
-                <TextView
-                    android:layout_width="290dp"
-                    android:layout_height="40dp"
-                    android:text="Sou Recepcionista"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginLeft="5dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/btRadioGroup">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginLeft="30dp"
+                            style="@style/RadioButtonCustomStyle" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginLeft="30dp"
+                            style="@style/RadioButtonCustomStyle" />
+                    </RadioGroup>
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dentista"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="7dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Recepcionista"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="7dp"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp">
 
                 <TextView
                     android:layout_width="130dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="120dp"
-                    android:layout_marginTop="20dp"
                     android:text="Já tem Login?"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -142,7 +159,6 @@
                 <TextView
                     android:layout_width="160dp"
                     android:layout_height="35dp"
-                    android:layout_marginTop="20dp"
                     android:text="Clique Aqui"
                     android:textColor="#000066"
                     android:textSize="20dp"
@@ -155,7 +171,7 @@
                 android:text="Logar"
                 android:background="@drawable/botaoverde"
                 android:layout_marginLeft="90dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold"

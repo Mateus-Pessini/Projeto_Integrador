@@ -252,14 +252,14 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/checkbox"
+                        style="@style/RadioButtonCustomStyle"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="20dp"/>
 
                     <TextView
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:text="Cliente Novo"
+                        android:text="Novo Cliente"
                         android:layout_marginTop="15dp"
                         android:textColor="@color/black"
                         android:textSize="40dp"
@@ -269,7 +269,7 @@
                     <RadioButton
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/checkbox"
+                        style="@style/RadioButtonCustomStyle"
                         android:layout_marginTop="5dp"/>
 
                     <TextView
