@@ -36,9 +36,4 @@ public class Pessoa {
 
     private TpPessoaEnum tpPessoa;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoaId")
-    private List<Endereco> enderecos;
-
-
 }

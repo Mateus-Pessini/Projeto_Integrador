@@ -1,6 +1,7 @@
 package br.unipar.dentiCare.controllers;
 
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
+import br.unipar.dentiCare.models.Pessoa.PessoaDTO;
 import br.unipar.dentiCare.services.PessoaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,8 +21,8 @@ public class PessoaController {
 
     @PostMapping
     @ApiOperation(value = "Insere um Pessoa")
-    public Pessoa insert(@Valid @RequestBody Pessoa pessoa) throws Exception{
-        return pessoaService.insert(pessoa);
+    public Pessoa insert(@Valid @RequestBody PessoaDTO pessoaDTO) throws Exception{
+        return pessoaService.insert(pessoaDTO);
     }
 
     @PutMapping

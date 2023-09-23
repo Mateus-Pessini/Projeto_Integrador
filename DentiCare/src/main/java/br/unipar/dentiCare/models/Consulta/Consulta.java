@@ -1,7 +1,7 @@
 package br.unipar.dentiCare.models.Consulta;
 
+import br.unipar.dentiCare.models.Pessoa.Cliente;
 import br.unipar.dentiCare.models.Pessoa.Dentista;
-import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
@@ -40,8 +39,8 @@ public class Consulta {
     private String nrtelefone;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoaId")
-    private Pessoa pessoaId;
+    @JoinColumn(name = "clienteId")
+    private Cliente clienteId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dentistaId")
