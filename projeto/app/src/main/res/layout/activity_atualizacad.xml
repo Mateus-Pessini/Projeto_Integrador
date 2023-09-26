@@ -154,7 +154,8 @@
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:id="@+id/btCadClienteRecep">
 
                 <ImageView
                     android:layout_width="40dp"
