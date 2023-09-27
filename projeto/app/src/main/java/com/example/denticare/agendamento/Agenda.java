@@ -20,7 +20,9 @@ import com.example.denticare.MainActivity;
 import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 import com.example.denticare.SelClienteFoto;
+import com.example.denticare.cadastro.AtualizaCad;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -59,9 +61,13 @@ public class Agenda extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Agenda.this, Agenda.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(Agenda.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
             }
         });
         btPdfRecep.setOnClickListener(new View.OnClickListener() {

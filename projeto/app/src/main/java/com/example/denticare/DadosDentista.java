@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.cadastro.AtualizaCad;
 import com.example.denticare.cadastro.Login;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
@@ -103,9 +104,13 @@ public class DadosDentista extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DadosDentista.this, OpcaoCadUsuario.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(DadosDentista.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
             }
         });
 
