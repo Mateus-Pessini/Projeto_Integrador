@@ -12,10 +12,13 @@
         android:theme="@style/Theme.Denticare"
         tools:targetApi="31">
         <activity
-            android:name=".InicialConsulta"
+            android:name=".consulta.EscolhaDente"
             android:exported="false" />
         <activity
-            android:name=".HistoricoDentario"
+            android:name=".consulta.InicialConsulta"
+            android:exported="false" />
+        <activity
+            android:name=".consulta.HistoricoDentario"
             android:exported="false" />
         <activity
             android:name=".DadosDentista"
