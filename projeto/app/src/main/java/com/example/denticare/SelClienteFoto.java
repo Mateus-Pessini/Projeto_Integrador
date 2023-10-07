@@ -10,17 +10,19 @@ import android.widget.LinearLayout;
 
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.cadastro.AtualizaCad;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class SelClienteFoto extends AppCompatActivity {
 
     private LinearLayout btConsultaRecep;
     private LinearLayout btAgendarRecep;
     private LinearLayout btPdfRecep;
-    private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private Button btAddFotoContinuar;
+    private LinearLayout btCadClienteRecep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,9 @@ public class SelClienteFoto extends AppCompatActivity {
         btAgendarRecep = findViewById(R.id.btAgendarRecep);
         btPdfRecep = findViewById(R.id.btPdfRecep);
         btSair = findViewById(R.id.btSair);
-        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btAddFotoContinuar = findViewById(R.id.btAddFotoContinuar);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +61,15 @@ public class SelClienteFoto extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, SelClienteFoto.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(SelClienteFoto.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
             }
         });
         btSair.setOnClickListener(new View.OnClickListener() {

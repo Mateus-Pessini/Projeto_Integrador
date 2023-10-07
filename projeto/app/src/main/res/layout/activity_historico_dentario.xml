@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFoto"
-    android:orientation="vertical"
-    android:background="@color/fundo">
+    tools:context=".HistoricoDentario"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,8 +28,8 @@
             android:textColor="#FFFFFFFF"
             android:layout_marginTop="12dp"
             android:layout_marginLeft="9dp"/>
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -115,7 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/column"
                 android:id="@+id/btConsultaRecep">
 
                 <ImageView
@@ -179,7 +180,7 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/column">
+                android:id="@+id/btCadFotoRecep">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -218,97 +219,54 @@
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:padding="20dp">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/campo"
-                android:layout_margin="50dp">
-
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Fotos:"
-                            android:textSize="35dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="30dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <GridView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:numColumns="3"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_margin="5dp">
-
-                        <Button
-                            android:layout_width="300dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/botaoamarelo"
-                            android:text="Adicionar Fotos"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="25dp"
-                            android:layout_marginLeft="50dp"/>
-
-                        <Button
-                            android:layout_width="180dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/botaovermelho"
-                            android:text="Cancelar"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="25dp"
-                            android:layout_marginLeft="110dp"
-                            android:id="@+id/btDdCancel"/>
-
-                        <Button
-                            android:layout_width="180dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/botaoverde"
-                            android:text="Salvar"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="25dp"
-                            android:layout_marginLeft="20dp"
-                            android:id="@+id/btDdSalvar"/>
-                    </LinearLayout>
+                        android:layout_height="530dp"
+                        android:background="@drawable/textview"
+                        android:padding="20dp"
+                        android:text=""
+                        android:textSize="25dp"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
+            </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="30dp">
+
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/botaoamarelo"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="120dp"
+                    android:text="VER FOTOS"
+                    android:textSize="25dp"/>
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/botaoverde"
+                    android:layout_marginVertical="10dp"
+                    android:text="VOLTAR"
+                    android:textSize="25dp"/>
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>

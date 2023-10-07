@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="500dp"
+    android:layout_height="wrap_content"
     tools:context=".opcoes.OpcaoCadUsuario"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginVertical="15dp"
+    android:layout_marginHorizontal="15dp"
+    android:background="@color/azulclaro">
 
     <Button
         android:id="@+id/btOpcaoCadastrar"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Adicionar um Cadastro"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="15dp"
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
@@ -20,22 +23,21 @@
 
     <Button
         android:id="@+id/btOpcaoAtualizar"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Atualizar um Cadastro"
         android:textColor="@color/black"
         android:textSize="21dp"
+        android:layout_marginHorizontal="15dp"
         android:textStyle="bold"
         android:background="@drawable/botaoamarelo"/>
 
     <Button
         android:id="@+id/btOpcaoRemover"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="15dp"
         android:text="Remover um Cadastro"
         android:textColor="@color/black"
         android:textSize="21dp"

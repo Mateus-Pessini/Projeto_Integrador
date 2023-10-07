@@ -2,27 +2,26 @@ package com.example.denticare.agendamento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.denticare.DadosDentista;
 import com.example.denticare.GeraPDF;
-import com.example.denticare.MainActivity;
 import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 import com.example.denticare.SelClienteFoto;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
-import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -34,6 +33,13 @@ public class Agenda extends AppCompatActivity {
     private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
+    private Button btnData;
+    private EditText edtData;
+    private GridView gvAgenda;
+    private SimpleDateFormat dateFormatter;
+    private TextView[] dayTextViews = new TextView[42];
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,13 @@ public class Agenda extends AppCompatActivity {
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
+        btnData = findViewById(R.id.btnData);
+        edtData = findViewById(R.id.edtData);
+        gvAgenda = findViewById(R.id.gvAgenda);
+
+
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +72,13 @@ public class Agenda extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Agenda.this, Agenda.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(Agenda.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
             }
         });
         btPdfRecep.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +111,45 @@ public class Agenda extends AppCompatActivity {
             }
         });
 
-    }
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
+        btnData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+        edtData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+    }
+    private void showDatePickerDialog() {
+        Calendar newCalendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                Agenda.this, // Use "Agenda.this" para obter o contexto da atividade
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        Calendar selectedCalendar = Calendar.getInstance();
+                        selectedCalendar.set(year, monthOfYear, dayOfMonth);
+                        String selectedDate = dateFormatter.format(selectedCalendar.getTime());
+                        edtData.setText(selectedDate);
+                    }
+                },
+                newCalendar.get(Calendar.YEAR),
+                newCalendar.get(Calendar.MONTH),
+                newCalendar.get(Calendar.DAY_OF_MONTH)
+        );
+
+
+        // Mostrar o diálogo de seleção de data
+        datePickerDialog.show();
+    }
 }
+
+

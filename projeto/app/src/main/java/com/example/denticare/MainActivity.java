@@ -1,7 +1,9 @@
 package com.example.denticare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.widget.LinearLayout;
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
+    private LinearLayout btCadClienteRecep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +80,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DadosDentista.class);
                 startActivity(intent);
+            }
+        });
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(MainActivity.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
             }
         });
     }
