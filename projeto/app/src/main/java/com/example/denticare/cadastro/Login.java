@@ -1,34 +1,54 @@
 package com.example.denticare.cadastro;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.MainActivity;
 import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
+import com.example.denticare.api.Api.ApiError;
+import com.example.denticare.api.Api.ApiErrorParser;
+import com.example.denticare.api.Api.ApiUser;
+import com.example.denticare.api.Api.RetroFit;
+import com.example.denticare.api.models.user.AuthenticationDTO;
+import com.example.denticare.api.models.user.LoginResponseDTO;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
     private TextView tvCadastrar;
     private Button btLogar;
+    private EditText edtLogin;
+    private EditText edtSenha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Chame o método para ocultar a barra de navegação
+
         NavigationUtil.hideNavigation(this);
 
         tvCadastrar = findViewById(R.id.tvCadastrar);
         btLogar =findViewById(R.id.btLogar);
+        edtLogin = findViewById(R.id.edLogin);
+        edtSenha = findViewById(R.id.edCriarSenha);
 
         tvCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +61,74 @@ public class Login extends AppCompatActivity {
         btLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
-                startActivity(intent);
+
+
+                String login = edtLogin.getText().toString();
+                String senha = edtSenha.getText().toString();
+
+                boolean isLoginValid = validateAndSetError(edtLogin);
+                boolean isSenhaValid = validateAndSetError(edtSenha);
+                if (!senha.isEmpty()) {
+
+                    edtSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+
+                }
+
+                if (isLoginValid && isSenhaValid) {
+                    ApiUser apiUser = RetroFit.LOGIN_CALL();
+                    AuthenticationDTO authenticationDTO = new AuthenticationDTO(login, senha);
+
+                    Call<LoginResponseDTO> call = apiUser.LOGIN_CALL(authenticationDTO);
+                    call.enqueue(new Callback<LoginResponseDTO>() {
+                        @Override
+                        public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
+                            if (response.isSuccessful()) {
+                                LoginResponseDTO loginResponseDTO = response.body();
+                                String token = loginResponseDTO.getToken();
+                                String nomePessoa = loginResponseDTO.getLogin();
+                                String email = loginResponseDTO.getEmail();
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("token", token);
+                                editor.putString("nome_pessoa", nomePessoa);
+                                editor.putString("email", email);
+                                editor.apply();
+
+                                Toast.makeText(Login.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(Login.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            } else {
+                                try {
+                                    ApiError apiError = ApiErrorParser.parseError(response.errorBody().string());
+                                    if (apiError != null) {
+                                        List<String> errorMessages = apiError.getErrorMessages();
+                                        String errorMessage = errorMessages.get(0);
+                                        Toast.makeText(Login.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(Login.this, "Atenção! Contate o suporte.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                } catch (Exception ex) {
+                                    System.out.println(ex.getMessage());
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
+
+                            Toast.makeText(Login.this, "Sem conexão com servidor!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
+
         });
 
         TextInputLayout textInputLayoutSenha = findViewById(R.id.textInputLayoutSenha);
@@ -74,5 +159,17 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean validateAndSetError(EditText editText) {
+        String text = editText.getText().toString().trim();
+
+        if (text.isEmpty()) {
+            editText.setError("Campo obrigatório");
+            return false;
+        } else {
+            editText.setError(null);
+            return true;
+        }
     }
 }

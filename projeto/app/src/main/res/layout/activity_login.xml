@@ -64,6 +64,7 @@
                 android:layout_marginLeft="30dp"/>
             
             <EditText
+                android:id="@+id/edLogin"
                 android:layout_width="400dp"
                 android:layout_height="50dp"
                 android:background="@drawable/borda2"
@@ -71,7 +72,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:hint="Digite seu e-mail"
-                android:padding="15dp"/>
+                android:padding="15dp"
+                />
 
             <TextView
                 android:layout_width="100dp"
