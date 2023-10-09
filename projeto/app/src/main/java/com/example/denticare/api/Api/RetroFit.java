@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroFit {
 
     public static final String BASE_URL_API =
-            "https://da0c-2804-9a8-382-4e00-41fb-38e-477b-e53a.ngrok.io/";
-    //"http://10.0.2.2:8080/";
+        "http://localhost:8080/";
 
 
     public static final String EMAIL_PESSOA = "email";

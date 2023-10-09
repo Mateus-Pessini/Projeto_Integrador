@@ -19,8 +19,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface
-ApiUser {
+public interface ApiUser {
 
     @Headers("Content-Type: application/json")
     @POST("auth/register")
