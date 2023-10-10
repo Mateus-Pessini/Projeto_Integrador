@@ -23,7 +23,7 @@ public interface ApiUser {
 
     @Headers("Content-Type: application/json")
     @POST("auth/register")
-    Call<Void> REGISTER_USER(@Header("Authorization") String token, @Body RegisterDTO registerDTO);
+    Call<Void> REGISTER_USER(@Body RegisterDTO registerDTO);
 
     @Headers("Content-Type: application/json")
     @POST("auth/login")

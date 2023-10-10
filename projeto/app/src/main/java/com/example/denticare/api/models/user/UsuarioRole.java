@@ -2,8 +2,8 @@ package com.example.denticare.api.models.user;
 
 public enum UsuarioRole {
 
-    ADMIN("admin"),
-    USER("user");
+    DENTISTA("dentista"),
+    SECRETARIA("secretaria");
 
     private String role;
 

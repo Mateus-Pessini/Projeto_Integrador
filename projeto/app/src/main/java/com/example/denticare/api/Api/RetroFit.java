@@ -28,7 +28,6 @@ public class RetroFit {
     public static ApiUser REGISTER_USER(){
         return retrofit1.create(ApiUser.class);
     }
-
     public static ApiUser GET_USUARIO(){ return retrofit1.create(ApiUser.class);}
 
     public static ApiUser GET_ALL_USUARIO(){

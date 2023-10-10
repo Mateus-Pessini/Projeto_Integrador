@@ -112,8 +112,7 @@ public class Login extends AppCompatActivity {
                                         String errorMessage = errorMessages.get(0);
                                         Toast.makeText(Login.this, errorMessage, Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(Login.this, "Atenção! Contate o suporte.", Toast.LENGTH_SHORT).show();
-
+                                        Toast.makeText(Login.this, "Erro inesperado! Contate o suporte.", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (Exception ex) {
                                     System.out.println(ex.getMessage());

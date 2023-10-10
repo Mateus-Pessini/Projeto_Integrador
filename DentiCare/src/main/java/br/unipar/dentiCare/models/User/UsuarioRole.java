@@ -2,8 +2,8 @@ package br.unipar.dentiCare.models.User;
 
 public enum UsuarioRole {
 
-    ADMIN("admin"),
-    USER("user");
+    DENTISTA("dentista"),
+    SECRETARIA("secretaria");
 
     private String role;
 
