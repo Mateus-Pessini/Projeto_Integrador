@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".cell.CadCell"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/prata">
 
     <include layout="@layout/activity_tool_bar"/>
 

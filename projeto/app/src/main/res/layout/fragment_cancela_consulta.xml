@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".confirmacoes.CancelaConsulta">
+    tools:context=".confirmacoes.CancelaConsulta"
+    android:orientation="vertical"
+    android:background="@color/prata">
 
     <TextView
         android:layout_width="400dp"
@@ -18,7 +20,7 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:text="Cancelar essa Consulta"
+        android:text="Cancelar essa Consulta?"
         android:textSize="35dp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -28,7 +30,7 @@
         android:layout_width="400dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="70dp">
+        android:layout_marginTop="50dp">
 
         <Button
             android:layout_width="140dp"
@@ -52,4 +54,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

@@ -6,9 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".cell.InicialCell"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/prata">
 
- <include layout="@layout/activity_tool_bar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/cabecalho">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/titulo"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="DentiCare"
+            android:textStyle="bold"
+            android:textSize="37dp"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="9dp" />
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:text="ACESSO RESTRITO"
+            android:textSize="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="14dp"
+            android:id="@+id/btAcesso"/>
+
+    </LinearLayout>
 
     <LinearLayout
       android:layout_width="match_parent"

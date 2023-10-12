@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirLogin"
+    android:orientation="vertical"
+    android:background="@color/prata">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Digite a Senha:"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="110dp"/>
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:background="@drawable/editext"
+        android:layout_marginHorizontal="30dp"/>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="20dp">
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:text="CANCELAR"
+            android:textSize="20dp"
+            android:background="@drawable/botaovermelho"
+            android:id="@+id/btCancel"/>
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:text="ENTRAR"
+            android:textSize="20dp"
+            android:background="@drawable/botaoverde"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/btEntrar"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -11,11 +11,11 @@
     <color name="fundo">#FFFFFFFF</color>
     <color name="cabecalho">#000066</color>
     <color name="sobreonome">#284B63</color>
-    <color name="vermelho">#ff0000</color>
+    <color name="vermelho">#B40404</color>
     <color name="verde">#86FA73</color>
     <color name="red">#DD0606</color>
-    <color name="green">#0ADD06</color>
-    <color name="yellow">#DDD406</color>
+    <color name="green">#2da025</color>
+    <color name="yellow">#c8d400</color>
     <color name="azul">#FFFFFFFF</color>
     <color name="verdebotao">#89d631</color>
     <color name="azulclaro">#80ace9</color>
@@ -23,4 +23,5 @@
     <color name="cinza">#363636</color>
     <color name="vermelinho">#FF6347</color>
     <color name="verdeagua">#284B63</color>
+    <color name="prata">#e7e7e7</color>
 </resources>

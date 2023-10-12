@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".consulta.EscolhaDente"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/prata">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -241,14 +242,14 @@
                     android:layout_marginLeft="20dp"/>
 
                 <LinearLayout
-                    android:layout_width="650dp"
+                    android:layout_width="920dp"
                     android:layout_height="400dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="30dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="650dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/campowhite">
 
@@ -260,7 +261,7 @@
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/botaovermelho"
+                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
                             android:text="SUPERIORES"
                             android:textSize="25dp"
@@ -269,7 +270,7 @@
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/botaovermelho"
+                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
                             android:text="TODOS"
                             android:textSize="25dp"
@@ -278,7 +279,7 @@
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/botaovermelho"
+                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
                             android:text="INFERIORES"
                             android:textSize="25dp"
@@ -292,6 +293,7 @@
                 android:orientation="horizontal"
                 android:layout_marginVertical="30dp"
                 android:layout_marginHorizontal="30dp">
+
                 <Button
                     android:layout_width="300dp"
                     android:layout_height="50dp"
@@ -300,6 +302,7 @@
                     android:textSize="25dp"
                     android:background="@drawable/botaoamarelo"
                     android:layout_marginHorizontal="100dp"/>
+
                 <Button
                     android:layout_width="300dp"
                     android:layout_height="50dp"

@@ -37,7 +37,7 @@
             android:name=".nomelogo.ToolBarActivity"
             android:exported="false" />
         <activity
-            android:name=".cell.InicialCell"
+            android:name=".cadastro.Login"
             android:exported="false" />
         <activity
             android:name=".cadastro.CadInicial"
@@ -76,7 +76,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".cadastro.Login"
+            android:name=".cell.InicialCell"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
