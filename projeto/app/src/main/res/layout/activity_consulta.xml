@@ -285,11 +285,14 @@
                             android:layout_width="0dp"
                             android:textStyle="bold"
                             android:textColor="@color/black"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
-
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:id="@+id/btProximo"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

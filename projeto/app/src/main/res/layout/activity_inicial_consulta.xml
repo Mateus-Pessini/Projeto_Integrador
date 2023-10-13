@@ -240,103 +240,106 @@
                 android:layout_height="5dp"
                 android:background="@android:color/black" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="Nome Completo:"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"/>
+                <EditText
+                    android:layout_width="400dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/editext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="E-mail:"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"/>
+                <EditText
+                    android:layout_width="400dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/editext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="Telefone:"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"/>
+                <EditText
+                    android:layout_width="400dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/editext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="CPF:"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"/>
+                <EditText
+                    android:layout_width="400dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/editext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="200dp">
+
+                <Button
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:text="Nome Completo:"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="20dp"/>
-                    <EditText
-                        android:layout_width="400dp"
-                        android:layout_height="35dp"
-                        android:background="@drawable/editext"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginVertical="5dp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:text="E-mail:"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="20dp"/>
-                    <EditText
-                        android:layout_width="400dp"
-                        android:layout_height="35dp"
-                        android:background="@drawable/editext"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginVertical="5dp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:text="Telefone:"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="20dp"/>
-                    <EditText
-                        android:layout_width="400dp"
-                        android:layout_height="35dp"
-                        android:background="@drawable/editext"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginVertical="5dp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:text="CPF:"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="20dp"/>
-                    <EditText
-                        android:layout_width="400dp"
-                        android:layout_height="35dp"
-                        android:background="@drawable/editext"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginVertical="5dp"
-                        android:textColor="@color/black"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
+                    android:background="@drawable/botaoamarelo"
+                    android:text="HISTORICO DENTARIO"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/btHisDentario"/>
+                <Button
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="200dp">
+                    android:background="@drawable/botaovermelho"
+                    android:text="Finalizar Consulta"
+                    android:textSize="25dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/btFimConsulta"/>
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/botaoverde"
+                    android:text="Iniciar Consulta"
+                    android:textSize="25dp"
+                    android:id="@+id/btIniConsulta"/>
 
-                    <Button
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/botaoamarelo"
-                        android:text="HISTORICO DENTARIO"
-                        android:textSize="25dp"
-                        android:layout_marginLeft="30dp"/>
-                    <Button
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/botaovermelho"
-                        android:text="Finalizar Consulta"
-                        android:textSize="25dp"
-                        android:layout_marginHorizontal="20dp"/>
-                    <Button
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/botaoverde"
-                        android:text="Iniciar Consulta"
-                        android:textSize="25dp"/>
-
-                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

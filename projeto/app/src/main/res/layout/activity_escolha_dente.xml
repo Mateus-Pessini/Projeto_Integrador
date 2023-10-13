@@ -242,8 +242,8 @@
                     android:layout_marginLeft="20dp"/>
 
                 <LinearLayout
-                    android:layout_width="920dp"
-                    android:layout_height="400dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="30dp"
                     android:orientation="horizontal">
@@ -722,7 +722,8 @@
                     android:textColor="@color/white"
                     android:textSize="25dp"
                     android:background="@drawable/botaoamarelo"
-                    android:layout_marginHorizontal="100dp"/>
+                    android:layout_marginHorizontal="100dp"
+                    android:id="@+id/btVoltar"/>
 
                 <Button
                     android:layout_width="300dp"
@@ -730,7 +731,8 @@
                     android:text="CONTINUAR"
                     android:textColor="@color/white"
                     android:textSize="25dp"
-                    android:background="@drawable/botaoverde"/>
+                    android:background="@drawable/botaoverde"
+                    android:id="@+id/btContinuar"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

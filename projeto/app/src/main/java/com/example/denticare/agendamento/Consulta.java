@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -18,6 +19,7 @@ import com.example.denticare.R;
 import com.example.denticare.SelClienteFoto;
 import com.example.denticare.cadastro.AtualizaCad;
 import com.example.denticare.cadastro.Login;
+import com.example.denticare.consulta.InicialConsulta;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class Consulta extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class Consulta extends AppCompatActivity {
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
     private TableLayout tableLayout;
+    private Button btProximo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class Consulta extends AppCompatActivity {
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        btProximo = findViewById(R.id.btProximo);
 
         tableLayout = findViewById(R.id.tableLayout);
         
@@ -70,6 +74,13 @@ public class Consulta extends AppCompatActivity {
             tableLayout.addView(row);
         }
 
+        btProximo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta.this, InicialConsulta.class);
+                startActivity(intent);
+            }
+        });
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
