@@ -1,4 +1,4 @@
-package br.unipar.dentiCare.models.User;
+package br.unipar.dentiCare.models.user;
 
 public class LoginResponseDTO {
 

@@ -1,64 +1,24 @@
-package br.unipar.dentiCare.models.Pessoa;
+package com.example.denticare.api.models.pessoa;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.DynamicUpdate;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-@Entity
-@DynamicUpdate
-@Table(name = "Endereco")
 public class Endereco {
 
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 3, max = 200)
     private String nmRua;
 
-    @NotBlank
-    @NotEmpty
-    @NotNull
     private int numero;
 
-    @Size(min = 3, max = 200)
     private String bairro;
 
-    @Size(min = 8, max = 8)
     private String CEP;
 
     private String complemento;
 
-    @ManyToOne
-    @JoinColumn(name = "clienteId")
-    @JsonIgnore
     private Cliente cliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cidadeId")
     private Cidade cidade;
 
     public Endereco() {
-    }
-
-    public Endereco(Long id, String nmRua, int numero, String bairro, String CEP, String complemento, Cliente cliente, Cidade cidade) {
-        this.id = id;
-        this.nmRua = nmRua;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.CEP = CEP;
-        this.complemento = complemento;
-        this.cliente = cliente;
-        this.cidade = cidade;
     }
 
     public Long getId() {
@@ -122,6 +82,16 @@ public class Endereco {
     }
 
     public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public Endereco(String nmRua, int numero, String bairro, String CEP, String complemento, Cliente cliente, Cidade cidade) {
+        this.nmRua = nmRua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.CEP = CEP;
+        this.complemento = complemento;
+        this.cliente = cliente;
         this.cidade = cidade;
     }
 }
