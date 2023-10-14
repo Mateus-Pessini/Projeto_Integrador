@@ -6,6 +6,15 @@ public class LoginResponseDTO {
     private String token;
     private String login;
     private String email;
+    private UsuarioRole role;
+
+    public UsuarioRole getRole() {
+        return role;
+    }
+
+    public void setRole(UsuarioRole role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -31,11 +40,15 @@ public class LoginResponseDTO {
         this.email = email;
     }
 
-    public LoginResponseDTO(Long id, String token, String login, String email) {
+    public LoginResponseDTO(Long id, String token, String login, String email, UsuarioRole role) {
         this.id = id;
         this.token = token;
         this.login = login;
         this.email = email;
+        this.role = role;
+    }
+
+    public LoginResponseDTO() {
     }
 
     public String getToken() {

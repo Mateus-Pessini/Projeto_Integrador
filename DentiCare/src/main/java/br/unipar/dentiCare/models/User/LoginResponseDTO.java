@@ -1,18 +1,19 @@
 package br.unipar.dentiCare.models.user;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class LoginResponseDTO {
 
     private String token;
+    private UsuarioRole role;
 
-    public LoginResponseDTO(String token) {
-        this.token = token;
-    }
 
-    public String getToken() {
-        return token;
-    }
-    public void setToken(String token) {
-        this.token = token;
-    }
 
 }

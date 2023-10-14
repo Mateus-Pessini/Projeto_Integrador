@@ -9,6 +9,7 @@ import br.unipar.dentiCare.models.User.RegisterDTO;
 import br.unipar.dentiCare.models.User.Usuario;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import br.unipar.dentiCare.security.TokenService;
+import br.unipar.dentiCare.services.AuthorizationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,6 +38,9 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private AuthorizationService authorizationService;
+
     @ApiOperation(value = "Realiza Login na Aplicação")
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
@@ -46,7 +50,9 @@ public class AuthenticationController {
 
         var token = tokenService.generateToken((Usuario) auth.getPrincipal());
 
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+        var usuario = (Usuario)auth.getPrincipal();
+
+        return ResponseEntity.ok(new LoginResponseDTO(token, usuario.getRole()));
 
     }
 

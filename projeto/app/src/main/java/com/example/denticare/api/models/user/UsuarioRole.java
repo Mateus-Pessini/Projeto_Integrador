@@ -15,4 +15,18 @@ public enum UsuarioRole {
         return role;
     }
 
+    public static UsuarioRole fromString(String roleString){
+        for (UsuarioRole role : UsuarioRole.values()){
+            if (role.role.equals(roleString)){
+                return role;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString(){
+        return role;
+    }
+
 }

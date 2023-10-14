@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.api.models.user.UsuarioDTO;
+import com.example.denticare.api.models.user.UsuarioRole;
 import com.example.denticare.cadastro.Login;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
@@ -38,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+
+        UsuarioRole role = UsuarioRole.DENTISTA;
+        UsuarioRole usuario = UsuarioRole.SECRETARIA;
+
+        if (role.equals(UsuarioRole.DENTISTA.getRole())) {
+            btCadClienteRecep.setVisibility(View.GONE);
+            btAgendarRecep.setVisibility(View.GONE);
+        } else if (usuario.equals(UsuarioRole.SECRETARIA)) {
+            btMeusDados.setVisibility(View.GONE);
+        } else {
+
+        }
+
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override

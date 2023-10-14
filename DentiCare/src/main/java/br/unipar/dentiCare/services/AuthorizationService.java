@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.services;
 
+import br.unipar.dentiCare.models.User.LoginResponseDTO;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,4 +22,10 @@ public class AuthorizationService implements UserDetailsService {
         }
         return user;
     }
+
+    public LoginResponseDTO buscaDadosUsuarioLogado(String login){
+        LoginResponseDTO loginResponseDTO= new LoginResponseDTO();
+        return loginResponseDTO;
+    }
+
 }
