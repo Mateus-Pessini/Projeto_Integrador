@@ -1,4 +1,4 @@
-package br.unipar.dentiCare.models.user;
+package br.unipar.dentiCare.models.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +14,6 @@ public class LoginResponseDTO {
     private String token;
     private UsuarioRole role;
 
-
+    
 
 }
