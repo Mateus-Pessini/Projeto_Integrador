@@ -40,5 +40,23 @@ public class RetroFit {
 
     public static ApiUser DELETAR_USUARIO() { return retrofit1.create(ApiUser.class); }
 
+    //PESSOA
 
+    public static ApiPessoa REGISTER_PESSOA() {return retrofit1.create(ApiPessoa.class);}
+
+    public  static  ApiPessoa GET_ALL_PESSOA(){return retrofit1.create(ApiPessoa.class);}
+
+    public static ApiPessoa GET_PESSOA(){ return retrofit1.create(ApiPessoa.class); }
+
+    public static ApiPessoa DELETAR_PESSOA(){ return  retrofit1.create(ApiPessoa.class); }
+
+    //ENDERECO
+
+    public static ApiEndereco REGISTER_ENDERECO() {return retrofit1.create(ApiEndereco.class);}
+
+    public  static  ApiEndereco GET_ALL_ENDERECO(){return retrofit1.create(ApiEndereco.class);}
+
+    public static ApiEndereco GET_ENDERECO(){ return retrofit1.create(ApiEndereco.class); }
+
+    public static ApiEndereco DELETAR_ENDERECO(){ return  retrofit1.create(ApiEndereco.class); }
 }

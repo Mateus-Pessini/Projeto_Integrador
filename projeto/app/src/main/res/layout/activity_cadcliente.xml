@@ -269,13 +269,15 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextNomeCompleto"/>
 
                 <Spinner
                     android:layout_width="200dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"/>
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/spinnerPais"/>
 
             </LinearLayout>
             <LinearLayout
@@ -308,13 +310,16 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextTelefone"
+                    android:inputType="number"/>
 
                 <Spinner
                     android:layout_width="200dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="150dp"/>
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/spinnerEstado"/>
 
             </LinearLayout>
             <LinearLayout
@@ -347,13 +352,16 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextCPF"
+                    android:inputType="number"/>
 
                 <Spinner
                     android:layout_width="200dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="200dp"/>
+                    android:layout_marginLeft="200dp"
+                    android:id="@+id/spinnerCidade"/>
 
             </LinearLayout>
             <LinearLayout
@@ -386,14 +394,17 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextRG"
+                    android:inputType="number"/>
 
                 <EditText
                     android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="200dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextRua"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1000dp"
@@ -425,14 +436,16 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextEmail"/>
 
                 <EditText
                     android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="50dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextComplemento"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1000dp"
@@ -464,14 +477,18 @@
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextCEP"
+                    android:inputType="number"/>
 
                 <EditText
                     android:layout_width="200dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="250dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextNumero"
+                    android:inputType="number"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="500dp"
