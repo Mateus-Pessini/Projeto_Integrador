@@ -379,7 +379,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="30dp"
-                    android:text="Rua:"
+                    android:text="Bairro:"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -404,7 +404,7 @@
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="200dp"
                     android:textColor="@color/black"
-                    android:id="@+id/editTextRua"/>
+                    android:id="@+id/editTextBairro"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1000dp"
@@ -421,7 +421,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="30dp"
-                    android:text="Complemento:"
+                    android:text="Rua:"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -445,7 +445,7 @@
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="50dp"
                     android:textColor="@color/black"
-                    android:id="@+id/editTextComplemento"/>
+                    android:id="@+id/editTextRua"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="1000dp"
@@ -462,7 +462,7 @@
                 <TextView
                     android:layout_width="200dp"
                     android:layout_height="30dp"
-                    android:text="Numero:"
+                    android:text="Complemento:"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -482,10 +482,30 @@
                     android:inputType="number"/>
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="250dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/editTextComplemento"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="1000dp"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="Numero:"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/borda1"
                     android:textColor="@color/black"
                     android:id="@+id/editTextNumero"
                     android:inputType="number"/>
@@ -494,7 +514,7 @@
                 android:layout_width="500dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="500dp"
-                android:layout_marginTop="150dp">
+                android:layout_marginTop="70dp">
 
                 <Button
                     android:layout_width="200dp"
