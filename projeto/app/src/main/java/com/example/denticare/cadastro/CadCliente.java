@@ -20,6 +20,8 @@ import com.example.denticare.R;
 import com.example.denticare.SelClienteFoto;
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.api.Api.ApiCliente;
+import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Endereco;
@@ -30,7 +32,7 @@ public class CadCliente extends AppCompatActivity {
     private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private Button btCancel, btSalvar;
 
-    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail;
+    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
 
     private Spinner spPais, spEstado, spCidade;
 
@@ -60,6 +62,7 @@ public class CadCliente extends AppCompatActivity {
         edEmail = findViewById(R.id.editTextEmail);
         edCEP = findViewById(R.id.editTextCEP);
         edNumero = findViewById(R.id.editTextNumero);
+        edBairro = findViewById(R.id.editTextBairro);
 
         spPais = findViewById(R.id.spinnerPais);
         spEstado = findViewById(R.id.spinnerEstado);
@@ -132,16 +135,29 @@ public class CadCliente extends AppCompatActivity {
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
                 validaCampos();
-
-                Cliente cli = new Cliente();
                 Endereco end = new Endereco();
+                Cliente cli = new Cliente();
                 end.setCEP(edCEP.getText().toString());
                 end.setCidade((Cidade) spCidade.getSelectedItem());
                 end.setComplemento(edComplemento.getText().toString());
                 end.setNmRua(edRua.getText().toString());
                 end.setNumero(Integer.parseInt(edNumero.getText().toString()));
-                end.setBairro("");
+                end.setBairro(edBairro.getText().toString());
+                //Call<Void> enderecoCall = enderecoApiClient.registerEndereco(end);
+
+
+
+                //Call<Void> clienteCall = apiCliente.REGISTER_CLIENTE();
+                cli.setCPF(edCPF.getText().toString());
+                cli.setRG(edRG.getText().toString());
+                cli.setEmail(edEmail.getText().toString());
+                cli.setNome(edNomeCompleto.getText().toString());
+                cli.setNrtelefone(edTelefone.getText().toString());
+
+
+
 
 
                 Intent intent = new Intent(CadCliente.this, MainActivity.class);

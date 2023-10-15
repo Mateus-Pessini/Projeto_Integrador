@@ -59,4 +59,14 @@ public class RetroFit {
     public static ApiEndereco GET_ENDERECO(){ return retrofit1.create(ApiEndereco.class); }
 
     public static ApiEndereco DELETAR_ENDERECO(){ return  retrofit1.create(ApiEndereco.class); }
+
+    //CLIENTE
+
+    public static ApiCliente REGISTER_CLIENTE() {return retrofit1.create(ApiCliente.class);}
+
+    public  static  ApiCliente GET_ALL_CLIENTE(){return retrofit1.create(ApiCliente.class);}
+
+    public static ApiCliente GET_CLIENTE(){ return retrofit1.create(ApiCliente.class); }
+
+    public static ApiCliente DELETAR_CLIENTE(){ return  retrofit1.create(ApiCliente.class); }
 }
