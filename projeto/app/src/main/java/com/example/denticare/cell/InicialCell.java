@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.denticare.ConfirLogin;
+import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 import com.example.denticare.cadastro.CadCliente;
 import com.example.denticare.cadastro.CadInicial;
@@ -24,6 +25,8 @@ public class InicialCell extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial_cell);
+
+        NavigationUtil.hideNavigation(this);
         
         btAgendarCell = findViewById(R.id.btAgendarCell);
         btAcesso = findViewById(R.id.btAcesso);
