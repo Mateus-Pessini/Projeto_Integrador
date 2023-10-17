@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
                 android:id="@+id/btAgendarRecep">
 
@@ -82,7 +82,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Agendamentos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
                 android:id="@+id/btMeusDados">
 
@@ -104,7 +104,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Meus Dados"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -113,7 +113,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:id="@+id/btConsultaRecep">
 
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Consultas"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -134,7 +134,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:id="@+id/btPdfRecep">
 
@@ -146,7 +146,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Gerar PDF"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -154,7 +154,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="210dp"
-                android:layout_height="58dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/column"
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
                 android:id="@+id/btSair">
 
@@ -211,7 +211,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Sair"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -273,7 +273,7 @@
                     android:id="@+id/editTextNomeCompleto"/>
 
                 <Spinner
-                    android:layout_width="200dp"
+                    android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="50dp"
@@ -306,7 +306,7 @@
                 android:layout_height="40dp">
 
                 <EditText
-                    android:layout_width="300dp"
+                    android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
@@ -315,10 +315,10 @@
                     android:inputType="number"/>
 
                 <Spinner
-                    android:layout_width="200dp"
+                    android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="50dp"
                     android:id="@+id/spinnerEstado"/>
 
             </LinearLayout>
@@ -348,7 +348,7 @@
                 android:layout_height="40dp">
 
                 <EditText
-                    android:layout_width="250dp"
+                    android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
@@ -357,10 +357,10 @@
                     android:inputType="number"/>
 
                 <Spinner
-                    android:layout_width="200dp"
+                    android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="50dp"
                     android:id="@+id/spinnerCidade"/>
 
             </LinearLayout>
@@ -390,7 +390,7 @@
                 android:layout_height="40dp">
 
                 <EditText
-                    android:layout_width="250dp"
+                    android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
@@ -402,7 +402,7 @@
                     android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="50dp"
                     android:textColor="@color/black"
                     android:id="@+id/editTextBairro"/>
             </LinearLayout>
@@ -473,7 +473,7 @@
                 android:layout_height="40dp">
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
@@ -485,7 +485,7 @@
                     android:layout_width="300dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
-                    android:layout_marginLeft="250dp"
+                    android:layout_marginLeft="50dp"
                     android:textColor="@color/black"
                     android:id="@+id/editTextComplemento"/>
             </LinearLayout>
@@ -503,7 +503,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
                     android:textColor="@color/black"
@@ -513,8 +513,8 @@
             <LinearLayout
                 android:layout_width="500dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="500dp"
-                android:layout_marginTop="70dp">
+                android:layout_marginLeft="450dp"
+                android:layout_marginTop="60dp">
 
                 <Button
                     android:layout_width="200dp"
@@ -534,7 +534,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="25dp"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="50dp"
                     android:id="@+id/btSalvar"/>
             </LinearLayout>
         </LinearLayout>
