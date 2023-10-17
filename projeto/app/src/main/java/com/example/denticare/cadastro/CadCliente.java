@@ -1,6 +1,8 @@
 package com.example.denticare.cadastro;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,10 @@ import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CadCliente extends AppCompatActivity {
 
@@ -145,30 +151,65 @@ public class CadCliente extends AppCompatActivity {
                 end.setNmRua(edRua.getText().toString());
                 end.setNumero(Integer.parseInt(edNumero.getText().toString()));
                 end.setBairro(edBairro.getText().toString());
-                //Call<Void> enderecoCall = enderecoApiClient.registerEndereco(end);
-
-
-
-                //Call<Void> clienteCall = apiCliente.REGISTER_CLIENTE();
                 cli.setCPF(edCPF.getText().toString());
                 cli.setRG(edRG.getText().toString());
                 cli.setEmail(edEmail.getText().toString());
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
+                cli.getEnderecos().add(end);
 
+                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token", "");
+                Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer" + token, cli);
+                clienteCall.enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                            limparCampos();
+                            //Intent intent = new Intent(CadCliente.this, MainActivity.class);
+                            //startActivity(intent);
+                        } else {
+                            Toast.makeText(CadCliente.this, "Não foi possível salvar", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-
-
-
-                Intent intent = new Intent(CadCliente.this, MainActivity.class);
-                startActivity(intent);
-
-                // Exibir uma mensagem de confirmação
-                Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
 
+    }
+
+    public void limparCampos() {
+        edNomeCompleto.setText("");
+        edTelefone.setText("");
+        edCPF.setText("");
+        edRG.setText("");
+        edRua.setText("");
+        edComplemento.setText("");
+        edEmail.setText("");
+        edCEP.setText("");
+        edNumero.setText("");
+
+        // Limpar os erros dos campos
+        edNomeCompleto.setError(null);
+        edTelefone.setError(null);
+        edCPF.setError(null);
+        edRG.setError(null);
+        edRua.setError(null);
+        edEmail.setError(null);
+        edCEP.setError(null);
+        edNumero.setError(null);
+
+        // Limpar a seleção dos Spinners
+        spPais.setSelection(0);
+        spEstado.setSelection(0);
+        spCidade.setSelection(0);
     }
 
     public void validaCampos() {
@@ -232,9 +273,6 @@ public class CadCliente extends AppCompatActivity {
             errorText.setError("Selecione uma cidade válida");
         }
     }
-
-
-
 
 
 }

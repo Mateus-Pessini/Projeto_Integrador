@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.services;
 
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.User.*;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class UsuarioService {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+    @Autowired
+    PessoaService pessoaService;
+
 
     public List<UsuarioDTO> findAll(){
         List<Usuario> usuarios = usuarioRepository.findAll();
@@ -49,6 +53,21 @@ public class UsuarioService {
         usuarioRepository.saveAndFlush(usuario);
 
         return findById(usuario.getId());
+    }
+
+    public String registrar(RegisterDTO data) throws Exception {
+
+        if (this.usuarioRepository.findByLogin(data.getLogin()) != null) {
+            throw new Exception("Usuario já cadastrado.");
+        }
+
+        String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
+        Pessoa pessoa = pessoaService.findById(data.getPessoaId());
+        Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus(), pessoa);
+        this.usuarioRepository.save(newUser);
+
+        return "Usuário cadastrado com sucesso.";
+
     }
 
 }

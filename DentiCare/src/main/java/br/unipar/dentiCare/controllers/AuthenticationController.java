@@ -10,11 +10,13 @@ import br.unipar.dentiCare.models.User.Usuario;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import br.unipar.dentiCare.security.TokenService;
 import br.unipar.dentiCare.services.AuthorizationService;
+import br.unipar.dentiCare.services.UsuarioService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,6 +36,8 @@ public class AuthenticationController {
 
     @Autowired
     private UsuarioRepository repository;
+    @Autowired
+    private UsuarioService usuarioService;
 
     @Autowired
     private TokenService tokenService;
@@ -43,14 +47,14 @@ public class AuthenticationController {
 
     @ApiOperation(value = "Realiza Login na Aplicação")
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
+    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.getLogin(), data.getSenha());
 
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var token = tokenService.generateToken((Usuario) auth.getPrincipal());
 
-        var usuario = (Usuario)auth.getPrincipal();
+        var usuario = (Usuario) auth.getPrincipal();
 
         return ResponseEntity.ok(new LoginResponseDTO(token, usuario.getRole()));
 
@@ -58,14 +62,9 @@ public class AuthenticationController {
 
     @ApiOperation(value = "Registra Login Para a Aplicação")
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO data) throws Exception{
+    public ResponseEntity register(@RequestBody @Valid RegisterDTO data) throws Exception {
 
-        if (this.repository.findByLogin(data.getLogin()) != null) return ResponseEntity.badRequest().build();
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
-        Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), true);
-        this.repository.save(newUser);
-
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.registrar(data));
     }
 
 }
