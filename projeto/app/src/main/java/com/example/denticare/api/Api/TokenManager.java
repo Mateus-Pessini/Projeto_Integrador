@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 
 
+public class TokenManager {
 
         private static final String PREF_NAME = "TokenPrefs";
         private static final String KEY_TOKEN = "token";
