@@ -5,9 +5,12 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
+    private ImageView ivImgDentista;
+    private TextView tvNomeDentista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+        tvNomeDentista = findViewById(R.id.tvNomeDentista);
 
         UsuarioRole role = UsuarioRole.DENTISTA;
         UsuarioRole usuario = UsuarioRole.SECRETARIA;
@@ -47,8 +54,12 @@ public class MainActivity extends AppCompatActivity {
         if (role.equals(UsuarioRole.DENTISTA.getRole())) {
             btCadClienteRecep.setVisibility(View.GONE);
             btAgendarRecep.setVisibility(View.GONE);
+            Log.d("TipoUsuario", "Usuário é um Dentista");
         } else if (usuario.equals(UsuarioRole.SECRETARIA)) {
             btMeusDados.setVisibility(View.GONE);
+            ivImgDentista.setVisibility(View.GONE);
+            tvNomeDentista.setVisibility(View.GONE);
+            Log.d("TipoUsuario", "Usuário é uma Secretária");
         } else {
 
         }
