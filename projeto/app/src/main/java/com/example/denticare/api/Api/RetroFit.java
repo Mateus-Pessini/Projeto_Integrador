@@ -69,4 +69,16 @@ public class RetroFit {
     public static ApiCliente GET_CLIENTE(){ return retrofit1.create(ApiCliente.class); }
 
     public static ApiCliente DELETAR_CLIENTE(){ return  retrofit1.create(ApiCliente.class); }
+
+    //ESTADO
+
+    public static ApiEstado GET_ALL_BY_PAIS(){ return retrofit1.create(ApiEstado.class);}
+
+    //CIDADE
+
+    public static ApiCidade GET_ALL_BY_ESTADO(){return retrofit1.create(ApiCidade.class);}
+
+    //PAIS
+
+    public static ApiPais GET_ALL(){return retrofit1.create(ApiPais.class);}
 }

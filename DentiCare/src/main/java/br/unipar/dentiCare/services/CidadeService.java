@@ -40,4 +40,9 @@ public class CidadeService {
         return cidadeRepository.findAll();
     }
 
+    public List<Cidade> findAllByEstado(Long estadoId){
+        return cidadeRepository.findAllByEstado(estadoId);
+    }
+
+
 }

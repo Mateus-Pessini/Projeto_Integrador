@@ -1,214 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cadastro.CadInicial"
+    android:background="@color/prata"
     android:orientation="vertical"
-    android:background="@color/prata">
+    tools:context=".cadastro.CadInicial">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/cabecalho">
-
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/titulo"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="35dp"
-            android:text="DentiCare"
-            android:textStyle="bold"
-            android:textSize="33dp"
-            android:textColor="#FFFFFFFF"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="9dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="500dp"
-            android:layout_height="550dp"
-            android:background="@drawable/borda4"
-            android:orientation="vertical"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="100dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="230dp"
-                android:layout_height="69dp"
-                android:text="Cadastro"
-                android:textColor="@color/black"
-                android:textSize="50dp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="130dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/cabecalho">
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:text="E-mail:"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"/>
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/titulo" />
 
-            <EditText
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:background="@drawable/borda2"
-                android:textColor="@color/black"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"
-                android:hint="Digite seu e-mail"
-                android:padding="15dp"
-                android:id="@+id/edCadEmail"/>
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="12dp"
+                    android:text="DentiCare"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="33dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:text="Senha:"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutSenha"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@android:color/white"
-                app:boxStrokeWidth="2dp"
-                app:endIconMode="custom"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="68dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edCriarSenha"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/borda2"
-                    android:textColor="@color/black"
-                    android:inputType="textPassword"
-                    android:drawableEnd="@drawable/iconevisivel"
-                    android:hint="Crie uma senha"
-                    android:padding="15dp"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
                 android:orientation="horizontal">
+
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="500dp"
+                    android:layout_height="550dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/borda4"
                     android:orientation="vertical">
 
-                    <RadioGroup
+                    <TextView
+                        android:layout_width="230dp"
+                        android:layout_height="69dp"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Cadastro"
+                        android:textColor="@color/black"
+                        android:textSize="50dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="E-mail:"
+                        android:textColor="@color/black"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edCadEmail"
+                        android:layout_width="400dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/borda2"
+                        android:hint="Digite seu e-mail"
+                        android:padding="15dp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Senha:"
+                        android:textColor="@color/black"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutSenha"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:id="@+id/btRadioGroup">
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="68dp"
+                        app:boxBackgroundColor="@android:color/white"
+                        app:boxStrokeWidth="2dp"
+                        app:endIconMode="custom">
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="8dp"
-                            android:layout_marginLeft="30dp"
-                            style="@style/RadioButtonCustomStyle"
-                            android:id="@+id/rbDentista"/>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCriarSenha"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/borda2"
+                            android:drawableEnd="@drawable/iconevisivel"
+                            android:hint="Crie uma senha"
+                            android:inputType="textPassword"
+                            android:padding="15dp"
+                            android:textColor="@color/black" />
 
-                        <RadioButton
-                            android:layout_width="wrap_content"
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="8dp"
-                            android:layout_marginLeft="30dp"
-                            style="@style/RadioButtonCustomStyle"
-                            android:id="@+id/rbRecepcionista"/>
-                    </RadioGroup>
-                </LinearLayout>
+                            android:orientation="vertical">
+
+                            <RadioGroup
+                                android:id="@+id/btRadioGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp">
+
+                                <RadioButton
+                                    android:id="@+id/rbDentista"
+                                    style="@style/RadioButtonCustomStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="8dp"
+                                    android:layout_marginLeft="30dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbRecepcionista"
+                                    style="@style/RadioButtonCustomStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="8dp"
+                                    android:layout_marginLeft="30dp" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:text="Dentista"
+                                android:textColor="@color/black"
+                                android:textSize="30dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Recepcionista"
+                                android:textColor="@color/black"
+                                android:textSize="30dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginVertical="10dp">
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Dentista"
+                            android:layout_width="130dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="120dp"
+                            android:text="Já tem Login?"
                             android:textColor="@color/black"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="7dp"/>
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Recepcionista"
-                            android:textColor="@color/black"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginLeft="7dp"/>
+                            android:id="@+id/tvLogin"
+                            android:layout_width="160dp"
+                            android:layout_height="35dp"
+                            android:text="Clique Aqui"
+                            android:textColor="#000066"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btLogar1"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/botaoverde"
+                        android:text="Logar"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="600dp"
+                        android:layout_height="500dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:src="@drawable/medicosemfundo" />
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp">
-
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="120dp"
-                    android:text="Já tem Login?"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="160dp"
-                    android:layout_height="35dp"
-                    android:text="Clique Aqui"
-                    android:textColor="#000066"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:id="@+id/tvLogin"/>
-            </LinearLayout>
-            <Button
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:text="Logar"
-                android:background="@drawable/botaoverde"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:id="@+id/btLogar1"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="60dp">
-
-            <ImageView
-                android:layout_width="600dp"
-                android:layout_height="500dp"
-                android:src="@drawable/medicosemfundo"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"/>
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

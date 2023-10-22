@@ -4,234 +4,253 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@color/prata"
     android:orientation="vertical"
-    android:background="@color/prata">
+    tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/cabecalho">
-
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/titulo"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="35dp"
-            android:text="DentiCare"
-            android:textStyle="bold"
-            android:textSize="33dp"
-            android:textColor="#FFFFFFFF"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="9dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/lateral"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginHorizontal="5dp"
-                android:orientation="vertical">
+                android:layout_height="70dp"
+                android:background="@color/cabecalho">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/formaimage"
-                    android:layout_gravity="center"/>
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/titulo" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Picininha"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="10dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btAgendarRecep">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/calendario"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Agendamentos"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btMeusDados">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pessoa" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Meus Dados"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btConsultaRecep">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/document"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Consultas"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
+                    android:layout_width="300dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="12dp"
+                    android:text="DentiCare"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="33dp"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btPdfRecep">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pdf"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lateral"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Gerar PDF"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadClienteRecep">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="50dp"
+                        android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/formaimage" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Cadastrar Clientes"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadFotoRecep">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Picininha"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/img"/>
+                    <LinearLayout
+                        android:id="@+id/btAgendarRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Cadastrar Fotos"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btSair">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/calendario" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/exit"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Agendamentos"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Sair"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    <LinearLayout
+                        android:id="@+id/btMeusDados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pessoa" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Meus Dados"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btConsultaRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/document" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Consultas"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btPdfRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pdf" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Gerar PDF"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btCadClienteRecep"
+                        android:layout_width="210dp"
+                        android:layout_height="58dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pessoa" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Cadastrar Clientes"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btCadFotoRecep"
+                        android:layout_width="210dp"
+                        android:layout_height="58dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/img" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Cadastrar Fotos"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btSair"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/exit" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Sair"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="800dp"
+                        android:layout_height="600dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="70dp"
+                        android:src="@drawable/medicosemfundo" />
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="800dp"
-                android:layout_height="600dp"
-                android:src="@drawable/medicosemfundo"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="70dp"/>
-
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

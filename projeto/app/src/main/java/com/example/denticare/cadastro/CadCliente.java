@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.denticare.Adapter.CidadeAdapter;
+import com.example.denticare.Adapter.EstadoAdapter;
 import com.example.denticare.DadosDentista;
 import com.example.denticare.GeraPDF;
 import com.example.denticare.MainActivity;
@@ -22,12 +26,18 @@ import com.example.denticare.R;
 import com.example.denticare.SelClienteFoto;
 import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
+import com.example.denticare.api.Api.ApiEstado;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Endereco;
+import com.example.denticare.api.models.pessoa.Estado;
+import com.example.denticare.api.models.pessoa.Pais;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -179,6 +189,74 @@ public class CadCliente extends AppCompatActivity {
                         Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        spPais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Long paisId = ((Pais) spPais.getSelectedItem()).getId();
+                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token", "");
+                if (!token.isEmpty()) {
+                    ApiEstado apiEstado = RetroFit.GET_ALL_BY_PAIS();
+                    Call<List<Estado>> call = apiEstado.GET_ALL_BY_PAIS(token, paisId);
+                    call.enqueue(new Callback<List<Estado>>() {
+                        @Override
+                        public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
+                            if (response.isSuccessful()) {
+                                List<Estado> estados = response.body();
+                                // Agora, você pode preencher o Spinner de estados com os estados obtidos
+                                EstadoAdapter estadoAdapter = new EstadoAdapter(CadCliente.this, estados);
+                                estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                spEstado.setAdapter(estadoAdapter);
+                                spEstado.setClickable(true);
+                            } else {
+                                // Trate o erro de resposta da API, se necessário
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Estado>> call, Throwable t) {
+                            // Trate falhas na chamada à API, se necessário
+                        }
+                    });
+                }
+
+
+            }
+        });
+
+        spEstado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Long estadoId = ((Estado) spEstado.getSelectedItem()).getId(); // Supondo que seu objeto Estado tenha um método getId() para obter o ID
+                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token", "");
+                if (!token.isEmpty()) {
+                    ApiCidade apiCidade = RetroFit.GET_ALL_BY_ESTADO();
+                    Call<List<Cidade>> call = apiCidade.GET_ALL_BY_ESTADO(token,estadoId);
+                    call.enqueue(new Callback<List<Cidade>>() {
+                        @Override
+                        public void onResponse(Call<List<Cidade>>call, Response<List<Cidade>> response) {
+                            if (response.isSuccessful()) {
+                                List<Cidade> cidades = response.body();
+                                CidadeAdapter adapter = new CidadeAdapter(CadCliente.this, cidades);
+                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                spCidade.setAdapter(adapter);
+                                spCidade.setClickable(true);
+                            } else {
+                                // Trate o erro de resposta da API, se necessário
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Cidade>> call, Throwable t) {
+                            // Trate falhas na chamada à API, se necessário
+                        }
+                    });
+                }
             }
         });
 

@@ -4,540 +4,581 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cadastro.CadCliente"
+    android:background="@color/prata"
     android:orientation="vertical"
-    android:background="@color/prata">
+    tools:context=".cadastro.CadCliente">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/cabecalho">
-
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="14dp"
-            android:src="@drawable/titulo"/>
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="35dp"
-            android:text="DentiCare"
-            android:textStyle="bold"
-            android:textSize="33dp"
-            android:textColor="#FFFFFFFF"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="9dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/lateral"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginHorizontal="5dp"
-                android:orientation="vertical">
+                android:layout_height="70dp"
+                android:background="@color/cabecalho">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/formaimage"
-                    android:layout_gravity="center"/>
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/titulo" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Picininha"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="10dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btAgendarRecep">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/calendario"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Agendamentos"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btMeusDados">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Meus Dados"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btConsultaRecep">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/document"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Consultas"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
+                    android:layout_width="300dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="12dp"
+                    android:text="DentiCare"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="33dp"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btPdfRecep">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pdf"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lateral"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Gerar PDF"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/column"
-                android:id="@+id/btCadClienteRecep">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="50dp"
+                        android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/formaimage" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Cadastrar Clientes"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="210dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadFotoRecep">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Picininha"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/img"/>
+                    <LinearLayout
+                        android:id="@+id/btAgendarRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Cadastrar Fotos"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/btSair">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/calendario" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/exit"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Agendamentos"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Sair"
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    <LinearLayout
+                        android:id="@+id/btMeusDados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pessoa" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Meus Dados"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btConsultaRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/document" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Consultas"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btPdfRecep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pdf" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Gerar PDF"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btCadClienteRecep"
+                        android:layout_width="210dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/column">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/pessoa" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Cadastrar Clientes"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btCadFotoRecep"
+                        android:layout_width="210dp"
+                        android:layout_height="58dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/img" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Cadastrar Fotos"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btSair"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/exit" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Sair"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Cadastro Cliente"
+                        android:textColor="@color/black"
+                        android:textSize="50dp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="650dp"
+                        android:layout_height="5dp"
+                        android:background="@android:color/black" />
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Nome Completo:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="País:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextNomeCompleto"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black" />
+
+                        <Spinner
+                            android:id="@+id/spinnerPais"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Telefone:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Estado:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextTelefone"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+
+                        <Spinner
+                            android:id="@+id/spinnerEstado"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/inativo"
+                            android:clickable="false"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="CPF:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Cidade:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextCPF"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+
+                        <Spinner
+                            android:id="@+id/spinnerCidade"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/inativo" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="RG:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Bairro:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextRG"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/editTextBairro"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="E-mail:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Rua:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextEmail"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/editTextRua"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="CEP:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Complemento:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextCEP"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/editTextComplemento"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="80dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:text="Numero:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/editTextNumero"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="500dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="450dp"
+                        android:layout_marginTop="60dp">
+
+                        <Button
+                            android:id="@+id/btCancel"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/botaovermelho"
+                            android:text="Cancelar"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btSalvar"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/botaoverde"
+                            android:text="Salvar"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cadastro Cliente"
-                android:textSize="50dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"/>
-            <View
-                android:layout_width="650dp"
-                android:layout_height="5dp"
-                android:background="@android:color/black" />
-
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Nome Completo:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="País:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextNomeCompleto"/>
-
-                <Spinner
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:id="@+id/spinnerPais"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Telefone:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Estado:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextTelefone"
-                    android:inputType="number"/>
-
-                <Spinner
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:id="@+id/spinnerEstado"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="CPF:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Cidade:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextCPF"
-                    android:inputType="number"/>
-
-                <Spinner
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:id="@+id/spinnerCidade"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="RG:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Bairro:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextRG"
-                    android:inputType="number"/>
-
-                <EditText
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextBairro"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="E-mail:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Rua:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextEmail"/>
-
-                <EditText
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextRua"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="CEP:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Complemento:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginLeft="250dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="40dp">
-
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextCEP"
-                    android:inputType="number"/>
-
-                <EditText
-                    android:layout_width="300dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:layout_marginLeft="50dp"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextComplemento"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="1000dp"
-                android:layout_height="80dp"
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp">
-
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:text="Numero:"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <EditText
-                    android:layout_width="400dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/borda1"
-                    android:textColor="@color/black"
-                    android:id="@+id/editTextNumero"
-                    android:inputType="number"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="500dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="450dp"
-                android:layout_marginTop="60dp">
-
-                <Button
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/botaovermelho"
-                    android:text="Cancelar"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="25dp"
-                    android:id="@+id/btCancel"/>
-
-                <Button
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/botaoverde"
-                    android:text="Salvar"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="25dp"
-                    android:layout_marginLeft="50dp"
-                    android:id="@+id/btSalvar"/>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

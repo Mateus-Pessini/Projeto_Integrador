@@ -32,4 +32,7 @@ public interface ApiCidade {
     @Headers("Content-Type: application/json")
     @PUT("Cidade")
     Call<Cidade> ALTERAR_CIDADE(@Header("Authorization") String token, @Body Cidade cidade);
+
+    @GET("Cidade")
+    Call<List<Cidade>> GET_ALL_BY_ESTADO(@Header("Authorization") String authorization, @Path("estadoId") Long estadoId);
 }
