@@ -192,9 +192,9 @@ public class CadCliente extends AppCompatActivity {
             }
         });
 
-        spPais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spPais.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 Long paisId = ((Pais) spPais.getSelectedItem()).getId();
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
@@ -223,14 +223,16 @@ public class CadCliente extends AppCompatActivity {
                         }
                     });
                 }
-
-
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Código para lidar com nenhum item selecionado
             }
         });
 
-        spEstado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Long estadoId = ((Estado) spEstado.getSelectedItem()).getId(); // Supondo que seu objeto Estado tenha um método getId() para obter o ID
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
                 String token = sharedPreferences.getString("token", "");
@@ -257,6 +259,10 @@ public class CadCliente extends AppCompatActivity {
                         }
                     });
                 }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Código para lidar com nenhum item selecionado
             }
         });
 
