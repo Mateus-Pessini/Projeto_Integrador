@@ -34,7 +34,7 @@ public class CidadeController {
         return cidadeService.findById(id);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{idEstado}")
     @ApiOperation(value = "Retorna uma lista de Cidade pelo Estado")
     public List<Cidade> findByEstado(@PathVariable Long id) throws Exception{
         return cidadeService.findAllByEstado(id);

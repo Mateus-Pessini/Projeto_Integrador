@@ -45,7 +45,7 @@ public class EstadoController {
         return estadoService.findById(id);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{idPais}")
     @ApiOperation(value = "Lista os Estado pelo id do Pais")
     public List<Estado> findAllByPais(@PathVariable Long id) throws Exception {
         return estadoService.findByPais(id);
