@@ -3,6 +3,7 @@ package com.example.denticare.cadastro;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.denticare.Adapter.CidadeAdapter;
 import com.example.denticare.Adapter.EstadoAdapter;
+import com.example.denticare.Adapter.PaisAdapter;
 import com.example.denticare.DadosDentista;
 import com.example.denticare.GeraPDF;
 import com.example.denticare.MainActivity;
@@ -29,6 +32,7 @@ import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiEstado;
+import com.example.denticare.api.Api.ApiPais;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
@@ -152,6 +156,7 @@ public class CadCliente extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
+                ApiPais apiPais = RetroFit.GET_ALL();
                 validaCampos();
                 Endereco end = new Endereco();
                 Cliente cli = new Cliente();
@@ -170,6 +175,24 @@ public class CadCliente extends AppCompatActivity {
 
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
                 String token = sharedPreferences.getString("token", "");
+
+                Call<List<Pais>> paisCall = apiPais.GET_ALL_PAIS("Bearer" + token);
+                paisCall.enqueue(new Callback<List<Pais>>() {
+                    @Override
+                    public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
+                        List<Pais> listaPaises = response.body();
+                        PaisAdapter paisAdapter = new PaisAdapter(CadCliente.this, listaPaises);
+                        paisAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spPais.setAdapter(paisAdapter);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Pais>> call, Throwable t) {
+                        Toast.makeText(CadCliente.this, "Erro ao buscar paises", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
                 Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer" + token, cli);
                 clienteCall.enqueue(new Callback<Cliente>() {
                     @Override
@@ -207,13 +230,12 @@ public class CadCliente extends AppCompatActivity {
                         public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                             if (response.isSuccessful()) {
                                 List<Estado> estados = response.body();
-                                // Agora, você pode preencher o Spinner de estados com os estados obtidos
                                 EstadoAdapter estadoAdapter = new EstadoAdapter(CadCliente.this, estados);
                                 estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spEstado.setAdapter(estadoAdapter);
                                 spEstado.setClickable(true);
-                            } else {
-                                // Trate o erro de resposta da API, se necessário
+                                Drawable ativo = ContextCompat.getDrawable(CadCliente.this, R.drawable.borda1);
+                                spEstado.setBackground(ativo);
                             }
                         }
 
@@ -246,6 +268,8 @@ public class CadCliente extends AppCompatActivity {
                                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spCidade.setAdapter(adapter);
                                 spCidade.setClickable(true);
+                                Drawable ativo = ContextCompat.getDrawable(CadCliente.this, R.drawable.borda1);
+                                spCidade.setBackground(ativo);
                             } else {
                                 // Trate o erro de resposta da API, se necessário
                             }
