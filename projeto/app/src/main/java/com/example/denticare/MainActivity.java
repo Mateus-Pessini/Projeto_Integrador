@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("TipoUsuario", "Usuário é um Dentista");
         } else if (usuario.equals(UsuarioRole.SECRETARIA)) {
             btMeusDados.setVisibility(View.GONE);
-            ivImgDentista.setVisibility(View.GONE);
+            ivImgDentista.setVisibility(View.INVISIBLE);
             tvNomeDentista.setVisibility(View.GONE);
             Log.d("TipoUsuario", "Usuário é uma Secretária");
         } else {
