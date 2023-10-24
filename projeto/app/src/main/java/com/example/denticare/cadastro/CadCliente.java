@@ -42,6 +42,7 @@ import com.example.denticare.api.models.pessoa.Estado;
 import com.example.denticare.api.models.pessoa.Pais;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,7 +50,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CadCliente extends AppCompatActivity {
-    List<Pais> listaPaises;
+    List<Pais> listaPaises = new ArrayList<>();
     private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private Button btCancel, btSalvar;
 
@@ -98,7 +99,8 @@ public class CadCliente extends AppCompatActivity {
         paisCall.enqueue(new Callback<List<Pais>>() {
             @Override
             public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
-               listaPaises.addAll(response.body());
+
+                listaPaises = response.body();
                 Log.e("",""+listaPaises);
                 PaisAdapter paisAdapter = new PaisAdapter(CadCliente.this, listaPaises);
                 paisAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
