@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,13 +49,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CadCliente extends AppCompatActivity {
-
+    List<Pais> listaPaises;
     private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private Button btCancel, btSalvar;
 
     private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
 
     private Spinner spPais, spEstado, spCidade;
+
+    private ApiPais apiPais = RetroFit.GET_ALL();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,27 @@ public class CadCliente extends AppCompatActivity {
         spPais = findViewById(R.id.spinnerPais);
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        Call<List<Pais>> paisCall = apiPais.GET_ALL_PAIS("Bearer" + token);
+        paisCall.enqueue(new Callback<List<Pais>>() {
+            @Override
+            public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
+               listaPaises.addAll(response.body());
+                Log.e("",""+listaPaises);
+                PaisAdapter paisAdapter = new PaisAdapter(CadCliente.this, listaPaises);
+                paisAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                Log.e("",""+paisAdapter);
+                //spPais.setAdapter(paisAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Pais>> call, Throwable t) {
+                Toast.makeText(CadCliente.this, "Erro ao buscar paises", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +180,6 @@ public class CadCliente extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
-                ApiPais apiPais = RetroFit.GET_ALL();
                 validaCampos();
                 Endereco end = new Endereco();
                 Cliente cli = new Cliente();
@@ -172,26 +195,6 @@ public class CadCliente extends AppCompatActivity {
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
                 cli.getEnderecos().add(end);
-
-                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
-                String token = sharedPreferences.getString("token", "");
-
-                Call<List<Pais>> paisCall = apiPais.GET_ALL_PAIS("Bearer" + token);
-                paisCall.enqueue(new Callback<List<Pais>>() {
-                    @Override
-                    public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
-                        List<Pais> listaPaises = response.body();
-                        PaisAdapter paisAdapter = new PaisAdapter(CadCliente.this, listaPaises);
-                        paisAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spPais.setAdapter(paisAdapter);
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<Pais>> call, Throwable t) {
-                        Toast.makeText(CadCliente.this, "Erro ao buscar paises", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
 
                 Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer" + token, cli);
                 clienteCall.enqueue(new Callback<Cliente>() {
