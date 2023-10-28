@@ -40,5 +40,4 @@ public class EstadoService {
         return estadoRepository.findAll();
     }
 
-    public List<Estado> findByPais(Long paisId){return estadoRepository.findAllByPais(paisId);}
 }

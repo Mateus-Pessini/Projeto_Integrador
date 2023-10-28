@@ -25,10 +25,4 @@ public class Estado {
     @Size(min = 3, max = 100)
     private String nmEstado;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paisId")
-    private Pais pais;
-
-
-
 }

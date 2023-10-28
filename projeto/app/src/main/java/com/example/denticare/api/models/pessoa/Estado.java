@@ -6,14 +6,12 @@ public class Estado {
 
     private String nmEstado;
 
-    private Pais pais;
 
     public Estado() {
     }
 
-    public Estado(String nmEstado, Pais pais) {
+    public Estado(String nmEstado) {
         this.nmEstado = nmEstado;
-        this.pais = pais;
     }
 
     public Long getId() {
@@ -32,11 +30,4 @@ public class Estado {
         this.nmEstado = nmEstado;
     }
 
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
 }

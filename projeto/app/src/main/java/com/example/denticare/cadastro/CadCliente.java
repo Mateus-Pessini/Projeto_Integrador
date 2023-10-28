@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,7 +20,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.denticare.Adapter.CidadeAdapter;
 import com.example.denticare.Adapter.EstadoAdapter;
-import com.example.denticare.Adapter.PaisAdapter;
 import com.example.denticare.DadosDentista;
 import com.example.denticare.GeraPDF;
 import com.example.denticare.MainActivity;
@@ -33,13 +31,11 @@ import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiEstado;
-import com.example.denticare.api.Api.ApiPais;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
-import com.example.denticare.api.models.pessoa.Pais;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 import java.util.ArrayList;
@@ -50,15 +46,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CadCliente extends AppCompatActivity {
-    List<Pais> listaPaises = new ArrayList<>();
     private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private Button btCancel, btSalvar;
 
     private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
 
-    private Spinner spPais, spEstado, spCidade;
-
-    private ApiPais apiPais = RetroFit.GET_ALL();
+    private Spinner spEstado, spCidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,31 +81,37 @@ public class CadCliente extends AppCompatActivity {
         edNumero = findViewById(R.id.editTextNumero);
         edBairro = findViewById(R.id.editTextBairro);
 
-        spPais = findViewById(R.id.spinnerPais);
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
 
-        Call<List<Pais>> paisCall = apiPais.GET_ALL_PAIS("Bearer" + token);
-        paisCall.enqueue(new Callback<List<Pais>>() {
-            @Override
-            public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
+        if (!token.isEmpty()) {
+            ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
+            Call<List<Estado>> estadoCall = apiEstado.GET_ALL_ESTADO(token);
+            estadoCall.enqueue(new Callback<List<Estado>>() {
+                @Override
+                public void onResponse(Call<List<Estado>>call, Response<List<Estado>> response) {
+                    if (response.isSuccessful()) {
+                        List<Estado> estados = response.body();
+                        EstadoAdapter adapter = new EstadoAdapter(CadCliente.this, estados);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spCidade.setAdapter(adapter);
+                    } else {
+                        // Trate o erro de resposta da API, se necessári
+                    }
+                }
 
-                listaPaises = response.body();
-                Log.e("",""+listaPaises);
-                PaisAdapter paisAdapter = new PaisAdapter(CadCliente.this, listaPaises);
-                paisAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Log.e("",""+paisAdapter);
-                //spPais.setAdapter(paisAdapter);
-            }
+                @Override
+                public void onFailure(Call<List<Estado>> call, Throwable t) {
+                    // Trate falhas na chamada à API, se necessário
+                }
+            });
+        }
 
-            @Override
-            public void onFailure(Call<List<Pais>> call, Throwable t) {
-                Toast.makeText(CadCliente.this, "Erro ao buscar paises", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,43 +219,6 @@ public class CadCliente extends AppCompatActivity {
             }
         });
 
-        spPais.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Long paisId = ((Pais) spPais.getSelectedItem()).getId();
-                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
-                String token = sharedPreferences.getString("token", "");
-                if (!token.isEmpty()) {
-                    ApiEstado apiEstado = RetroFit.GET_ALL_BY_PAIS();
-                    Call<List<Estado>> call = apiEstado.GET_ALL_BY_PAIS(token, paisId);
-                    call.enqueue(new Callback<List<Estado>>() {
-                        @Override
-                        public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
-                            if (response.isSuccessful()) {
-                                List<Estado> estados = response.body();
-                                EstadoAdapter estadoAdapter = new EstadoAdapter(CadCliente.this, estados);
-                                estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                                spEstado.setAdapter(estadoAdapter);
-                                spEstado.setClickable(true);
-                                Drawable ativo = ContextCompat.getDrawable(CadCliente.this, R.drawable.borda1);
-                                spEstado.setBackground(ativo);
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<List<Estado>> call, Throwable t) {
-                            // Trate falhas na chamada à API, se necessário
-                        }
-                    });
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Código para lidar com nenhum item selecionado
-            }
-        });
-
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -320,7 +282,6 @@ public class CadCliente extends AppCompatActivity {
         edNumero.setError(null);
 
         // Limpar a seleção dos Spinners
-        spPais.setSelection(0);
         spEstado.setSelection(0);
         spCidade.setSelection(0);
     }
@@ -366,12 +327,6 @@ public class CadCliente extends AppCompatActivity {
         String numero = edNumero.getText().toString().trim();
         if (numero.isEmpty()) {
             edNumero.setError("Campo obrigatório");
-        }
-
-        // Validação para o Spinner de País
-        if (spPais.getSelectedItemPosition() == 0) {
-            TextView errorText = (TextView) spPais.getSelectedView();
-            errorText.setError("Selecione um país válido");
         }
 
 // Validação para o Spinner de Estado

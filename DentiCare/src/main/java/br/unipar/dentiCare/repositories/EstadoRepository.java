@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface EstadoRepository extends JpaRepository<Estado, Long> {
 
-    List<Estado> findAllByPais(@Param("paisId") Long paisId);
 }

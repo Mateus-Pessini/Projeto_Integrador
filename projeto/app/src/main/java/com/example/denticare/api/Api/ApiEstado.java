@@ -33,6 +33,4 @@ public interface ApiEstado {
     @PUT("Estado")
     Call<Estado> ALTERAR_ESTADO(@Header("Authorization") String token, @Body Estado estado);
 
-    @GET("Estado/{id}")
-    Call<List<Estado>> GET_ALL_BY_PAIS(@Header("Authorization") String authorization,@Path("id") Long id);
 }

@@ -274,10 +274,11 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="250dp"
-                            android:text="País:"
+                            android:text="Estado:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -294,7 +295,7 @@
                             android:paddingLeft="10dp"/>
 
                         <Spinner
-                            android:id="@+id/spinnerPais"
+                            android:id="@+id/spinnerEstado"
                             android:layout_width="300dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
@@ -319,10 +320,11 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="250dp"
-                            android:text="Estado:"
+                            android:text="Cidade:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -331,54 +333,6 @@
 
                         <EditText
                             android:id="@+id/editTextTelefone"
-                            android:layout_width="400dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
-
-                        <Spinner
-                            android:id="@+id/spinnerEstado"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/inativo"
-                            android:clickable="false"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="30dp">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="CPF:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
-                            android:text="Cidade:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="40dp">
-
-                        <EditText
-                            android:id="@+id/editTextCPF"
                             android:layout_width="400dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
@@ -404,7 +358,7 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="RG:"
+                            android:text="CPF:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
@@ -417,6 +371,56 @@
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextCPF"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editTextBairro"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1000dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="RG:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Rua:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -434,13 +438,14 @@
                             android:paddingLeft="10dp"/>
 
                         <EditText
-                            android:id="@+id/editTextBairro"
+                            android:id="@+id/editTextRua"
                             android:layout_width="300dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
                             android:background="@drawable/borda1"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -460,10 +465,11 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="250dp"
-                            android:text="Rua:"
+                            android:text="Complemento:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -480,13 +486,14 @@
                             android:paddingLeft="10dp"/>
 
                         <EditText
-                            android:id="@+id/editTextRua"
+                            android:id="@+id/editTextComplemento"
                             android:layout_width="300dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
                             android:background="@drawable/borda1"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -502,14 +509,6 @@
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
-                            android:text="Complemento:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -526,14 +525,6 @@
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"/>
 
-                        <EditText
-                            android:id="@+id/editTextComplemento"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
                     </LinearLayout>
 
                     <LinearLayout
