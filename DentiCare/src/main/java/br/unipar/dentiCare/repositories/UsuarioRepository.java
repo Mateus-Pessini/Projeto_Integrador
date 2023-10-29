@@ -13,6 +13,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 
     UserDetails findByLogin(String login);
 
-
+    Usuario findUsuarioByLogin(@Param("login") String login);
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,9 +58,9 @@ public class UsuarioService {
 
     public String registrar(RegisterDTO data) throws Exception {
 
-        if (this.usuarioRepository.findByLogin(data.getLogin()) != null) {
-            throw new Exception("Usuario já cadastrado.");
-        }
+      //  if (this.usuarioRepository.findByLogin(data.getLogin()) != null) {
+     //       throw new Exception("Usuario já cadastrado.");
+      //  }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
         Pessoa pessoa = pessoaService.findById(data.getPessoaId());
@@ -68,6 +69,16 @@ public class UsuarioService {
 
         return "Usuário cadastrado com sucesso.";
 
+    }
+
+    @PostConstruct
+    public void createDefaultUser() {
+        if (usuarioRepository.findUsuarioByLogin("admin") == null) {
+            Usuario user = new Usuario();
+            user.setLogin("admin");
+            user.setSenha("admin");
+            usuarioRepository.save(user);
+        }
     }
 
 }
