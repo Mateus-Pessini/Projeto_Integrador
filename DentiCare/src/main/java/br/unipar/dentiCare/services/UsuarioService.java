@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.services;
 
+import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.User.*;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
@@ -74,9 +75,18 @@ public class UsuarioService {
     @PostConstruct
     public void createDefaultUser() {
         if (usuarioRepository.findUsuarioByLogin("admin") == null) {
+            Pessoa pessoa = new Pessoa();
+            pessoa.setTpPessoa(TpPessoaEnum.DENTISTA);
+            pessoa.setNome("admin");
+            pessoa.setEmail("admin");
+            pessoa.setNrtelefone("admin");
+            pessoa.setId(999L);
             Usuario user = new Usuario();
             user.setLogin("admin");
             user.setSenha("admin");
+            user.setRole(UsuarioRole.DENTISTA);
+            user.setStatus(true);
+            user.setPessoa(pessoa);
             usuarioRepository.save(user);
         }
     }
