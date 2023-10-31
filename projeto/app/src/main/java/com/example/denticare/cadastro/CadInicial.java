@@ -72,12 +72,13 @@ public class CadInicial extends AppCompatActivity {
                 String login = edCadEmail.getText().toString();
                 String senha = edCriarSenha.getText().toString();
                 UsuarioRole role = UsuarioRole.DENTISTA;
+
                 if (rbDentista.isChecked()) {
                     role = UsuarioRole.DENTISTA;
                 } else if (rbRecepcionista.isChecked()) {
                     role = UsuarioRole.SECRETARIA;
                 }
-                RegisterDTO register = new RegisterDTO(login, senha, role);
+                RegisterDTO register = new RegisterDTO(login, senha, role, 0L);
 
 
                 ApiUser apiUser = RetroFit.REGISTER_USER();
@@ -87,7 +88,6 @@ public class CadInicial extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
-
                             Toast.makeText(CadInicial.this, "Cadastrado com sucesso!.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(CadInicial.this, MainActivity.class);
                             startActivity(intent);

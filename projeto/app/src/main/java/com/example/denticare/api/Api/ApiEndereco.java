@@ -17,19 +17,19 @@ import retrofit2.http.Path;
 public interface ApiEndereco {
 
     @Headers("Content-Type: application/json")
-    @POST("Endereco")
+    @POST("endereco")
     Call<Endereco> REGISTER_ENDERECO(@Header("Authorization") String token, @Body Endereco endereco);
 
-    @GET("Endereco")
+    @GET("endereco")
     Call<List<Endereco>> GET_ALL_ENDERECO(@Header("Authorization") String authorization);
 
-    @GET("Endereco/{id}")
+    @GET("endereco/{id}")
     Call<Endereco> GET_ENDERECO(@Header("Authorization") String authorization, @Path("id") Long id);
 
-    @DELETE("Endereco/{id}")
+    @DELETE("endereco/{id}")
     Call<Endereco> DELETAR_ENDERECO(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @Headers("Content-Type: application/json")
-    @PUT("Endereco")
+    @PUT("endereco")
     Call<Endereco> ALTERAR_ENDERECO(@Header("Authorization") String token, @Body Endereco endereco);
 }

@@ -17,20 +17,20 @@ import retrofit2.http.Path;
 public interface ApiEstado {
 
     @Headers("Content-Type: application/json")
-    @POST("Estado")
+    @POST("estado")
     Call<Estado> REGISTER_ESTADO(@Header("Authorization") String token, @Body Estado estado);
 
-    @GET("Estado")
+    @GET("estado")
     Call<List<Estado>> GET_ALL_ESTADO(@Header("Authorization") String authorization);
 
-    @GET("Estado/{id}")
+    @GET("estado/{id}")
     Call<Estado> GET_ESTADO(@Header("Authorization") String authorization, @Path("id") Long id);
 
-    @DELETE("Estado/{id}")
+    @DELETE("estado/{id}")
     Call<Estado> DELETAR_ESTADO(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @Headers("Content-Type: application/json")
-    @PUT("Estado")
+    @PUT("estado")
     Call<Estado> ALTERAR_ESTADO(@Header("Authorization") String token, @Body Estado estado);
 
 }

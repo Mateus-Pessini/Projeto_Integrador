@@ -89,6 +89,7 @@ public class CadCliente extends AppCompatActivity {
 
         if (!token.isEmpty()) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
+
             Call<List<Estado>> estadoCall = apiEstado.GET_ALL_ESTADO(token);
             estadoCall.enqueue(new Callback<List<Estado>>() {
                 @Override
@@ -97,15 +98,17 @@ public class CadCliente extends AppCompatActivity {
                         List<Estado> estados = response.body();
                         EstadoAdapter adapter = new EstadoAdapter(CadCliente.this, estados);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spCidade.setAdapter(adapter);
+                        spEstado.setAdapter(adapter);
                     } else {
                         // Trate o erro de resposta da API, se necessári
+                        System.out.println(response.body().toString());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<Estado>> call, Throwable t) {
                     // Trate falhas na chamada à API, se necessário
+                    System.out.println(t.toString());
                 }
             });
         }
@@ -207,7 +210,7 @@ public class CadCliente extends AppCompatActivity {
                             //Intent intent = new Intent(CadCliente.this, MainActivity.class);
                             //startActivity(intent);
                         } else {
-                            Toast.makeText(CadCliente.this, "Não foi possível salvar", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -219,6 +222,7 @@ public class CadCliente extends AppCompatActivity {
             }
         });
 
+        /*
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -256,7 +260,7 @@ public class CadCliente extends AppCompatActivity {
                 // Código para lidar com nenhum item selecionado
             }
         });
-
+*/
 
     }
 

@@ -17,22 +17,22 @@ import retrofit2.http.Path;
 public interface ApiCidade {
 
     @Headers("Content-Type: application/json")
-    @POST("Cidade")
+    @POST("cidade")
     Call<Cidade> REGISTER_CIDADE(@Header("Authorization") String token, @Body Cidade cidade);
 
-    @GET("Cidade")
+    @GET("cidade")
     Call<List<Cidade>> GET_ALL_CIDADE(@Header("Authorization") String authorization);
 
-    @GET("Cidade/{id}")
+    @GET("cidade/{id}")
     Call<Cidade> GET_CIDADE(@Header("Authorization") String authorization, @Path("id") Long id);
 
-    @DELETE("Cidade/{id}")
+    @DELETE("cidade/{id}")
     Call<Cidade> DELETAR_CIDADE(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @Headers("Content-Type: application/json")
-    @PUT("Cidade")
+    @PUT("cidade")
     Call<Cidade> ALTERAR_CIDADE(@Header("Authorization") String token, @Body Cidade cidade);
 
-    @GET("Cidade")
+    @GET("cidade")
     Call<List<Cidade>> GET_ALL_BY_ESTADO(@Header("Authorization") String authorization, @Path("estadoId") Long estadoId);
 }

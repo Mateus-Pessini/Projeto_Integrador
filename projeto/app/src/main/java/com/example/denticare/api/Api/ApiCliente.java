@@ -17,19 +17,19 @@ import retrofit2.http.Path;
 public interface ApiCliente {
 
     @Headers("Content-Type: application/json")
-    @POST("Cliente")
+    @POST("cliente")
     Call<Cliente> REGISTER_CLIENTE(@Header("Authorization") String token, @Body Cliente cliente);
 
-    @GET("Cliente")
+    @GET("cliente")
     Call<List<Cliente>> GET_ALL_CLIENTE(@Header("Authorization") String authorization);
 
-    @GET("Cliente/{id}")
+    @GET("cliente/{id}")
     Call<Cliente> GET_CLIENTE(@Header("Authorization") String authorization, @Path("id") Long id);
 
-    @DELETE("Cliente/{id}")
+    @DELETE("cliente/{id}")
     Call<Cliente> DELETAR_CLIENTE(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @Headers("Content-Type: application/json")
-    @PUT("Cliente")
+    @PUT("cliente")
     Call<Cliente> ALTERAR_CLIENTE(@Header("Authorization") String token, @Body Cliente cliente);
 }

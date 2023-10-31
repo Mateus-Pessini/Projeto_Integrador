@@ -67,11 +67,11 @@ public class UsuarioService {
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
         if (data.getPessoaId() == 0|| data.getPessoaId() == null){
-            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus());
+            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(),true);
             this.usuarioRepository.save(newUser);
         }else{
             Pessoa pessoa = pessoaService.findById(data.getPessoaId());
-            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus(), pessoa);
+            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), true, pessoa);
             this.usuarioRepository.save(newUser);
         }
 
