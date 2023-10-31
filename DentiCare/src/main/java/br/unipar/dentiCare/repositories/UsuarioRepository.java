@@ -12,7 +12,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     Usuario findUsuarioById(@Param("id") Long id);
 
     UserDetails findByLogin(String login);
-
-    Usuario findUsuarioByLogin(@Param("login") String login);
-
 }

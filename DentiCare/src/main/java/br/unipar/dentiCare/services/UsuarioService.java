@@ -3,12 +3,14 @@ package br.unipar.dentiCare.services;
 import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.User.*;
+import br.unipar.dentiCare.repositories.PessoaRepository;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,36 +61,24 @@ public class UsuarioService {
 
     public String registrar(RegisterDTO data) throws Exception {
 
-      //  if (this.usuarioRepository.findByLogin(data.getLogin()) != null) {
-     //       throw new Exception("Usuario já cadastrado.");
-      //  }
+        if (this.usuarioRepository.findByLogin(data.getLogin()) != null) {
+            throw new Exception("Usuario já cadastrado.");
+        }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.getSenha());
-        Pessoa pessoa = pessoaService.findById(data.getPessoaId());
-        Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus(), pessoa);
-        this.usuarioRepository.save(newUser);
+        if (data.getPessoaId() == 0|| data.getPessoaId() == null){
+            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus());
+            this.usuarioRepository.save(newUser);
+        }else{
+            Pessoa pessoa = pessoaService.findById(data.getPessoaId());
+            Usuario newUser = new Usuario(data.getLogin(), encryptedPassword, data.getRole(), data.getStatus(), pessoa);
+            this.usuarioRepository.save(newUser);
+        }
+
 
         return "Usuário cadastrado com sucesso.";
 
     }
 
-    @PostConstruct
-    public void createDefaultUser() {
-        if (usuarioRepository.findUsuarioByLogin("admin") == null) {
-            Pessoa pessoa = new Pessoa();
-            pessoa.setTpPessoa(TpPessoaEnum.DENTISTA);
-            pessoa.setNome("admin");
-            pessoa.setEmail("admin");
-            pessoa.setNrtelefone("admin");
-            pessoa.setId(999L);
-            Usuario user = new Usuario();
-            user.setLogin("admin");
-            user.setSenha("admin");
-            user.setRole(UsuarioRole.DENTISTA);
-            user.setStatus(true);
-            user.setPessoa(pessoa);
-            usuarioRepository.save(user);
-        }
-    }
 
 }

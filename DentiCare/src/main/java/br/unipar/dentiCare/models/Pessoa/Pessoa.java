@@ -1,6 +1,8 @@
 package br.unipar.dentiCare.models.Pessoa;
 
 import br.unipar.dentiCare.enums.TpPessoaEnum;
+import br.unipar.dentiCare.models.User.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,5 +37,10 @@ public class Pessoa {
     private String email;
 
     private TpPessoaEnum tpPessoa;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pessoa_id")
+    @JsonIgnore
+    private Usuario user;
 
 }
