@@ -33,7 +33,8 @@ public class Usuario implements UserDetails {
 
     private Boolean status;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
     public Usuario(String login, String senha, UsuarioRole role, Boolean status, Pessoa pessoa){
@@ -42,6 +43,13 @@ public class Usuario implements UserDetails {
         this.role = role;
         this.status = status;
         this.pessoa = pessoa;
+    }
+
+    public Usuario(String login, String senha, UsuarioRole role, Boolean status) {
+        this.login = login;
+        this.senha = senha;
+        this.role = role;
+        this.status = status;
     }
 
     @Override
