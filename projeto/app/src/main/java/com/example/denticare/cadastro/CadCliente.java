@@ -86,6 +86,7 @@ public class CadCliente extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
+        Log.e("",""+token);
 
         if (!token.isEmpty()) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
@@ -193,12 +194,14 @@ public class CadCliente extends AppCompatActivity {
                 end.setNmRua(edRua.getText().toString());
                 end.setNumero(Integer.parseInt(edNumero.getText().toString()));
                 end.setBairro(edBairro.getText().toString());
+                List<Endereco> enderecosDoCliente = new ArrayList<>();
+                enderecosDoCliente.add(end);
                 cli.setCPF(edCPF.getText().toString());
                 cli.setRG(edRG.getText().toString());
                 cli.setEmail(edEmail.getText().toString());
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
-                cli.getEnderecos().add(end);
+                cli.setEnderecos(enderecosDoCliente);
 
                 Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer" + token, cli);
                 clienteCall.enqueue(new Callback<Cliente>() {
@@ -222,7 +225,7 @@ public class CadCliente extends AppCompatActivity {
             }
         });
 
-        /*
+
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -260,7 +263,7 @@ public class CadCliente extends AppCompatActivity {
                 // Código para lidar com nenhum item selecionado
             }
         });
-*/
+
 
     }
 

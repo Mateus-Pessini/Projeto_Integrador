@@ -45,6 +45,7 @@ public class Endereco {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cidadeId")
+    @JsonIgnore
     private Cidade cidade;
 
     public Endereco() {

@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -37,11 +38,10 @@ public class UsuarioService {
 
     public UsuarioDTO findById(Long id) throws Exception {
 
-        Usuario retorno = usuarioRepository.findUsuarioById(id);
+        Optional<Usuario> retorno = usuarioRepository.findUsuarioById(id);
 
-        if(retorno!= null) {
-            UsuarioDTO usuarioDTO = new UsuarioDTO(retorno.getId(), retorno.getLogin(), retorno.getRole(), retorno.getStatus());
-            return usuarioDTO;
+        if(retorno.isPresent()) {
+            return new UsuarioDTO(retorno.get().getId(), retorno.get().getLogin(),retorno.get().getRole(),retorno.get().getStatus());
         }else{
             throw new Exception("Usuário com ID " + id + " Não Identificada");
         }
@@ -50,13 +50,13 @@ public class UsuarioService {
 
     public UsuarioDTO alterarSenha(UsuarioSenhaDTO usuarioSenhaDTO) throws Exception {
 
-        Usuario usuario = usuarioRepository.findUsuarioById(usuarioSenhaDTO.getUsuarioId());
+        Optional<Usuario> retorno = usuarioRepository.findUsuarioById(usuarioSenhaDTO.getUsuarioId());
         String encryptedPassword = new BCryptPasswordEncoder().encode(usuarioSenhaDTO.getNovaSenha());
-        usuario.setSenha(encryptedPassword);
+        retorno.get().setSenha(encryptedPassword);
 
-        usuarioRepository.saveAndFlush(usuario);
+        usuarioRepository.saveAndFlush(retorno.get());
 
-        return findById(usuario.getId());
+        return new UsuarioDTO(retorno.get().getId(), retorno.get().getLogin(),retorno.get().getRole(),retorno.get().getStatus());
     }
 
     public String registrar(RegisterDTO data) throws Exception {

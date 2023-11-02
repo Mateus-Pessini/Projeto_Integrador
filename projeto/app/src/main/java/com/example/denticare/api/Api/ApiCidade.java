@@ -33,6 +33,6 @@ public interface ApiCidade {
     @PUT("cidade")
     Call<Cidade> ALTERAR_CIDADE(@Header("Authorization") String token, @Body Cidade cidade);
 
-    @GET("cidade")
+    @GET("cidade/estado/{estadoId}")
     Call<List<Cidade>> GET_ALL_BY_ESTADO(@Header("Authorization") String authorization, @Path("estadoId") Long estadoId);
 }

@@ -22,7 +22,6 @@ import com.example.denticare.api.Api.ApiUser;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.user.AuthenticationDTO;
 import com.example.denticare.api.models.user.LoginResponseDTO;
-import com.example.denticare.api.models.user.UsuarioRole;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -96,8 +95,9 @@ public class Login extends AppCompatActivity {
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("token", token);
-                             //   editor.putString("role", role);
+                                //editor.putString("role", role);
                                 editor.apply();
+                                Log.e("",""+token);
 
                                 Toast.makeText(Login.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
 

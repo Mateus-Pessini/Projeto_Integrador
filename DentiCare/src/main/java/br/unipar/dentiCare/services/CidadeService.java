@@ -1,6 +1,7 @@
 package br.unipar.dentiCare.services;
 
 import br.unipar.dentiCare.models.Pessoa.Cidade;
+import br.unipar.dentiCare.models.Pessoa.Estado;
 import br.unipar.dentiCare.repositories.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,8 +41,8 @@ public class CidadeService {
         return cidadeRepository.findAll();
     }
 
-    public List<Cidade> findAllByEstado(Long estadoId){
-        return cidadeRepository.findAllByEstado(estadoId);
+    public List<Cidade> findAllByEstado(Estado estado){
+        return cidadeRepository.findAllByEstado(estado);
     }
 
 

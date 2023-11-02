@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 
-    List<Cidade> findAllByEstado(@Param("estadoId") Long estadoId);
+    List<Cidade> findAllByEstado(@Param("estadoId") Estado estado);
 }
