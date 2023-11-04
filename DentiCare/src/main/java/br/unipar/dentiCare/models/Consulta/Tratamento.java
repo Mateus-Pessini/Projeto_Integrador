@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.models.Consulta;
 
+import br.unipar.dentiCare.models.Pessoa.Cliente;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
@@ -35,7 +36,7 @@ public class Tratamento {
     private String ds_observacao;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoaId")
-    private Pessoa pessoaId;
+    @JoinColumn(name = "clienteId")
+    private Cliente clienteId;
 
 }

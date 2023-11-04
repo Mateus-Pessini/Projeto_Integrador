@@ -9,22 +9,26 @@ public class Cliente extends Pessoa{
 
     private String RG;
 
-    private List<Endereco> enderecos;
+    private Endereco endereco;
+
+    private List<Dentes> dentes;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String CPF, String RG, List<Endereco> enderecos) {
+    public Cliente(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String CPF, String RG, Endereco enderecos, List<Dentes> dentes) {
         super(nome, nrtelefone, email, tpPessoa);
         this.CPF = CPF;
         this.RG = RG;
-        this.enderecos = enderecos;
+        this.endereco = endereco;
+        this.dentes = dentes;
     }
 
-    public Cliente(String CPF, String RG, List<Endereco> enderecos) {
+    public Cliente(String CPF, String RG, Endereco enderecos, List<Dentes> dentes) {
         this.CPF = CPF;
         this.RG = RG;
-        this.enderecos = enderecos;
+        this.endereco = endereco;
+        this.dentes = dentes;
     }
 
     public String getCPF() {
@@ -43,11 +47,19 @@ public class Cliente extends Pessoa{
         this.RG = RG;
     }
 
-    public List<Endereco> getEnderecos() {
-        return enderecos;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Dentes> getDentes() {
+        return dentes;
+    }
+
+    public void setDentes(List<Dentes> dentes) {
+        this.dentes = dentes;
     }
 }

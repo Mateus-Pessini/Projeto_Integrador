@@ -25,9 +25,6 @@ public class Endereco {
     @Size(min = 3, max = 200)
     private String nmRua;
 
-    @NotBlank
-    @NotEmpty
-    @NotNull
     private int numero;
 
     @Size(min = 3, max = 200)
@@ -38,7 +35,7 @@ public class Endereco {
 
     private String complemento;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "clienteId")
     @JsonIgnore
     private Cliente cliente;

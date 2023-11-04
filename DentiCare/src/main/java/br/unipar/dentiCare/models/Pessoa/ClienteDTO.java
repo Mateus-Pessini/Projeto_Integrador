@@ -11,11 +11,11 @@ public class ClienteDTO extends PessoaDTO{
 
     private String RG;
 
-    private List<EnderecoDTO> enderecos;
+    private EnderecoDTO endereco;
 
-    public ClienteDTO(Long id, String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, List<EnderecoDTO> enderecos, String CPF, String RG) {
+    public ClienteDTO(Long id, String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, EnderecoDTO endereco, String CPF, String RG) {
         super(id, nome, nrtelefone, email, tpPessoa);
-        this.enderecos = enderecos;
+        this.endereco = endereco;
         this.CPF = CPF;
         this.RG = RG;
     }

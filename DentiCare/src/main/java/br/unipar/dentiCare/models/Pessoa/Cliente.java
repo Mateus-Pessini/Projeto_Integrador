@@ -1,6 +1,8 @@
 package br.unipar.dentiCare.models.Pessoa;
 
 import br.unipar.dentiCare.enums.TpPessoaEnum;
+import br.unipar.dentiCare.models.Consulta.Dentes;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,8 +28,12 @@ public class Cliente extends Pessoa{
     @Size(min = 9, max = 9)
     private String RG;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "clienteId")
-    private List<Endereco> enderecos;
+    private Endereco endereco;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "denteId")
+    @JsonIgnore
+    private List<Dentes> dentes;
 }

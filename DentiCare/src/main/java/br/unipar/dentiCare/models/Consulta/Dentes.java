@@ -1,5 +1,7 @@
 package br.unipar.dentiCare.models.Consulta;
 
+import br.unipar.dentiCare.models.Pessoa.Cliente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +31,10 @@ public class Dentes {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "dentesId")
     private List<Tratamento> tratamentoId;
+
+
+    @ManyToOne(cascade =  CascadeType.ALL)
+    @JoinColumn(name = "denteId")
+    @JsonIgnore
+    private Cliente cliente;
 }

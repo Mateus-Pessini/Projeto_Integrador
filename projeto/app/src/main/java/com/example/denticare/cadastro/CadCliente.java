@@ -30,15 +30,16 @@ import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
+import com.example.denticare.api.Api.ApiEndereco;
 import com.example.denticare.api.Api.ApiEstado;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
+import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
 import com.example.denticare.opcoes.OpcaoCadUsuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -86,7 +87,7 @@ public class CadCliente extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
-        Log.e("",""+token);
+        Log.e("", "" + token);
 
         if (!token.isEmpty()) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
@@ -94,7 +95,7 @@ public class CadCliente extends AppCompatActivity {
             Call<List<Estado>> estadoCall = apiEstado.GET_ALL_ESTADO(token);
             estadoCall.enqueue(new Callback<List<Estado>>() {
                 @Override
-                public void onResponse(Call<List<Estado>>call, Response<List<Estado>> response) {
+                public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                     if (response.isSuccessful()) {
                         List<Estado> estados = response.body();
                         EstadoAdapter adapter = new EstadoAdapter(CadCliente.this, estados);
@@ -113,8 +114,6 @@ public class CadCliente extends AppCompatActivity {
                 }
             });
         }
-
-
 
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
@@ -185,6 +184,7 @@ public class CadCliente extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
+                ApiEndereco apiEndereco = RetroFit.REGISTER_ENDERECO();
                 validaCampos();
                 Endereco end = new Endereco();
                 Cliente cli = new Cliente();
@@ -194,34 +194,53 @@ public class CadCliente extends AppCompatActivity {
                 end.setNmRua(edRua.getText().toString());
                 end.setNumero(Integer.parseInt(edNumero.getText().toString()));
                 end.setBairro(edBairro.getText().toString());
-                List<Endereco> enderecosDoCliente = new ArrayList<>();
-                enderecosDoCliente.add(end);
+
                 cli.setCPF(edCPF.getText().toString());
                 cli.setRG(edRG.getText().toString());
                 cli.setEmail(edEmail.getText().toString());
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
-                cli.setEnderecos(enderecosDoCliente);
+                cli.setEndereco(end);
+                criarDentes(cli);
 
-                Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer" + token, cli);
-                clienteCall.enqueue(new Callback<Cliente>() {
+                Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
+                enderecoCall.enqueue(new Callback<Endereco>() {
                     @Override
-                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                    public void onResponse(Call<Endereco> call, Response<Endereco> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
-                            limparCampos();
-                            //Intent intent = new Intent(CadCliente.this, MainActivity.class);
-                            //startActivity(intent);
+                            Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer " + token, cli);
+                            clienteCall.enqueue(new Callback<Cliente>() {
+                                @Override
+                                public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                                    if (response.isSuccessful()) {
+                                        Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                        limparCampos();
+                                    } else {
+                                        Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                                        Log.e("", "Message =" + response.code());
+                                        Log.e("", "Body =" + response.body());
+                                        Log.e("", "ErroBody =" + response.errorBody());
+                                        Log.e("", "response =" + response);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<Cliente> call, Throwable t) {
+                                    Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         } else {
-                            Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<Cliente> call, Throwable t) {
+                    public void onFailure(Call<Endereco> call, Throwable t) {
                         Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
             }
         });
 
@@ -234,10 +253,10 @@ public class CadCliente extends AppCompatActivity {
                 String token = sharedPreferences.getString("token", "");
                 if (!token.isEmpty()) {
                     ApiCidade apiCidade = RetroFit.GET_ALL_BY_ESTADO();
-                    Call<List<Cidade>> call = apiCidade.GET_ALL_BY_ESTADO(token,estadoId);
+                    Call<List<Cidade>> call = apiCidade.GET_ALL_BY_ESTADO(token, estadoId);
                     call.enqueue(new Callback<List<Cidade>>() {
                         @Override
-                        public void onResponse(Call<List<Cidade>>call, Response<List<Cidade>> response) {
+                        public void onResponse(Call<List<Cidade>> call, Response<List<Cidade>> response) {
                             if (response.isSuccessful()) {
                                 List<Cidade> cidades = response.body();
                                 CidadeAdapter adapter = new CidadeAdapter(CadCliente.this, cidades);
@@ -258,6 +277,7 @@ public class CadCliente extends AppCompatActivity {
                     });
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Código para lidar com nenhum item selecionado
@@ -346,6 +366,15 @@ public class CadCliente extends AppCompatActivity {
         if (spCidade.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spCidade.getSelectedView();
             errorText.setError("Selecione uma cidade válida");
+        }
+    }
+
+    public void criarDentes(Cliente cliente) {
+        for (int i = 1; i <= 32; i++) {
+            Dentes dente = new Dentes();
+            dente.setNrDente(i);
+            dente.setDsDente("Dente " + i);
+            dente.setCliente(cliente);
         }
     }
 
