@@ -222,7 +222,6 @@ public class CadCliente extends AppCompatActivity {
                                                 Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
                                                 limparCampos();
                                             }
-
                                             @Override
                                             public void onFailure(Call<Dentes> call, Throwable t) {
                                                 Toast.makeText(CadCliente.this, "Não foi possível salvar os Dentes.", Toast.LENGTH_SHORT).show();
@@ -257,7 +256,7 @@ public class CadCliente extends AppCompatActivity {
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Long estadoId = ((Estado) spEstado.getSelectedItem()).getId();
+                Long estadoId = ((Estado) spEstado.getSelectedItem()).getId(); // Supondo que seu objeto Estado tenha um método getId() para obter o ID
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
                 String token = sharedPreferences.getString("token", "");
                 if (!token.isEmpty()) {
@@ -303,7 +302,6 @@ public class CadCliente extends AppCompatActivity {
         edRG.setText("");
         edRua.setText("");
         edComplemento.setText("");
-        edBairro.setText("");
         edEmail.setText("");
         edCEP.setText("");
         edNumero.setText("");
@@ -313,7 +311,6 @@ public class CadCliente extends AppCompatActivity {
         edTelefone.setError(null);
         edCPF.setError(null);
         edRG.setError(null);
-        edBairro.setError(null);
         edRua.setError(null);
         edEmail.setError(null);
         edCEP.setError(null);
@@ -363,7 +360,7 @@ public class CadCliente extends AppCompatActivity {
         }
 
         String numero = edNumero.getText().toString().trim();
-        if (numero.isEmpty()||numero == null) {
+        if (numero.isEmpty() || numero == null) {
             edNumero.setError("Campo obrigatório");
         }
 
