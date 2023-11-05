@@ -1,6 +1,8 @@
 package br.unipar.dentiCare.services;
 
 import br.unipar.dentiCare.models.Pessoa.Cliente;
+import br.unipar.dentiCare.models.Pessoa.ClienteDTO;
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +16,19 @@ public class ClienteService {
     @Autowired
     ClienteRepository clienteRepository;
 
-    public Cliente insert(Cliente cliente) throws Exception{
-        return clienteRepository.saveAndFlush(cliente);
+    public Cliente insert(ClienteDTO clienteDTO) throws Exception{
+        Cliente cliente = new Cliente();
+        cliente.setCpf(clienteDTO.getCpf());
+        cliente.setRg(clienteDTO.getRg());
+
+        cliente.setNome(clienteDTO.getNome());
+        cliente.setNrtelefone(clienteDTO.getNrtelefone());
+        cliente.setEmail(clienteDTO.getEmail());
+        cliente.setTpPessoa(clienteDTO.getTpPessoa());
+
+        cliente = clienteRepository.saveAndFlush(cliente);
+
+        return cliente;
     }
 
     public Cliente edit(Cliente cliente) throws Exception{

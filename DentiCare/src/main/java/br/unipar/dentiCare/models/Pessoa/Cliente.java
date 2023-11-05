@@ -23,10 +23,10 @@ import java.util.List;
 public class Cliente extends Pessoa{
 
     @Size(min = 11, max = 11)
-    private String CPF;
+    private String cpf;
 
     @Size(min = 9, max = 9)
-    private String RG;
+    private String rg;
 
     @OneToOne
     @JoinColumn(name = "clienteId")

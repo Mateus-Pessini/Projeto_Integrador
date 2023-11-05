@@ -78,4 +78,8 @@ public class RetroFit {
 
     public static ApiCidade GET_ALL_BY_ESTADO(){return retrofit1.create(ApiCidade.class);}
 
+    //DENTES
+
+    public static ApiDente REGISTER_DENTES(){return retrofit1.create(ApiDente.class);}
+
 }

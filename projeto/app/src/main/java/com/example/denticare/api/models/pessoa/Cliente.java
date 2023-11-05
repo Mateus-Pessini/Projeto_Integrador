@@ -5,9 +5,9 @@ import com.example.denticare.api.models.enums.TpPessoaEnum;
 import java.util.List;
 
 public class Cliente extends Pessoa{
-    private String CPF;
+    private String cpf;
 
-    private String RG;
+    private String rg;
 
     private Endereco endereco;
 
@@ -16,35 +16,35 @@ public class Cliente extends Pessoa{
     public Cliente() {
     }
 
-    public Cliente(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String CPF, String RG, Endereco enderecos, List<Dentes> dentes) {
+    public Cliente(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String cpf, String rg, Endereco endereco, List<Dentes> dentes) {
         super(nome, nrtelefone, email, tpPessoa);
-        this.CPF = CPF;
-        this.RG = RG;
+        this.cpf = cpf;
+        this.rg = rg;
         this.endereco = endereco;
         this.dentes = dentes;
     }
 
-    public Cliente(String CPF, String RG, Endereco enderecos, List<Dentes> dentes) {
-        this.CPF = CPF;
-        this.RG = RG;
+    public Cliente(String cpf, String rg, Endereco endereco, List<Dentes> dentes) {
+        this.cpf = cpf;
+        this.rg = rg;
         this.endereco = endereco;
         this.dentes = dentes;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getRG() {
-        return RG;
+    public String getRg() {
+        return rg;
     }
 
-    public void setRG(String RG) {
-        this.RG = RG;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public Endereco getEndereco() {

@@ -7,35 +7,35 @@ import java.util.List;
 
 public class ClienteDTO extends PessoaDTO{
 
-    private String CPF;
+    private String cpf;
 
-    private String RG;
+    private String rg;
 
     private EnderecoDTO endereco;
 
-    public ClienteDTO(Long id, String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, EnderecoDTO endereco, String CPF, String RG) {
+    public ClienteDTO(Long id, String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, EnderecoDTO endereco, String cpf, String rg) {
         super(id, nome, nrtelefone, email, tpPessoa);
         this.endereco = endereco;
-        this.CPF = CPF;
-        this.RG = RG;
+        this.cpf = cpf;
+        this.rg = rg;
     }
 
     public ClienteDTO() {
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setCPF(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getRG() {
-        return RG;
+    public String getRg() {
+        return rg;
     }
 
-    public void setRG(String RG) {
-        this.RG = RG;
+    public void setRG(String rg) {
+        this.rg = rg;
     }
 }

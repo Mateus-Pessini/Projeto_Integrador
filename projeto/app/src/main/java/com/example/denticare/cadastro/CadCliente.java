@@ -30,6 +30,7 @@ import com.example.denticare.agendamento.Agenda;
 import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
+import com.example.denticare.api.Api.ApiDente;
 import com.example.denticare.api.Api.ApiEndereco;
 import com.example.denticare.api.Api.ApiEstado;
 import com.example.denticare.api.Api.RetroFit;
@@ -185,18 +186,19 @@ public class CadCliente extends AppCompatActivity {
             public void onClick(View v) {
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
                 ApiEndereco apiEndereco = RetroFit.REGISTER_ENDERECO();
+                ApiDente apiDente = RetroFit.REGISTER_DENTES();
                 validaCampos();
                 Endereco end = new Endereco();
                 Cliente cli = new Cliente();
-                end.setCEP(edCEP.getText().toString());
+                end.setCep(edCEP.getText().toString());
                 end.setCidade((Cidade) spCidade.getSelectedItem());
                 end.setComplemento(edComplemento.getText().toString());
                 end.setNmRua(edRua.getText().toString());
                 end.setNumero(Integer.parseInt(edNumero.getText().toString()));
                 end.setBairro(edBairro.getText().toString());
 
-                cli.setCPF(edCPF.getText().toString());
-                cli.setRG(edRG.getText().toString());
+                cli.setCpf(edCPF.getText().toString());
+                cli.setRg(edRG.getText().toString());
                 cli.setEmail(edEmail.getText().toString());
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
@@ -213,14 +215,21 @@ public class CadCliente extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<Cliente> call, Response<Cliente> response) {
                                     if (response.isSuccessful()) {
-                                        Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
-                                        limparCampos();
+                                        Call<Dentes> dentesCall = apiDente.REGISTER_DENTE("Bearer "+ token,cli.getDentes());
+                                        dentesCall.enqueue(new Callback<Dentes>() {
+                                            @Override
+                                            public void onResponse(Call<Dentes> call, Response<Dentes> response) {
+                                                Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                                limparCampos();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<Dentes> call, Throwable t) {
+                                                Toast.makeText(CadCliente.this, "Não foi possível salvar os Dentes.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                     } else {
-                                        Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
-                                        Log.e("", "Message =" + response.code());
-                                        Log.e("", "Body =" + response.body());
-                                        Log.e("", "ErroBody =" + response.errorBody());
-                                        Log.e("", "response =" + response);
+                                        Toast.makeText(CadCliente.this, "Não foi possível salvar o Cliente.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
 
@@ -230,7 +239,7 @@ public class CadCliente extends AppCompatActivity {
                                 }
                             });
                         } else {
-
+                            Toast.makeText(CadCliente.this, "Não foi possível salvar o Endereço.", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -248,7 +257,7 @@ public class CadCliente extends AppCompatActivity {
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Long estadoId = ((Estado) spEstado.getSelectedItem()).getId(); // Supondo que seu objeto Estado tenha um método getId() para obter o ID
+                Long estadoId = ((Estado) spEstado.getSelectedItem()).getId();
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
                 String token = sharedPreferences.getString("token", "");
                 if (!token.isEmpty()) {
@@ -294,6 +303,7 @@ public class CadCliente extends AppCompatActivity {
         edRG.setText("");
         edRua.setText("");
         edComplemento.setText("");
+        edBairro.setText("");
         edEmail.setText("");
         edCEP.setText("");
         edNumero.setText("");
@@ -303,6 +313,7 @@ public class CadCliente extends AppCompatActivity {
         edTelefone.setError(null);
         edCPF.setError(null);
         edRG.setError(null);
+        edBairro.setError(null);
         edRua.setError(null);
         edEmail.setError(null);
         edCEP.setError(null);
@@ -352,7 +363,7 @@ public class CadCliente extends AppCompatActivity {
         }
 
         String numero = edNumero.getText().toString().trim();
-        if (numero.isEmpty()) {
+        if (numero.isEmpty()||numero == null) {
             edNumero.setError("Campo obrigatório");
         }
 
