@@ -88,7 +88,6 @@ public class CadCliente extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
-        Log.e("", "" + token);
 
         if (!token.isEmpty()) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();

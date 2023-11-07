@@ -82,4 +82,8 @@ public class RetroFit {
 
     public static ApiDente REGISTER_DENTES(){return retrofit1.create(ApiDente.class);}
 
+    //DENTISTA
+
+    public static ApiDentista REGISTER_DENTISTA(){return retrofit1.create(ApiDentista.class);}
+
 }

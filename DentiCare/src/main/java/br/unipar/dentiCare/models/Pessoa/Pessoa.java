@@ -30,10 +30,10 @@ public class Pessoa {
     @Size(min = 3, max = 100)
     private String nome;
 
-    @Size(min = 9, max = 9)
+    @Size(min = 11, max = 11)
     private String nrtelefone;
 
-    @Size(min = 3, max = 60)
+    @Size(min = 3, max = 100)
     private String email;
 
     private TpPessoaEnum tpPessoa;
