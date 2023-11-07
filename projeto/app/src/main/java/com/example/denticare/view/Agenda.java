@@ -1,4 +1,4 @@
-package com.example.denticare.agendamento;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,13 +13,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.SelClienteFoto;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package com.example.denticare.cadastro;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,15 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.SelClienteFoto;
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class DeleteCliente extends AppCompatActivity {
 

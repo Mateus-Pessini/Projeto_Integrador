@@ -1,4 +1,4 @@
-package com.example.denticare.cadastro;
+package com.example.denticare.view;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiError;
 import com.example.denticare.api.Api.ApiErrorParser;

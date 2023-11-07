@@ -1,4 +1,4 @@
-package com.example.denticare;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,36 +9,32 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
-import com.example.denticare.cadastro.AtualizaCad;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
+import com.example.denticare.R;
 
-public class GeraPDF extends AppCompatActivity {
+public class AddFoto extends AppCompatActivity {
 
     private LinearLayout btConsultaRecep;
     private LinearLayout btAgendarRecep;
+    private LinearLayout btPdfRecep;
     private LinearLayout btCadClienteRecep;
-    private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private Button btDdCancel;
-    private Button btDdGerar;
+    private Button btDdSalvar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gerapdf);
+        setContentView(R.layout.activity_addfoto);
 
         btMeusDados = findViewById(R.id.btMeusDados);
         btAgendarRecep = findViewById(R.id.btAgendarRecep);
-        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        btPdfRecep = findViewById(R.id.btPdfRecep);
         btSair = findViewById(R.id.btSair);
-        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btDdCancel = findViewById(R.id.btDdCancel);
-        btDdGerar = findViewById(R.id.btDdGerar);
+        btDdSalvar = findViewById(R.id.btDdSalvar);
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
@@ -46,40 +42,50 @@ public class GeraPDF extends AppCompatActivity {
         btDdCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, MainActivity.class);
+                Intent intent = new Intent(AddFoto.this, MainActivity.class);
                 startActivity(intent);
 
                 // Exibir uma mensagem de confirmação
-                Toast.makeText(GeraPDF.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddFoto.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
             }
         });
-
-        btDdGerar.setOnClickListener(new View.OnClickListener() {
+        btDdSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, MainActivity.class);
+                Intent intent = new Intent(AddFoto.this, MainActivity.class);
                 startActivity(intent);
+
+                // Exibir uma mensagem de confirmação
+                Toast.makeText(AddFoto.this, "Dados salvos com sucesso!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, Consulta.class);
+                Intent intent = new Intent(AddFoto.this, Consulta.class);
                 startActivity(intent);
             }
         });
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, Agenda.class);
+                Intent intent = new Intent(AddFoto.this, Agenda.class);
+                startActivity(intent);
+            }
+        });
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddFoto.this, GeraPDF.class);
                 startActivity(intent);
             }
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(GeraPDF.this, new OpcaoCadUsuario.CustomDialogListener() {
+                OpcaoCadUsuario.showCustomDialog(AddFoto.this, new OpcaoCadUsuario.CustomDialogListener() {
                     @Override
                     public void onNegativeButtonClick() {
 
@@ -87,27 +93,19 @@ public class GeraPDF extends AppCompatActivity {
                 });
             }
         });
-        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, SelClienteFoto.class);
-                startActivity(intent);
-            }
-        });
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, Login.class);
+                Intent intent = new Intent(AddFoto.this, Login.class);
                 startActivity(intent);
             }
         });
         btMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, DadosDentista.class);
+                Intent intent = new Intent(AddFoto.this, DadosDentista.class);
                 startActivity(intent);
             }
         });
-
     }
 }

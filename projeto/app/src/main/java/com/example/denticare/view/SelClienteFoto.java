@@ -1,4 +1,4 @@
-package com.example.denticare;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
-import com.example.denticare.cadastro.AtualizaCad;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
+import com.example.denticare.R;
 
 public class SelClienteFoto extends AppCompatActivity {
 

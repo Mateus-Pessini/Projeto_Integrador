@@ -16,67 +16,67 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".consulta.EscolhaDente"
+            android:name=".view.EscolhaDente"
             android:exported="false" />
         <activity
-            android:name=".consulta.InicialConsulta"
+            android:name=".view.InicialConsulta"
             android:exported="false" />
         <activity
-            android:name=".consulta.HistoricoDentario"
+            android:name=".view.HistoricoDentario"
             android:exported="false" />
         <activity
-            android:name=".DadosDentista"
+            android:name=".view.DadosDentista"
             android:exported="false" />
         <activity
-            android:name=".cell.CadCell"
+            android:name=".view.CadCell"
             android:exported="false" />
         <activity
-            android:name=".cell.AgendCell"
+            android:name=".view.AgendCell"
             android:exported="false" />
         <activity
             android:name=".nomelogo.ToolBarActivity"
             android:exported="false" />
         <activity
-            android:name=".cadastro.Login"
+            android:name=".view.Login"
             android:exported="false" />
         <activity
-            android:name=".cadastro.CadInicial"
+            android:name=".view.CadInicial"
             android:exported="false" />
         <activity
-            android:name=".agendamento.Consulta"
+            android:name=".view.Consulta"
             android:exported="false" />
         <activity
-            android:name=".AddFoto"
+            android:name=".view.AddFoto"
             android:exported="false" />
         <activity
-            android:name=".SelClienteFoto"
+            android:name=".view.SelClienteFoto"
             android:exported="false" />
         <activity
-            android:name=".GeraPDF"
+            android:name=".view.GeraPDF"
             android:exported="false" />
         <activity
-            android:name=".cadastro.AtualizaCad"
+            android:name=".view.AtualizaCad"
             android:exported="false" />
         <activity
-            android:name=".cadastro.DeleteCliente"
+            android:name=".view.DeleteCliente"
             android:exported="false" />
         <activity
-            android:name=".cadastro.CadCliente"
+            android:name=".view.CadCliente"
             android:exported="false" />
         <activity
-            android:name=".agendamento.Agenda"
+            android:name=".view.Agenda"
             android:exported="false" />
         <activity
-            android:name=".agendamento.AgendaHorario"
+            android:name=".view.AgendaHorario"
             android:exported="false" />
         <activity
-            android:name=".agendamento.AgendaCliente"
+            android:name=".view.AgendaCliente"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".cell.InicialCell"
+            android:name=".view.InicialCell"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

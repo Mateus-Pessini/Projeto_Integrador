@@ -1,4 +1,4 @@
-package com.example.denticare.agendamento;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,16 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.SelClienteFoto;
-import com.example.denticare.cadastro.AtualizaCad;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.consulta.InicialConsulta;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class Consulta extends AppCompatActivity {
 

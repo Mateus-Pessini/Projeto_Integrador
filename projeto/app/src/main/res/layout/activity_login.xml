@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/prata"
     android:orientation="vertical"
-    tools:context=".cadastro.Login">
+    tools:context=".view.Login">
 
     <ScrollView
         android:layout_width="match_parent"

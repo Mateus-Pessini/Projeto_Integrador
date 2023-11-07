@@ -1,43 +1,35 @@
-package com.example.denticare.cadastro;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.denticare.AddFoto;
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.SelClienteFoto;
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
+import com.example.denticare.api.models.user.UsuarioRole;
 
-public class AtualizaCad extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
+    private LinearLayout btConsultaRecep;
     private LinearLayout btAgendarRecep;
-    private LinearLayout btSair;
-    private LinearLayout btMeusDados;
     private LinearLayout btPdfRecep;
     private LinearLayout btCadFotoRecep;
-    private LinearLayout btConsultaRecep;
+    private LinearLayout btSair;
+    private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
-    private Button btCancel;
-    private Button btContinuar;
+    private ImageView ivImgDentista;
+    private TextView tvNomeDentista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_atualizacad);
+        setContentView(R.layout.activity_main);
 
-        // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
 
         btMeusDados = findViewById(R.id.btMeusDados);
@@ -47,27 +39,44 @@ public class AtualizaCad extends AppCompatActivity {
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
-        btCancel = findViewById(R.id.btCancel);
-        btContinuar = findViewById(R.id.btContinuar);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+        tvNomeDentista = findViewById(R.id.tvNomeDentista);
+
+        UsuarioRole role = UsuarioRole.DENTISTA;
+        UsuarioRole usuario = UsuarioRole.SECRETARIA;
+
+        if (role.equals(UsuarioRole.DENTISTA.getRole())) {
+            btCadClienteRecep.setVisibility(View.GONE);
+            btAgendarRecep.setVisibility(View.GONE);
+            Log.d("TipoUsuario", "Usuário é um Dentista");
+        } else if (usuario.equals(UsuarioRole.SECRETARIA)) {
+            btMeusDados.setVisibility(View.GONE);
+            ivImgDentista.setVisibility(View.INVISIBLE);
+            tvNomeDentista.setVisibility(View.GONE);
+            Log.d("TipoUsuario", "Usuário é uma Secretária");
+        } else {
+
+        }
+
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, Consulta.class);
+                Intent intent = new Intent(MainActivity.this, Consulta.class);
                 startActivity(intent);
             }
         });
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, Agenda.class);
+                Intent intent = new Intent(MainActivity.this, Agenda.class);
                 startActivity(intent);
             }
         });
         btPdfRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, GeraPDF.class);
+                Intent intent = new Intent(MainActivity.this, GeraPDF.class);
                 startActivity(intent);
             }
         });
@@ -75,28 +84,28 @@ public class AtualizaCad extends AppCompatActivity {
         btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, SelClienteFoto.class);
+                Intent intent = new Intent(MainActivity.this, SelClienteFoto.class);
                 startActivity(intent);
             }
         });
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, Login.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
         });
         btMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, DadosDentista.class);
+                Intent intent = new Intent(MainActivity.this, DadosDentista.class);
                 startActivity(intent);
             }
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(AtualizaCad.this, new OpcaoCadUsuario.CustomDialogListener() {
+                OpcaoCadUsuario.showCustomDialog(MainActivity.this, new OpcaoCadUsuario.CustomDialogListener() {
                     @Override
                     public void onNegativeButtonClick() {
 
@@ -104,24 +113,5 @@ public class AtualizaCad extends AppCompatActivity {
                 });
             }
         });
-        btCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, MainActivity.class);
-                startActivity(intent);
-
-                // Exibir uma mensagem de confirmação
-                Toast.makeText(AtualizaCad.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
-            }
-        });
-        btContinuar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AtualizaCad.this, CadCliente.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 }

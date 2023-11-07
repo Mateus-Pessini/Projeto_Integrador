@@ -1,56 +1,51 @@
-package com.example.denticare;
+package com.example.denticare.view;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.denticare.cadastro.AtualizaCad;
-import com.example.denticare.cadastro.CadCliente;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.cell.InicialCell;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
+import com.example.denticare.R;
 
-public class ConfirLogin {
+public class DescricaoConsulta {
 
-    public static void showCustomDialog(Context context, final ConfirLogin.CustomDialogListener listener) {
+    public static void showCustomDialog(Context context, final DescricaoConsulta.CustomDialogListener listener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_confir_login, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_descricao_consulta, null);
 
         builder.setView(view);
         final AlertDialog alertDialog = builder.create();
 
         Button btCancel = view.findViewById(R.id.btCancel);
-        Button btEntrar = view.findViewById(R.id.btEntrar);
+        Button btSalvar = view.findViewById(R.id.btSalvar);
 
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, InicialCell.class);
+                Intent intent = new Intent(context, EscolhaDente.class);
                 context.startActivity(intent);
                 alertDialog.dismiss();
             }
         });
 
-        btEntrar.setOnClickListener(new View.OnClickListener() {
+        btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Login.class);
+                Intent intent = new Intent(context, EscolhaDente.class);
                 context.startActivity(intent);
                 alertDialog.dismiss();
             }
         });
+
         alertDialog.show();
     }
 
     public interface CustomDialogListener {
         void onNegativeButtonClick();
     }
+
+
 }

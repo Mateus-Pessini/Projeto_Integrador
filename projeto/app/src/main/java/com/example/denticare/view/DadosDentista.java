@@ -1,4 +1,4 @@
-package com.example.denticare;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,20 +12,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
+import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiDentista;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Dentista;
-import com.example.denticare.cadastro.AtualizaCad;
-import com.example.denticare.cadastro.CadCliente;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class DadosDentista extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.denticare.cell;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.denticare.ConfirLogin;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.cadastro.CadCliente;
-import com.example.denticare.cadastro.CadInicial;
-import com.example.denticare.cadastro.Login;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class InicialCell extends AppCompatActivity {
 

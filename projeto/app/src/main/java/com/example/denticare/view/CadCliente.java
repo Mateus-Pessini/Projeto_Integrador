@@ -1,11 +1,10 @@
-package com.example.denticare.cadastro;
+package com.example.denticare.view;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,14 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.denticare.Adapter.CidadeAdapter;
 import com.example.denticare.Adapter.EstadoAdapter;
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.SelClienteFoto;
-import com.example.denticare.agendamento.Agenda;
-import com.example.denticare.agendamento.Consulta;
 import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiDente;
@@ -39,7 +31,6 @@ import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 import java.util.List;
 

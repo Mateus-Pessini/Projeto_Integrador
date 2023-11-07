@@ -1,4 +1,4 @@
-package com.example.denticare.cell;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

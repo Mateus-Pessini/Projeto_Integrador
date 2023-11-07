@@ -1,4 +1,4 @@
-package com.example.denticare.confirmacoes;
+package com.example.denticare.view;
 
 import android.os.Bundle;
 

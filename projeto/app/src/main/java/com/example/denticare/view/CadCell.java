@@ -1,4 +1,4 @@
-package com.example.denticare.cell;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.denticare.DadosDentista;
-import com.example.denticare.GeraPDF;
 import com.example.denticare.R;
-import com.example.denticare.cadastro.AtualizaCad;
 
 public class CadCell extends AppCompatActivity {
 

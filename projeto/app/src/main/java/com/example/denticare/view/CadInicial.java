@@ -1,4 +1,4 @@
-package com.example.denticare.cadastro;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiError;
 import com.example.denticare.api.Api.ApiErrorParser;
@@ -30,7 +28,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Callback;
-import retrofit2.Retrofit;
 
 public class CadInicial extends AppCompatActivity {
 

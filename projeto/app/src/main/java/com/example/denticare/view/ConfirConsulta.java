@@ -1,4 +1,4 @@
-package com.example.denticare.confirmacoes;
+package com.example.denticare.view;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.denticare.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ConfirDelete#newInstance} factory method to
+ * Use the {@link ConfirConsulta#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConfirDelete extends Fragment {
+public class ConfirConsulta extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class ConfirDelete extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ConfirDelete() {
+    public ConfirConsulta() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class ConfirDelete extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ConfirDelete.
+     * @return A new instance of fragment ComfirConsulta.
      */
     // TODO: Rename and change types and number of parameters
-    public static ConfirDelete newInstance(String param1, String param2) {
-        ConfirDelete fragment = new ConfirDelete();
+    public static ConfirConsulta newInstance(String param1, String param2) {
+        ConfirConsulta fragment = new ConfirConsulta();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class ConfirDelete extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confir_delete, container, false);
+        return inflater.inflate(R.layout.fragment_confir_consulta, container, false);
     }
 }

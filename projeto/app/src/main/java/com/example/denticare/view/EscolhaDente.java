@@ -1,4 +1,4 @@
-package com.example.denticare.consulta;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.denticare.DescricaoConsulta;
-import com.example.denticare.MainActivity;
-import com.example.denticare.NavigationUtil;
 import com.example.denticare.R;
-import com.example.denticare.opcoes.OpcaoCadUsuario;
 
 public class EscolhaDente extends AppCompatActivity {
 

@@ -1,10 +1,10 @@
-package com.example.denticare.agendamento;
+package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.denticare.NavigationUtil;
+import com.example.denticare.view.NavigationUtil;
 import com.example.denticare.R;
 
 public class AgendaHorario extends AppCompatActivity {
