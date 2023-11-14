@@ -44,9 +44,15 @@ public class PessoaController {
     }
 
     @GetMapping(path = "/{id}")
-    @ApiOperation(value = "Busca um Pessoa pelo id")
+    @ApiOperation(value = "Busca uma Pessoa pelo id")
     public Pessoa findById(@PathVariable Long id) throws Exception{
         return pessoaService.findById(id);
+    }
+
+    @GetMapping(path = "/find/{cpf}")
+    @ApiOperation(value = "Busca uma Pessoa pelo cpf")
+    public Pessoa findById(@PathVariable String cpf) throws Exception{
+        return pessoaService.findByCpf(cpf);
     }
 
 }

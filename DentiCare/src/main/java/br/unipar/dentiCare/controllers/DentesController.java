@@ -1,8 +1,6 @@
 package br.unipar.dentiCare.controllers;
 
-import br.unipar.dentiCare.models.Consulta.Consulta;
 import br.unipar.dentiCare.models.Consulta.Dentes;
-import br.unipar.dentiCare.services.ConsultaService;
 import br.unipar.dentiCare.services.DentesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -13,5 +13,6 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
     @Query
     List<Pessoa> findAllByNomeOrderByNomeAsc(String nome);
 
+    public Pessoa findOneByCpf(String cpf);
 
 }

@@ -1,6 +1,6 @@
 package br.unipar.dentiCare.models.Consulta;
 
-import br.unipar.dentiCare.models.Pessoa.Cliente;
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,5 +36,5 @@ public class Dentes {
     @ManyToOne(cascade =  CascadeType.ALL)
     @JoinColumn(name = "denteId")
     @JsonIgnore
-    private Cliente cliente;
+    private Pessoa cliente;
 }

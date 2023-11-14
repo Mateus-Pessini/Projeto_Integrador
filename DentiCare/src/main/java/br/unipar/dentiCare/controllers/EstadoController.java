@@ -2,17 +2,9 @@ package br.unipar.dentiCare.controllers;
 
 import br.unipar.dentiCare.models.Pessoa.Estado;
 import br.unipar.dentiCare.services.EstadoService;
-import javax.validation.Valid;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

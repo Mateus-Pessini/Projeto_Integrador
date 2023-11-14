@@ -1,6 +1,5 @@
 package br.unipar.dentiCare.models.Consulta;
 
-import br.unipar.dentiCare.models.Pessoa.Cliente;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
@@ -8,7 +7,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -37,6 +35,6 @@ public class Tratamento {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "clienteId")
-    private Cliente clienteId;
+    private Pessoa clienteId;
 
 }

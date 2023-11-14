@@ -1,7 +1,6 @@
 package br.unipar.dentiCare.models.Consulta;
 
-import br.unipar.dentiCare.models.Pessoa.Cliente;
-import br.unipar.dentiCare.models.Pessoa.Dentista;
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,9 +39,9 @@ public class Consulta {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "clienteId")
-    private Cliente clienteId;
+    private Pessoa clienteId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dentistaId")
-    private Dentista dentistaId;
+    private Pessoa dentistaId;
 }

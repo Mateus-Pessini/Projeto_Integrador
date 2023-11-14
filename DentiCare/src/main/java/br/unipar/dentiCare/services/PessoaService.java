@@ -2,12 +2,10 @@ package br.unipar.dentiCare.services;
 
 import br.unipar.dentiCare.models.Pessoa.*;
 import br.unipar.dentiCare.repositories.CidadeRepository;
-import br.unipar.dentiCare.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.unipar.dentiCare.repositories.PessoaRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,17 +16,24 @@ public class PessoaService {
     PessoaRepository pessoaRepository;
 
     @Autowired
-    EnderecoRepository enderecoRepository;
-
-    @Autowired
     CidadeRepository cidadeRepository;
 
     public Pessoa insert(PessoaDTO pessoaDTO) throws Exception {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(pessoaDTO.getNome());
+        pessoa.setCpf(pessoaDTO.getCpf());
+        pessoa.setRg(pessoaDTO.getRg());
         pessoa.setNrtelefone(pessoaDTO.getNrtelefone());
         pessoa.setEmail(pessoaDTO.getEmail());
         pessoa.setTpPessoa(pessoaDTO.getTpPessoa());
+        pessoa.setCro(pessoaDTO.getCro());
+        pessoa.setEspecialidade(pessoaDTO.getEspecialidade());
+        //pessoa.setFtPerfil(pessoaDTO.getFtPerfil());
+        pessoa.setNmRua(pessoaDTO.getNmRua());
+        pessoa.setNumero(pessoaDTO.getNumero());
+        pessoa.setCep(pessoaDTO.getCep());
+        pessoa.setComplemento(pessoaDTO.getComplemento());
+        //TODO pessoa.setCidade(pessoaDTO.getCidadeId());
 
         pessoa = pessoaRepository.saveAndFlush(pessoa);
 
@@ -51,6 +56,12 @@ public class PessoaService {
             return retorno.get();
         else
             throw new Exception("Pessoa com id " + id + " não identificado");
+    }
+
+    public Pessoa findByCpf(String cpf) {
+        return pessoaRepository.findOneByCpf(cpf);
+
+        //    throw new Exception("Pessoa com o Cpf " + cpf + " não identificado");
     }
 
     public List<Pessoa> findAll() {
