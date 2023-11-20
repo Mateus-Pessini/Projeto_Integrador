@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ import com.example.denticare.api.Api.ApiEstado;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
-import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
 
@@ -38,8 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CadCliente extends AppCompatActivity {
-    private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
+public class CadUsuario extends AppCompatActivity {
     private Button btCancel, btSalvar;
 
     private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
@@ -49,18 +46,11 @@ public class CadCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadcliente);
+        setContentView(R.layout.activity_cadcliente_2);
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
 
-        btMeusDados = findViewById(R.id.btMeusDados);
-        btAgendarRecep = findViewById(R.id.btAgendarRecep);
-        btPdfRecep = findViewById(R.id.btPdfRecep);
-        btSair = findViewById(R.id.btSair);
-        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
-        btConsultaRecep = findViewById(R.id.btConsultaRecep);
-        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btCancel = findViewById(R.id.btCancel);
         btSalvar = findViewById(R.id.btSalvar);
         edNomeCompleto = findViewById(R.id.editTextNomeCompleto);
@@ -90,7 +80,7 @@ public class CadCliente extends AppCompatActivity {
                 public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                     if (response.isSuccessful()) {
                         List<Estado> estados = response.body();
-                        EstadoAdapter adapter = new EstadoAdapter(CadCliente.this, estados);
+                        EstadoAdapter adapter = new EstadoAdapter(CadUsuario.this, estados);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spEstado.setAdapter(adapter);
                     } else {
@@ -108,68 +98,14 @@ public class CadCliente extends AppCompatActivity {
         }
 
 
-        btConsultaRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, Consulta.class);
-                startActivity(intent);
-            }
-        });
-        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, Agenda.class);
-                startActivity(intent);
-            }
-        });
-        btPdfRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, GeraPDF.class);
-                startActivity(intent);
-            }
-        });
-
-        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, SelClienteFoto.class);
-                startActivity(intent);
-            }
-        });
-        btSair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, Login.class);
-                startActivity(intent);
-            }
-        });
-        btMeusDados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, DadosDentista.class);
-                startActivity(intent);
-            }
-        });
-        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(CadCliente.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
-            }
-        });
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, MainActivity.class);
+                Intent intent = new Intent(CadUsuario.this, MainActivity.class);
                 startActivity(intent);
 
                 // Exibir uma mensagem de confirmação
-                Toast.makeText(CadCliente.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadUsuario.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
             }
         });
         btSalvar.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +129,7 @@ public class CadCliente extends AppCompatActivity {
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());
                 cli.setEndereco(end);
-                criarDentes(cli);
+                //criarDentes(cli);
 
                 Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
                 enderecoCall.enqueue(new Callback<Endereco>() {
@@ -205,10 +141,10 @@ public class CadCliente extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<Cliente> call, Response<Cliente> response) {
                                     if (response.isSuccessful()) {
-                                        Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CadUsuario.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
                                         limparCampos();
                                     } else {
-                                        Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CadUsuario.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
                                         Log.e("", "Message =" + response.code());
                                         Log.e("", "Body =" + response.body());
                                         Log.e("", "ErroBody =" + response.errorBody());
@@ -218,7 +154,7 @@ public class CadCliente extends AppCompatActivity {
 
                                 @Override
                                 public void onFailure(Call<Cliente> call, Throwable t) {
-                                    Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(CadUsuario.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } else {
@@ -228,7 +164,7 @@ public class CadCliente extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Endereco> call, Throwable t) {
-                        Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CadUsuario.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -251,11 +187,11 @@ public class CadCliente extends AppCompatActivity {
                         public void onResponse(Call<List<Cidade>> call, Response<List<Cidade>> response) {
                             if (response.isSuccessful()) {
                                 List<Cidade> cidades = response.body();
-                                CidadeAdapter adapter = new CidadeAdapter(CadCliente.this, cidades);
+                                CidadeAdapter adapter = new CidadeAdapter(CadUsuario.this, cidades);
                                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spCidade.setAdapter(adapter);
                                 spCidade.setClickable(true);
-                                Drawable ativo = ContextCompat.getDrawable(CadCliente.this, R.drawable.borda1);
+                                Drawable ativo = ContextCompat.getDrawable(CadUsuario.this, R.drawable.borda1);
                                 spCidade.setBackground(ativo);
                             } else {
                                 // Trate o erro de resposta da API, se necessário
@@ -361,14 +297,14 @@ public class CadCliente extends AppCompatActivity {
         }
     }
 
-    public void criarDentes(Cliente cliente) {
+   /* public void criarDentes(Cliente cliente) {
         for (int i = 1; i <= 32; i++) {
             Dentes dente = new Dentes();
             dente.setNrDente(i);
             dente.setDsDente("Dente " + i);
             dente.setCliente(cliente);
         }
-    }
+    }*/
 
 
 }

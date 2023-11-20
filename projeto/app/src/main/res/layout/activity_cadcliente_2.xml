@@ -47,197 +47,6 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="732dp"
-                    android:layout_weight="1"
-                    android:background="@color/lateral"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_marginTop="50dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/formaimage" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Picininha"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btAgendarRecep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/calendario" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Agendamentos"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btMeusDados"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/pessoa" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Meus Dados"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btConsultaRecep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/document" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Consultas"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btPdfRecep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/pdf" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Gerar PDF"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btCadClienteRecep"
-                        android:layout_width="210dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/column">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/pessoa" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Cadastrar Clientes"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btCadFotoRecep"
-                        android:layout_width="210dp"
-                        android:layout_height="58dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/img" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Cadastrar Fotos"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/btSair"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="30dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="36dp"
-                            android:src="@drawable/exit" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="Sair"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:orientation="vertical">
@@ -246,7 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Cadastro Cliente"
+                        android:text="Cadastro de Usuário"
                         android:textColor="@color/black"
                         android:textSize="50dp"
                         android:textStyle="bold" />
@@ -257,9 +66,59 @@
                         android:background="@android:color/black" />
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="E-mail:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="Senha:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextEmail"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editSenhaUser"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
@@ -274,15 +133,16 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="250dp"
-                            android:text="Estado:"
+                            android:text="Telefone:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
                         <EditText
@@ -294,24 +154,79 @@
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"/>
 
-                        <Spinner
-                            android:id="@+id/spinnerEstado"
+                        <EditText
+                            android:id="@+id/editTextTelefone"
                             android:layout_width="300dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1" />
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="Telefone:"
+                            android:text="CPF:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="RG:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextCPF"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editTextRG"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Estado:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
@@ -328,18 +243,15 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
-                        <EditText
-                            android:id="@+id/editTextTelefone"
+                        <Spinner
+                            android:id="@+id/spinnerEstado"
                             android:layout_width="400dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:background="@drawable/borda1" />
 
                         <Spinner
                             android:id="@+id/spinnerCidade"
@@ -351,97 +263,66 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="CPF:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
                             android:text="Bairro:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="40dp">
-
-                        <EditText
-                            android:id="@+id/editTextCPF"
-                            android:layout_width="400dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
-
-                        <EditText
-                            android:id="@+id/editTextBairro"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="30dp">
-
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="RG:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
+                            android:layout_marginLeft="88dp"
                             android:text="Rua:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="75dp"
+                            android:text="CEP:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
+
                         <EditText
-                            android:id="@+id/editTextRG"
-                            android:layout_width="400dp"
+                            android:id="@+id/editTextBairro"
+                            android:layout_width="240dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
 
                         <EditText
                             android:id="@+id/editTextRua"
-                            android:layout_width="300dp"
+                            android:layout_width="250dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/editTextCEP"
+                            android:layout_width="185dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="25dp"
                             android:background="@drawable/borda1"
                             android:paddingLeft="10dp"
                             android:textColor="@color/black" />
@@ -449,62 +330,14 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="E-mail:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
                             android:text="Complemento:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="40dp">
-
-                        <EditText
-                            android:id="@+id/editTextEmail"
-                            android:layout_width="400dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
-
-                        <EditText
-                            android:id="@+id/editTextComplemento"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="30dp">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="CEP:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
@@ -521,18 +354,17 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
                         <EditText
-                            android:id="@+id/editTextCEP"
+                            android:id="@+id/editTextComplemento"
                             android:layout_width="400dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
 
                         <EditText
                             android:id="@+id/editTextNumero"
@@ -540,10 +372,71 @@
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
 
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioGroup
+                                android:id="@+id/btRadioGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp">
+
+                                <RadioButton
+                                    android:id="@+id/rbDentista"
+                                    style="@style/RadioButtonCustomStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="8dp"
+                                    android:layout_marginLeft="30dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbRecepcionista"
+                                    style="@style/RadioButtonCustomStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="8dp"
+                                    android:layout_marginLeft="30dp" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:text="Dentista"
+                                android:textColor="@color/black"
+                                android:textSize="30dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Recepcionista"
+                                android:textColor="@color/black"
+                                android:textSize="30dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout

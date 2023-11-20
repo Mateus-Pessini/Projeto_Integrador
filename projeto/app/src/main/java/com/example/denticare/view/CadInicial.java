@@ -1,7 +1,5 @@
 package com.example.denticare.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -12,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiError;
@@ -26,8 +26,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CadInicial extends AppCompatActivity {
 
