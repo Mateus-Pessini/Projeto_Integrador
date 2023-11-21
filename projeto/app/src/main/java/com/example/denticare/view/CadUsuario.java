@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,9 +41,13 @@ import retrofit2.Response;
 public class CadUsuario extends AppCompatActivity {
     private Button btCancel, btSalvar;
 
-    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
+    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro, edCro, edEspecialidade;
 
     private Spinner spEstado, spCidade;
+
+    private RadioButton rbDentista, rbRecepcionista;
+
+    private TextView tvCro, tvEspecialidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,7 @@ public class CadUsuario extends AppCompatActivity {
 
         btCancel = findViewById(R.id.btCancel);
         btSalvar = findViewById(R.id.btSalvar);
+
         edNomeCompleto = findViewById(R.id.editTextNomeCompleto);
         edTelefone = findViewById(R.id.editTextTelefone);
         edCPF = findViewById(R.id.editTextCPF);
@@ -63,9 +70,37 @@ public class CadUsuario extends AppCompatActivity {
         edCEP = findViewById(R.id.editTextCEP);
         edNumero = findViewById(R.id.editTextNumero);
         edBairro = findViewById(R.id.editTextBairro);
+        edCro = findViewById(R.id.editCroUser);
+        edEspecialidade = findViewById(R.id.editTextEspecialidade);
+
+        tvCro = findViewById(R.id.tvCro);
+        tvEspecialidade = findViewById(R.id.tvEspecialidade);
+
+        rbRecepcionista = findViewById(R.id.rbRecepcionista);
+        rbDentista = findViewById(R.id.rbDentista);
 
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
+
+        rbDentista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                edCro.setVisibility(View.VISIBLE);
+                edEspecialidade.setVisibility(View.VISIBLE);
+                tvCro.setVisibility(View.VISIBLE);
+                tvEspecialidade.setVisibility(View.VISIBLE);
+            }
+        });
+
+        rbRecepcionista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                edCro.setVisibility(View.GONE);
+                edEspecialidade.setVisibility(View.GONE);
+                tvCro.setVisibility(View.GONE);
+                tvEspecialidade.setVisibility(View.GONE);
+            }
+        });
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");

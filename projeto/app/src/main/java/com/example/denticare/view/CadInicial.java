@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -54,6 +55,13 @@ public class CadInicial extends AppCompatActivity {
         edCriarSenha = findViewById(R.id.edCriarSenha);
         rbDentista = findViewById(R.id.rbDentista);
         rbRecepcionista = findViewById(R.id.rbRecepcionista);
+
+        rbDentista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+            }
+        });
 
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
