@@ -136,7 +136,7 @@ public class CadUsuario extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadUsuario.this, MainActivity.class);
+                Intent intent = new Intent(CadUsuario.this, NewLogin.class);
                 startActivity(intent);
 
                 // Exibir uma mensagem de confirmação

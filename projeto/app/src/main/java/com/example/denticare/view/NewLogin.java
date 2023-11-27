@@ -45,7 +45,7 @@ public class NewLogin extends AppCompatActivity {
 
         NavigationUtil.hideNavigation(this);
 
-        tvCadastrar = findViewById(R.id.tvCadastrar);
+        tvCadastrar = findViewById(R.id.tvCadastrar2);
         tvCadastrarPreAgendamento = findViewById(R.id.tvCadastrarPreAgendamento);
         btLogar =findViewById(R.id.btLogar);
         edtLogin = findViewById(R.id.edLogin);
@@ -54,7 +54,7 @@ public class NewLogin extends AppCompatActivity {
         tvCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewLogin.this, CadInicial.class);
+                Intent intent = new Intent(NewLogin.this, CadUsuario.class);
                 startActivity(intent);
             }
         });
