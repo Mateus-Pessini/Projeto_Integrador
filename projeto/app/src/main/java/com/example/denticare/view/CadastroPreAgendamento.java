@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -31,7 +32,10 @@ import com.example.denticare.api.models.pessoa.PreAgendamento;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +43,7 @@ import retrofit2.Response;
 
 public class CadastroPreAgendamento extends AppCompatActivity {
 
+    private TextView tvCadastrar;
     private Button btCancel, btSalvar;
     private EditText edCPF, edDateTime;
 
@@ -46,7 +51,10 @@ public class CadastroPreAgendamento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agendapreatendimento);
-        edDateTime=findViewById(R.id.edDateTime);
+
+        tvCadastrar = findViewById(R.id.tvCadastrarCliente);
+        edCPF = findViewById(R.id.editTextCPF);
+        edDateTime = findViewById(R.id.edDateTime);
         btCancel = findViewById(R.id.btCancel);
         btSalvar = findViewById(R.id.btSalvar);
 
@@ -63,6 +71,15 @@ public class CadastroPreAgendamento extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDateTimeDialog(edDateTime);
+            }
+        });
+
+        tvCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadastroPreAgendamento.this, CadUsuario.class);
+                intent.putExtra("type","client");
+                startActivity(intent);
             }
         });
 
@@ -96,18 +113,18 @@ public class CadastroPreAgendamento extends AppCompatActivity {
 
                 validaCamposPreAgendamento();
                 PreAgendamento pre = new PreAgendamento();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-                try {
-                    pre.setDataAgendamento(format.parse(edDateTime.getText().toString()));
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                pre.setData(edDateTime.getText().toString());
 
                 Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA_BY_CPF("Bearer " + token, edCPF.getText().toString());
                 pessoaCall.enqueue(new Callback<Pessoa>() {
                     @Override
                     public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
                         if (response.isSuccessful()) {
+                            Pessoa pessoa = new Pessoa();
+                            //pessoa = response.body();
+                            pessoa.setId(response.body().getId());
+                            pre.setPessoa(pessoa);
                             Call<PreAgendamento> preAgendamentoCall = apiPreAgendamento.REGISTER_PRE_AGENDAMENTO("Bearer " + token, pre);
                             preAgendamentoCall.enqueue(new Callback<PreAgendamento>() {
                                 @Override
@@ -147,7 +164,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
     }
 
     private void showDateTimeDialog(final EditText date_time_in) {
-        final Calendar calendar= Calendar.getInstance();
+        final Calendar calendar= Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo"));//Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -161,7 +178,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
 
-                        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy-MM-dd HH:mm");
+                        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
                         date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
                     }

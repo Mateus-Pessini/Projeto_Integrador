@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.services;
 
+import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.*;
 import br.unipar.dentiCare.repositories.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,16 @@ public class PessoaService {
     @Autowired
     CidadeRepository cidadeRepository;
 
-    public Pessoa insert(PessoaDTO pessoaDTO) throws Exception {
+    public Pessoa insert(PessoaDTO pessoaDTO, boolean cliente) throws Exception {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(pessoaDTO.getNome());
         pessoa.setCpf(pessoaDTO.getCpf());
         pessoa.setRg(pessoaDTO.getRg());
         pessoa.setNrtelefone(pessoaDTO.getNrtelefone());
         pessoa.setEmail(pessoaDTO.getEmail());
-        pessoa.setTpPessoa(pessoaDTO.getTpPessoa());
+        if (cliente) {
+            pessoa.setTpPessoa(TpPessoaEnum.CLIENTE);
+        }
         pessoa.setCro(pessoaDTO.getCro());
         pessoa.setEspecialidade(pessoaDTO.getEspecialidade());
         //pessoa.setFtPerfil(pessoaDTO.getFtPerfil());

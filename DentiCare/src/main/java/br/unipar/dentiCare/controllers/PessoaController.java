@@ -22,7 +22,13 @@ public class PessoaController {
     @PostMapping
     @ApiOperation(value = "Insere um Pessoa")
     public Pessoa insert(@Valid @RequestBody PessoaDTO pessoaDTO) throws Exception{
-        return pessoaService.insert(pessoaDTO);
+        return pessoaService.insert(pessoaDTO, false);
+    }
+
+    @PostMapping(path = "/cliente")
+    @ApiOperation(value = "Insere um Cliente")
+    public Pessoa insertCliente(@Valid @RequestBody PessoaDTO pessoaDTO) throws Exception{
+        return pessoaService.insert(pessoaDTO, true);
     }
 
     @PutMapping

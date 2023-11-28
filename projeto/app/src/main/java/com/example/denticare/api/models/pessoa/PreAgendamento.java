@@ -1,7 +1,6 @@
 package com.example.denticare.api.models.pessoa;
 
-import com.example.denticare.api.models.enums.TpPessoaEnum;
-
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class PreAgendamento {
@@ -9,16 +8,16 @@ public class PreAgendamento {
 
     private Pessoa pessoa;
 
-    private Date dataAgendamento;
+    private String data;
 
     public PreAgendamento() {
     }
 
-    public PreAgendamento(Long id, Pessoa pessoa, Date dataAgendamento) {
+    public PreAgendamento(Long id, Pessoa pessoa, String data) {
         super();
         this.id = id;
         this.pessoa = pessoa;
-        this.dataAgendamento = dataAgendamento;
+        this.data = data;
     }
 
     public Long getId() {
@@ -37,11 +36,11 @@ public class PreAgendamento {
         this.pessoa = pessoa;
     }
 
-    public Date getDataAgendamento() {
-        return dataAgendamento;
+    public String getData() {
+        return data;
     }
 
-    public void setDataAgendamento(Date dataAgendamento) {
-        this.dataAgendamento = dataAgendamento;
+    public void setData(String data) {
+        this.data = data;
     }
 }

@@ -30,6 +30,10 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(authorize -> authorize
                         .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                        .antMatchers(HttpMethod.GET, "/estado").permitAll()
+                        .antMatchers(HttpMethod.GET, "/cidade").permitAll()
+                        .antMatchers(HttpMethod.POST, "/pre-agendamento").permitAll()
+                        .antMatchers(HttpMethod.POST, "/pre-agendamento").permitAll()
                         .antMatchers("/v2/api-docs", "/v3/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.htm", "/webjars/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,13 +42,16 @@ import retrofit2.Response;
 public class CadUsuario extends AppCompatActivity {
     private Button btCancel, btSalvar;
 
-    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro, edCro, edEspecialidade;
+    private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP,
+            edNumero, edEmail, edBairro, edCro, edEspecialidade, edSenhaUser;
 
     private Spinner spEstado, spCidade;
 
     private RadioButton rbDentista, rbRecepcionista;
 
-    private TextView tvCro, tvEspecialidade;
+    private RadioGroup btRadioGroup;
+
+    private TextView tvCro, tvEspecialidade, tvSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class CadUsuario extends AppCompatActivity {
         btCancel = findViewById(R.id.btCancel);
         btSalvar = findViewById(R.id.btSalvar);
 
+        edSenhaUser = findViewById(R.id.editSenhaUser);
         edNomeCompleto = findViewById(R.id.editTextNomeCompleto);
         edTelefone = findViewById(R.id.editTextTelefone);
         edCPF = findViewById(R.id.editTextCPF);
@@ -72,15 +77,27 @@ public class CadUsuario extends AppCompatActivity {
         edBairro = findViewById(R.id.editTextBairro);
         edCro = findViewById(R.id.editCroUser);
         edEspecialidade = findViewById(R.id.editTextEspecialidade);
+        btRadioGroup = findViewById(R.id.btRadioGroup);
 
         tvCro = findViewById(R.id.tvCro);
         tvEspecialidade = findViewById(R.id.tvEspecialidade);
+        tvSenha = findViewById(R.id.tvSenha);
 
         rbRecepcionista = findViewById(R.id.rbRecepcionista);
         rbDentista = findViewById(R.id.rbDentista);
 
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
+
+        Intent myIntent = getIntent(); // gets the previously created intent
+        String type = myIntent.getStringExtra("type");
+        if (type.equals("client")) {
+            edSenhaUser.setVisibility(View.GONE);
+            tvSenha.setVisibility(View.GONE);
+            btRadioGroup.setVisibility(View.GONE);
+            //edEspecialidade.setVisibility(View.GONE);
+
+        }
 
         rbDentista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -106,15 +123,21 @@ public class CadUsuario extends AppCompatActivity {
         String token = sharedPreferences.getString("token", "");
         Log.e("", "" + token);
 
-        if (!token.isEmpty()) {
+        if (!token.isEmpty() || type.equals("client")) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
 
-            Call<List<Estado>> estadoCall = apiEstado.GET_ALL_ESTADO(token);
+            Call<List<Estado>> estadoCall;
+            if (type.equals("client")) {
+                estadoCall = apiEstado.GET_ALL_ESTADO_WITHOUT_AUTH();
+            } else {
+                estadoCall = apiEstado.GET_ALL_ESTADO(token);
+            }
             estadoCall.enqueue(new Callback<List<Estado>>() {
                 @Override
                 public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                     if (response.isSuccessful()) {
                         List<Estado> estados = response.body();
+                        //estados.push(-1, "Selecione");
                         EstadoAdapter adapter = new EstadoAdapter(CadUsuario.this, estados);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spEstado.setAdapter(adapter);

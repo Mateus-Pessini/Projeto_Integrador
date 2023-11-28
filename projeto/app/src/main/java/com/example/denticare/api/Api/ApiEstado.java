@@ -23,6 +23,9 @@ public interface ApiEstado {
     @GET("estado")
     Call<List<Estado>> GET_ALL_ESTADO(@Header("Authorization") String authorization);
 
+    @GET("estado")
+    Call<List<Estado>> GET_ALL_ESTADO_WITHOUT_AUTH();
+
     @GET("estado/{id}")
     Call<Estado> GET_ESTADO(@Header("Authorization") String authorization, @Path("id") Long id);
 
