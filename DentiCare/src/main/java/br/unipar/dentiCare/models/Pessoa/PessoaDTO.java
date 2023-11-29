@@ -16,6 +16,10 @@ public class PessoaDTO {
 
     private String email;
 
+    private String login;
+
+    private String senha;
+
     private TpPessoaEnum tpPessoa;
 
     private String cro;
@@ -37,7 +41,7 @@ public class PessoaDTO {
     private Long cidadeId;
 
 
-    public PessoaDTO(Long id, String nome, String cpf, String rg, String nrtelefone, String email, TpPessoaEnum tpPessoa, String cro, String especialidade,// byte ftPerfil,
+    public PessoaDTO(Long id, String nome, String cpf, String rg, String nrtelefone, String email, String login, String senha, TpPessoaEnum tpPessoa, String cro, String especialidade,// byte ftPerfil,
                      String nmRua, int numero, String bairro, String cep, String complemento, Long cidadeId) {
         this.id = id;
         this.nome = nome;
@@ -45,6 +49,8 @@ public class PessoaDTO {
         this.rg = rg;
         this.nrtelefone = nrtelefone;
         this.email = email;
+        this.login = login;
+        this.senha = senha;
         this.tpPessoa = tpPessoa;
         this.cro = cro;
         this.especialidade = especialidade;
@@ -186,5 +192,21 @@ public class PessoaDTO {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

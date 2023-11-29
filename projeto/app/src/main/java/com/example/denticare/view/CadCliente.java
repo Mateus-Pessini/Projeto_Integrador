@@ -189,9 +189,9 @@ public class CadCliente extends AppCompatActivity {
 
                 cli.setCpf(edCPF.getText().toString());
                 cli.setRg(edRG.getText().toString());
-                cli.setEmail(edEmail.getText().toString());
+                /*cli.setEmail(edEmail.getText().toString());
                 cli.setNome(edNomeCompleto.getText().toString());
-                cli.setNrtelefone(edTelefone.getText().toString());
+                cli.setNrtelefone(edTelefone.getText().toString());*/
                 cli.setEndereco(end);
                 criarDentes(cli);
 

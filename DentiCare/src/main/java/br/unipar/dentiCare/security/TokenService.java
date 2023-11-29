@@ -1,6 +1,6 @@
 package br.unipar.dentiCare.security;
 
-import br.unipar.dentiCare.models.User.Usuario;
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -18,12 +18,12 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String generateToken(Usuario user){
+    public String generateToken(Pessoa pessoa){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
                     .withIssuer("auth-api")
-                    .withSubject(user.getLogin())
+                    .withSubject(pessoa.getEmail())
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
             return token;

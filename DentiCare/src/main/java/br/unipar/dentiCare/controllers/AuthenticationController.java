@@ -1,30 +1,25 @@
 package br.unipar.dentiCare.controllers;
 
 
-import javax.validation.Valid;
-
+import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.User.AuthenticationDTO;
 import br.unipar.dentiCare.models.User.LoginResponseDTO;
-import br.unipar.dentiCare.models.User.RegisterDTO;
-import br.unipar.dentiCare.models.User.Usuario;
-import br.unipar.dentiCare.repositories.UsuarioRepository;
+import br.unipar.dentiCare.repositories.PessoaRepository;
 import br.unipar.dentiCare.security.TokenService;
 import br.unipar.dentiCare.services.AuthorizationService;
-import br.unipar.dentiCare.services.UsuarioService;
+import br.unipar.dentiCare.services.PessoaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("auth")
@@ -34,10 +29,14 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
+    /*@Autowired
     private UsuarioRepository repository;
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuarioService usuarioService;*/
+
+    private PessoaRepository repository;
+    @Autowired
+    private PessoaService pessoaService;
 
     @Autowired
     private TokenService tokenService;
@@ -52,19 +51,19 @@ public class AuthenticationController {
 
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        var token = tokenService.generateToken((Usuario) auth.getPrincipal());
+        var token = tokenService.generateToken((Pessoa) auth.getPrincipal());
 
-        var usuario = (Usuario) auth.getPrincipal();
+        var pessoa = (Pessoa) auth.getPrincipal();
 
-        return ResponseEntity.ok(new LoginResponseDTO(token, usuario.getRole()));
+        return ResponseEntity.ok(new LoginResponseDTO(token, pessoa.getTpPessoa()));
 
     }
 
-    @ApiOperation(value = "Registra Login Para a Aplicação")
+    /*@ApiOperation(value = "Registra Login Para a Aplicação")
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data) throws Exception {
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.registrar(data));
-    }
+        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.registrar(data));
+    }*/
 
 }

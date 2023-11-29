@@ -4,7 +4,7 @@ import com.example.denticare.api.models.enums.TpPessoaEnum;
 
 import java.util.List;
 
-public class Cliente extends Pessoa{
+public class Cliente {
     private String cpf;
 
     private String rg;
@@ -17,7 +17,7 @@ public class Cliente extends Pessoa{
     }
 
     public Cliente(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String cpf, String rg, Endereco endereco, List<Dentes> dentes) {
-        super(nome, nrtelefone, email, tpPessoa);
+        //super(nome, nrtelefone, email, tpPessoa);
         this.cpf = cpf;
         this.rg = rg;
         this.endereco = endereco;

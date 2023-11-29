@@ -35,4 +35,8 @@ public interface ApiCidade {
 
     @GET("cidade/estado/{estadoId}")
     Call<List<Cidade>> GET_ALL_BY_ESTADO(@Header("Authorization") String authorization, @Path("estadoId") Long estadoId);
+
+    @GET("cidade/estado/{estadoId}")
+    Call<List<Cidade>> GET_ALL_BY_ESTADO_WITHOUT_AUTH(@Path("estadoId") Long estadoId);
+
 }

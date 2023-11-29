@@ -4,6 +4,7 @@ import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.*;
 import br.unipar.dentiCare.repositories.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import br.unipar.dentiCare.repositories.PessoaRepository;
 
@@ -20,30 +21,45 @@ public class PessoaService {
     CidadeRepository cidadeRepository;
 
     public Pessoa insert(PessoaDTO pessoaDTO, boolean cliente) throws Exception {
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome(pessoaDTO.getNome());
-        pessoa.setCpf(pessoaDTO.getCpf());
-        pessoa.setRg(pessoaDTO.getRg());
-        pessoa.setNrtelefone(pessoaDTO.getNrtelefone());
-        pessoa.setEmail(pessoaDTO.getEmail());
-        if (cliente) {
-            pessoa.setTpPessoa(TpPessoaEnum.CLIENTE);
+        Pessoa pes = pessoaRepository.findOneByCpf(pessoaDTO.getCpf());
+        if (pes.getId().toString().isEmpty()) {
+            Pessoa pessoa = new Pessoa();
+            pessoa.setNome(pessoaDTO.getNome());
+            pessoa.setCpf(pessoaDTO.getCpf());
+            pessoa.setRg(pessoaDTO.getRg());
+            if (!pessoaDTO.getSenha().isEmpty()) {
+                String encryptedPassword = new BCryptPasswordEncoder().encode(pessoaDTO.getSenha());
+                pessoa.setSenha(encryptedPassword);
+            }
+            pessoa.setNrtelefone(pessoaDTO.getNrtelefone());
+            pessoa.setEmail(pessoaDTO.getEmail());
+            pessoa.setTpPessoa(pessoaDTO.getTpPessoa());
+            if (cliente) {
+                pessoa.setTpPessoa(TpPessoaEnum.CLIENTE);
+            }
+            if (!pessoaDTO.getTpPessoa().equals(TpPessoaEnum.CLIENTE)) {
+                pessoa.setLogin(pessoaDTO.getEmail());
+            }
+            pessoa.setCro(pessoaDTO.getCro());
+            pessoa.setEspecialidade(pessoaDTO.getEspecialidade());
+            //pessoa.setFtPerfil(pessoaDTO.getFtPerfil());
+            pessoa.setNmRua(pessoaDTO.getNmRua());
+            pessoa.setNumero(pessoaDTO.getNumero());
+            pessoa.setCep(pessoaDTO.getCep());
+            pessoa.setComplemento(pessoaDTO.getComplemento());
+            //TODO pessoa.setCidade(pessoaDTO.getCidadeId());
+
+            pessoa = pessoaRepository.saveAndFlush(pessoa);
+
+            return pessoa;
+        } else {
+            throw new Exception("Pessoa com este CPF " + pessoaDTO.getCpf() + " já está registrado. Verifique com o consultório!");
         }
-        pessoa.setCro(pessoaDTO.getCro());
-        pessoa.setEspecialidade(pessoaDTO.getEspecialidade());
-        //pessoa.setFtPerfil(pessoaDTO.getFtPerfil());
-        pessoa.setNmRua(pessoaDTO.getNmRua());
-        pessoa.setNumero(pessoaDTO.getNumero());
-        pessoa.setCep(pessoaDTO.getCep());
-        pessoa.setComplemento(pessoaDTO.getComplemento());
-        //TODO pessoa.setCidade(pessoaDTO.getCidadeId());
 
-        pessoa = pessoaRepository.saveAndFlush(pessoa);
-
-        return pessoa;
     }
 
     public Pessoa edit(Pessoa pessoa) throws Exception {
+        pessoa.setLogin(pessoa.getEmail());
         return pessoaRepository.saveAndFlush(pessoa);
     }
 

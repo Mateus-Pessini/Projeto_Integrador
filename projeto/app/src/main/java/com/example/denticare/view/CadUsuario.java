@@ -27,11 +27,14 @@ import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiEndereco;
 import com.example.denticare.api.Api.ApiEstado;
+import com.example.denticare.api.Api.ApiPessoa;
 import com.example.denticare.api.Api.RetroFit;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
+import com.example.denticare.api.models.pessoa.Pessoa;
 
 import java.util.List;
 
@@ -51,7 +54,7 @@ public class CadUsuario extends AppCompatActivity {
 
     private RadioGroup btRadioGroup;
 
-    private TextView tvCro, tvEspecialidade, tvSenha;
+    private TextView tvCro, tvEspecialidade, tvSenha, tvTitulo, tvRecep, tvDent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,9 @@ public class CadUsuario extends AppCompatActivity {
         btRadioGroup = findViewById(R.id.btRadioGroup);
 
         tvCro = findViewById(R.id.tvCro);
+        tvTitulo = findViewById(R.id.tvTitulo);
+        tvRecep = findViewById(R.id.tvRecep);
+        tvDent = findViewById(R.id.tvDent);
         tvEspecialidade = findViewById(R.id.tvEspecialidade);
         tvSenha = findViewById(R.id.tvSenha);
 
@@ -89,12 +95,31 @@ public class CadUsuario extends AppCompatActivity {
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
 
+        // preencher campos teste
+        edSenhaUser.setText("123");
+        edNomeCompleto.setText("Equipe xxx");
+        edTelefone.setText("99999999");
+        edCPF.setText("99999999999");
+        edRG.setText("9999999999");
+        edRua.setText("123");
+        edComplemento.setText("123");
+        edEmail.setText("equipe@xxx");
+        edCEP.setText("999999999");
+        edNumero.setText("123");
+        edBairro.setText("123");
+        edCro.setText("123");
+        edEspecialidade.setText("123");
+
         Intent myIntent = getIntent(); // gets the previously created intent
         String type = myIntent.getStringExtra("type");
         if (type.equals("client")) {
             edSenhaUser.setVisibility(View.GONE);
+            edSenhaUser.setText("");
             tvSenha.setVisibility(View.GONE);
             btRadioGroup.setVisibility(View.GONE);
+            tvRecep.setVisibility(View.GONE);
+            tvDent.setVisibility(View.GONE);
+            tvTitulo.setText("Cadastro de Cliente");
             //edEspecialidade.setVisibility(View.GONE);
 
         }
@@ -102,20 +127,26 @@ public class CadUsuario extends AppCompatActivity {
         rbDentista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                edCro.setVisibility(View.VISIBLE);
-                edEspecialidade.setVisibility(View.VISIBLE);
-                tvCro.setVisibility(View.VISIBLE);
-                tvEspecialidade.setVisibility(View.VISIBLE);
+                if (b) {
+                    edCro.setVisibility(View.VISIBLE);
+                    edEspecialidade.setVisibility(View.VISIBLE);
+                    tvCro.setVisibility(View.VISIBLE);
+                    tvEspecialidade.setVisibility(View.VISIBLE);
+                }
             }
         });
 
         rbRecepcionista.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                edCro.setVisibility(View.GONE);
-                edEspecialidade.setVisibility(View.GONE);
-                tvCro.setVisibility(View.GONE);
-                tvEspecialidade.setVisibility(View.GONE);
+                if (b) {
+                    edCro.setVisibility(View.GONE);
+                    edEspecialidade.setVisibility(View.GONE);
+                    tvCro.setVisibility(View.GONE);
+                    tvEspecialidade.setVisibility(View.GONE);
+                    edCro.setText("");
+                    edEspecialidade.setText("");
+                }
             }
         });
 
@@ -123,15 +154,15 @@ public class CadUsuario extends AppCompatActivity {
         String token = sharedPreferences.getString("token", "");
         Log.e("", "" + token);
 
-        if (!token.isEmpty() || type.equals("client")) {
+        //if (!token.isEmpty() || type.equals("client")) {
             ApiEstado apiEstado = RetroFit.GET_ALL_ESTADO();
 
-            Call<List<Estado>> estadoCall;
-            if (type.equals("client")) {
-                estadoCall = apiEstado.GET_ALL_ESTADO_WITHOUT_AUTH();
-            } else {
-                estadoCall = apiEstado.GET_ALL_ESTADO(token);
-            }
+            Call<List<Estado>> estadoCall = apiEstado.GET_ALL_ESTADO_WITHOUT_AUTH();
+            //if (type.equals("client")) {
+            //    estadoCall =
+            //} else {
+            //    estadoCall = apiEstado.GET_ALL_ESTADO(token);
+            //}
             estadoCall.enqueue(new Callback<List<Estado>>() {
                 @Override
                 public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
@@ -153,7 +184,7 @@ public class CadUsuario extends AppCompatActivity {
                     System.out.println(t.toString());
                 }
             });
-        }
+        //}
 
 
         btCancel.setOnClickListener(new View.OnClickListener() {
@@ -169,59 +200,63 @@ public class CadUsuario extends AppCompatActivity {
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
-                ApiEndereco apiEndereco = RetroFit.REGISTER_ENDERECO();
+                ApiPessoa apiPessoa = RetroFit.REGISTER_PESSOA();
+
                 validaCampos();
-                Endereco end = new Endereco();
-                Cliente cli = new Cliente();
-                end.setCep(edCEP.getText().toString());
-                end.setCidade((Cidade) spCidade.getSelectedItem());
-                end.setComplemento(edComplemento.getText().toString());
-                end.setNmRua(edRua.getText().toString());
-                end.setNumero(Integer.parseInt(edNumero.getText().toString()));
-                end.setBairro(edBairro.getText().toString());
+                Pessoa pessoa = new Pessoa();
+                //this.ftPerfil = ftPerfil;
 
-                cli.setCpf(edCPF.getText().toString());
-                cli.setRg(edRG.getText().toString());
-                cli.setEmail(edEmail.getText().toString());
-                cli.setNome(edNomeCompleto.getText().toString());
-                cli.setNrtelefone(edTelefone.getText().toString());
-                cli.setEndereco(end);
+                pessoa.setNome(edNomeCompleto.getText().toString());
+                pessoa.setCpf(edCPF.getText().toString());
+                pessoa.setRg(edRG.getText().toString());
+                pessoa.setNrtelefone(edTelefone.getText().toString());
+                pessoa.setEmail(edEmail.getText().toString());
+                pessoa.setSenha(edSenhaUser.getText().toString());
+                if (rbDentista.isChecked()) {
+                    pessoa.setTpPessoa(TpPessoaEnum.DENTISTA);
+                } else if (rbRecepcionista.isChecked()) {
+                    pessoa.setTpPessoa(TpPessoaEnum.SECRETARIA);
+                } else {
+                    pessoa.setTpPessoa(TpPessoaEnum.CLIENTE);
+                }
+
+                pessoa.setCro(edCro.getText().toString());
+                pessoa.setEspecialidade(edEspecialidade.getText().toString());
+
+                pessoa.setNmRua(edRua.getText().toString());
+                pessoa.setBairro(edBairro.getText().toString());
+                pessoa.setNumero(Integer.parseInt(edNumero.getText().toString()));
+                pessoa.setComplemento(edComplemento.getText().toString());
+                pessoa.setCep(edCEP.getText().toString());
+
+                pessoa.setCidade((Cidade) spCidade.getSelectedItem());
+
                 //criarDentes(cli);
-
-                Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
-                enderecoCall.enqueue(new Callback<Endereco>() {
+                SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+                String token = sharedPreferences.getString("token", "");
+                Log.e("", "" + token);
+                Call<Pessoa> pessoaCall = apiPessoa.REGISTER_PESSOA_WITHOUT_AUTH(pessoa);
+                //Call<Pessoa> pessoaCall = apiPessoa.REGISTER_PESSOA(token, pessoa);
+                pessoaCall.enqueue(new Callback<Pessoa>() {
                     @Override
-                    public void onResponse(Call<Endereco> call, Response<Endereco> response) {
+                    public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
                         if (response.isSuccessful()) {
-                            Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer " + token, cli);
-                            clienteCall.enqueue(new Callback<Cliente>() {
-                                @Override
-                                public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                                    if (response.isSuccessful()) {
-                                        Toast.makeText(CadUsuario.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
-                                        limparCampos();
-                                    } else {
-                                        Toast.makeText(CadUsuario.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
-                                        Log.e("", "Message =" + response.code());
-                                        Log.e("", "Body =" + response.body());
-                                        Log.e("", "ErroBody =" + response.errorBody());
-                                        Log.e("", "response =" + response);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<Cliente> call, Throwable t) {
-                                    Toast.makeText(CadUsuario.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            Toast.makeText(CadUsuario.this, "Usuário/Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                            limparCampos();
+                            Intent intent = new Intent(CadUsuario.this, NewLogin.class);
+                            startActivity(intent);
                         } else {
-
+                            Toast.makeText(CadUsuario.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            Log.e("", "Message =" + response.code());
+                            Log.e("", "Body =" + response.body());
+                            Log.e("", "ErroBody =" + response.errorBody());
+                            Log.e("", "response =" + response);
                         }
+
                     }
 
                     @Override
-                    public void onFailure(Call<Endereco> call, Throwable t) {
+                    public void onFailure(Call<Pessoa> call, Throwable t) {
                         Toast.makeText(CadUsuario.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -236,10 +271,10 @@ public class CadUsuario extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Long estadoId = ((Estado) spEstado.getSelectedItem()).getId(); // Supondo que seu objeto Estado tenha um método getId() para obter o ID
                 SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
-                String token = sharedPreferences.getString("token", "");
-                if (!token.isEmpty()) {
+                //String token = sharedPreferences.getString("token", "");
+                //if (!token.isEmpty()) {
                     ApiCidade apiCidade = RetroFit.GET_ALL_BY_ESTADO();
-                    Call<List<Cidade>> call = apiCidade.GET_ALL_BY_ESTADO(token, estadoId);
+                    Call<List<Cidade>> call = apiCidade.GET_ALL_BY_ESTADO_WITHOUT_AUTH(estadoId);
                     call.enqueue(new Callback<List<Cidade>>() {
                         @Override
                         public void onResponse(Call<List<Cidade>> call, Response<List<Cidade>> response) {
@@ -261,7 +296,7 @@ public class CadUsuario extends AppCompatActivity {
                             // Trate falhas na chamada à API, se necessário
                         }
                     });
-                }
+                //}
             }
 
             @Override
@@ -283,6 +318,12 @@ public class CadUsuario extends AppCompatActivity {
         edEmail.setText("");
         edCEP.setText("");
         edNumero.setText("");
+        edBairro.setText("");
+        edEspecialidade.setText("");
+        edCro.setText("");
+        edSenhaUser.setText("");
+        rbDentista.setChecked(false);
+        rbRecepcionista.setChecked(false);
 
         // Limpar os erros dos campos
         edNomeCompleto.setError(null);

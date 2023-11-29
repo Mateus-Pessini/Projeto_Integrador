@@ -3,6 +3,7 @@ package br.unipar.dentiCare.repositories;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,5 +15,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
     List<Pessoa> findAllByNomeOrderByNomeAsc(String nome);
 
     public Pessoa findOneByCpf(String cpf);
+
+    UserDetails findByLogin(String login);
 
 }

@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.security;
 
+import br.unipar.dentiCare.repositories.PessoaRepository;
 import br.unipar.dentiCare.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,7 +22,8 @@ public class SecurityFilter extends OncePerRequestFilter {
     TokenService tokenService;
 
     @Autowired
-    UsuarioRepository repository;
+    PessoaRepository repository;
+    //UsuarioRepository repository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

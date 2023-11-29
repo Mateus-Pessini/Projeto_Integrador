@@ -55,6 +55,7 @@ public class NewLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewLogin.this, CadUsuario.class);
+                intent.putExtra("type","user");
                 startActivity(intent);
             }
         });

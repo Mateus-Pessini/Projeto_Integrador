@@ -52,6 +52,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvTitulo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -472,6 +473,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/tvDent"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"
@@ -481,6 +483,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tvRecep"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="7dp"

@@ -118,6 +118,7 @@
                         android:layout_marginRight="68dp"
                         app:boxBackgroundColor="@android:color/white"
                         app:boxStrokeWidth="2dp"
+                        app:errorTextAppearance="@style/MyAppTheme.TextInputLayout"
                         app:endIconMode="custom">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -129,7 +130,8 @@
                             android:hint="Digite sua senha"
                             android:inputType="textPassword"
                             android:padding="15dp"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            app:errorTextAppearance="@style/MyAppTheme.TextInputLayout"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 

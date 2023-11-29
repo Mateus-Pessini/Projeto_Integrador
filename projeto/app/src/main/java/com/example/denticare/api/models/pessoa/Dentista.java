@@ -2,27 +2,27 @@ package com.example.denticare.api.models.pessoa;
 
 import com.example.denticare.api.models.enums.TpPessoaEnum;
 
-public class Dentista extends Pessoa{
+public class Dentista {
     private String CRO;
 
-    private String especialidade;
+    private String especialidade2;
 
-    private byte ftPerfil;
+    private byte ftPerfil2;
 
     public Dentista() {
     }
 
-    public Dentista(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String CRO, String especialidade, byte ftPerfil) {
-        super(nome, nrtelefone, email, tpPessoa);
+    public Dentista(String nome, String nrtelefone, String email, TpPessoaEnum tpPessoa, String CRO, String especialidade2, byte ftPerfil2) {
+        //super(nome, nrtelefone, email, tpPessoa);
         this.CRO = CRO;
-        this.especialidade = especialidade;
-        this.ftPerfil = ftPerfil;
+        this.especialidade2 = especialidade2;
+        this.ftPerfil2 = ftPerfil2;
     }
 
-    public Dentista(String CRO, String especialidade, byte ftPerfil) {
+    public Dentista(String CRO, String especialidade, byte ftPerfil2) {
         this.CRO = CRO;
-        this.especialidade = especialidade;
-        this.ftPerfil = ftPerfil;
+        this.especialidade2 = especialidade;
+        this.ftPerfil2 = ftPerfil2;
     }
 
     public String getCRO() {
@@ -33,19 +33,19 @@ public class Dentista extends Pessoa{
         this.CRO = CRO;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
+    public String getEspecialidade2() {
+        return especialidade2;
     }
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setEspecialidade2(String especialidade) {
+        this.especialidade2 = especialidade2;
     }
 
-    public byte getFtPerfil() {
-        return ftPerfil;
+    public byte getFtPerfil2() {
+        return ftPerfil2;
     }
 
-    public void setFtPerfil(byte ftPerfil) {
-        this.ftPerfil = ftPerfil;
+    public void setFtPerfil2(byte ftPerfil2) {
+        this.ftPerfil2 = ftPerfil2;
     }
 }

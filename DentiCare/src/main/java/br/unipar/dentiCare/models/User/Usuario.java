@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Usuario implements UserDetails {
+public class Usuario /*implements UserDetails*/ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,11 +52,11 @@ public class Usuario implements UserDetails {
         this.status = status;
     }
 
-    @Override
+   /* @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UsuarioRole.DENTISTA) return List.of(new SimpleGrantedAuthority("ROLE_DENTISTA"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-    }
+    }*/
 
     public String getLogin() {
         return login;
@@ -70,7 +70,7 @@ public class Usuario implements UserDetails {
         this.senha = senha;
     }
 
-    @Override
+   /* @Override
     public String getPassword() {
         return senha;
     }
@@ -98,7 +98,7 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
+    }*/
 
     public UsuarioRole getRole() {
         return role;

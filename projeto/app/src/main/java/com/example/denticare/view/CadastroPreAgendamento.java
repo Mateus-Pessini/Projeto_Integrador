@@ -148,7 +148,11 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                                 }
                             });
                         } else {
-
+                            Toast.makeText(CadastroPreAgendamento.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            Log.e("", "Message =" + response.code());
+                            Log.e("", "Body =" + response.body());
+                            Log.e("", "ErroBody =" + response.errorBody());
+                            Log.e("", "response =" + response);
                         }
                     }
 

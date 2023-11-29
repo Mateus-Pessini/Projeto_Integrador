@@ -20,6 +20,10 @@ public interface ApiPessoa {
     @POST("pessoa")
     Call<Pessoa> REGISTER_PESSOA(@Header("Authorization") String token, @Body Pessoa pessoa);
 
+    @Headers("Content-Type: application/json")
+    @POST("pessoa")
+    Call<Pessoa> REGISTER_PESSOA_WITHOUT_AUTH(@Body Pessoa pessoa);
+
     @GET("pessoa")
     Call<List<Pessoa>> GET_ALL_PESSOA(@Header("Authorization") String authorization);
 
