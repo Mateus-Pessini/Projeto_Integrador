@@ -57,9 +57,10 @@
                     android:layout_gravity="center"/>
 
                 <TextView
+                    android:id="@+id/tvNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Picininha"
+                    android:text="Nome"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold"

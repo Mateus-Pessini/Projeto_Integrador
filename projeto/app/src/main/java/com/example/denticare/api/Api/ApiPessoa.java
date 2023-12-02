@@ -39,4 +39,8 @@ public interface ApiPessoa {
     @Headers("Content-Type: application/json")
     @PUT("pessoa")
     Call<Pessoa> ALTERAR_PESSOA(@Header("Authorization") String token, @Body Pessoa pessoa);
+
+    @Headers("Content-Type: application/json")
+    @PUT("pessoa/{id}")
+    Call<Pessoa> ALTERAR_DADOS_DENTISTA(@Header("Authorization") String token, @Body Pessoa pessoa, @Path("id") Long id);
 }

@@ -1,5 +1,6 @@
 package com.example.denticare.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.example.denticare.api.models.user.LoginResponseDTO;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Base64;
 import java.util.List;
 
 import retrofit2.Call;

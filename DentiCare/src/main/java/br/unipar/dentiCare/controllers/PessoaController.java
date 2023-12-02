@@ -61,4 +61,11 @@ public class PessoaController {
         return pessoaService.findByCpf(cpf);
     }
 
+    @PutMapping(path = "/{id}")
+    @ApiOperation(value = "Edita um Dentista em específico")
+    public Pessoa editDentista(@Valid @RequestBody Pessoa pessoa, @PathVariable Long id) throws Exception{
+        pessoa.setId(id);
+        return pessoaService.editDentista(pessoa, id);
+    }
+
 }

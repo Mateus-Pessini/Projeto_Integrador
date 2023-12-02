@@ -132,7 +132,8 @@
                             android:background="@drawable/borda1"
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"
-                            android:visibility="gone"/>
+                            android:visibility="gone"
+                            android:inputType="number"/>
 
 
                     </LinearLayout>
@@ -202,7 +203,6 @@
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"
                             android:visibility="gone"/>

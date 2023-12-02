@@ -95,16 +95,16 @@ public class CadUsuario extends AppCompatActivity {
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
 
-        // preencher campos teste
+        // preencher campos teste //EXCLUIR antes de apresentar
         edSenhaUser.setText("123");
         edNomeCompleto.setText("Equipe xxx");
         edTelefone.setText("99999999");
         edCPF.setText("99999999999");
-        edRG.setText("9999999999");
+        edRG.setText("999999999");
         edRua.setText("123");
         edComplemento.setText("123");
         edEmail.setText("equipe@xxx");
-        edCEP.setText("999999999");
+        edCEP.setText("99999999");
         edNumero.setText("123");
         edBairro.setText("123");
         edCro.setText("123");

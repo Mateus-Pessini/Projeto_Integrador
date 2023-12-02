@@ -56,10 +56,11 @@
                     android:layout_gravity="center"/>
 
                 <TextView
+                    android:id="@+id/tvNomeDadosPessoais"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:text="Picininha"
+                    android:text="Nome"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold"
@@ -257,6 +258,7 @@
                 android:layout_height="40dp">
 
                 <EditText
+                    android:id="@+id/edDentNomeComp"
                     android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
@@ -281,6 +283,7 @@
                 android:layout_height="40dp">
 
                 <EditText
+                    android:id="@+id/edDentFone"
                     android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
@@ -306,10 +309,12 @@
                 android:layout_height="40dp">
 
                 <EditText
+                    android:id="@+id/edDentMail"
                     android:layout_width="400dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/borda1"
                     android:layout_marginLeft="20dp"
+                    android:editable="false"
+                    android:background="@drawable/borda1"
                     android:textColor="@color/black"
                     android:paddingLeft="10dp"/>
 
@@ -331,6 +336,7 @@
                 android:layout_height="40dp">
 
                 <EditText
+                    android:id="@+id/edDentCro"
                     android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"
@@ -355,6 +361,7 @@
                 android:layout_height="40dp">
 
                 <EditText
+                    android:id="@+id/edDentEspecialidade"
                     android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/borda1"

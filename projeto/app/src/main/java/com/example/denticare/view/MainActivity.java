@@ -1,6 +1,8 @@
 package com.example.denticare.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +13,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.R;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.user.UsuarioRole;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Base64;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,22 +50,36 @@ public class MainActivity extends AppCompatActivity {
         ivImgDentista = findViewById(R.id.ivImgDentista);
         tvNomeDentista = findViewById(R.id.tvNomeDentista);
 
-        UsuarioRole role = UsuarioRole.DENTISTA;
-        UsuarioRole usuario = UsuarioRole.SECRETARIA;
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNomeDentista.setText(name);
 
-        if (role.equals(UsuarioRole.DENTISTA.getRole())) {
-            btCadClienteRecep.setVisibility(View.GONE);
-            btAgendarRecep.setVisibility(View.GONE);
-            Log.d("TipoUsuario", "Usuário é um Dentista");
-        } else if (usuario.equals(UsuarioRole.SECRETARIA)) {
-            btMeusDados.setVisibility(View.GONE);
-            ivImgDentista.setVisibility(View.INVISIBLE);
-            tvNomeDentista.setVisibility(View.GONE);
-            Log.d("TipoUsuario", "Usuário é uma Secretária");
-        } else {
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
 
+            }
         }
-
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override

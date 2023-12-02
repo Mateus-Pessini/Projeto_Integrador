@@ -22,7 +22,7 @@ public class PessoaService {
 
     public Pessoa insert(PessoaDTO pessoaDTO, boolean cliente) throws Exception {
         Pessoa pes = pessoaRepository.findOneByCpf(pessoaDTO.getCpf());
-        if (pes.getId().toString().isEmpty()) {
+        if (pes == null) {
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(pessoaDTO.getNome());
             pessoa.setCpf(pessoaDTO.getCpf());
@@ -61,6 +61,15 @@ public class PessoaService {
     public Pessoa edit(Pessoa pessoa) throws Exception {
         pessoa.setLogin(pessoa.getEmail());
         return pessoaRepository.saveAndFlush(pessoa);
+    }
+
+    public Pessoa editDentista(Pessoa pessoa, Long id) throws Exception {
+        Pessoa p = findById(id);
+        p.setNome(pessoa.getNome());
+        p.setNrtelefone(pessoa.getNrtelefone());
+        p.setCro(pessoa.getCro());
+        p.setEspecialidade(pessoa.getEspecialidade());
+        return pessoaRepository.saveAndFlush(p);
     }
 
     public void remove(Long id) throws Exception {

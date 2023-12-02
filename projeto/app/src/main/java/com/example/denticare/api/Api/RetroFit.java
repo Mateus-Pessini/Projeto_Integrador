@@ -44,6 +44,8 @@ public class RetroFit {
 
     public static ApiPessoa REGISTER_PESSOA() {return retrofit1.create(ApiPessoa.class);}
 
+    public static ApiPessoa UPDATE_DADOS_DENTISTA() {return retrofit1.create(ApiPessoa.class);}
+
     public  static  ApiPessoa GET_ALL_PESSOA(){return retrofit1.create(ApiPessoa.class);}
 
     public static ApiPessoa GET_PESSOA(){ return retrofit1.create(ApiPessoa.class); }
