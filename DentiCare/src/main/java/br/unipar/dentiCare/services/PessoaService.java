@@ -22,7 +22,8 @@ public class PessoaService {
 
     public Pessoa insert(PessoaDTO pessoaDTO, boolean cliente) throws Exception {
         Pessoa pes = pessoaRepository.findOneByCpf(pessoaDTO.getCpf());
-        if (pes == null) {
+        Pessoa pes1 = pessoaRepository.findFirstByEmail(pessoaDTO.getEmail());
+        if (pes == null && pes1 == null) {
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(pessoaDTO.getNome());
             pessoa.setCpf(pessoaDTO.getCpf());
@@ -50,12 +51,19 @@ public class PessoaService {
             //TODO pessoa.setCidade(pessoaDTO.getCidadeId());
 
             pessoa = pessoaRepository.saveAndFlush(pessoa);
-
             return pessoa;
         } else {
-            throw new Exception("Pessoa com este CPF " + pessoaDTO.getCpf() + " já está registrado. Verifique com o consultório!");
+            if (pes1 == null && pes != null) {
+                throw new Exception("Cliente/Usuário com este CPF " + pessoaDTO.getCpf() + " já está registrado. Verifique com o consultório!");
+            }
+            if (pes1 != null && pes == null) {
+                throw new Exception("Cliente/Usuário com este E-mail " + pessoaDTO.getEmail() + " informado já está registrado. Verifique com o consultório!");
+            }
+            if (pes1 != null && pes != null) {
+                throw new Exception("Cliente/Usuário com este CPF " + pessoaDTO.getCpf() + " e com este E-mail " + pessoaDTO.getEmail() + " já está registrado. Verifique com o consultório!");
+            }
+            return null;
         }
-
     }
 
     public Pessoa edit(Pessoa pessoa) throws Exception {
@@ -86,10 +94,13 @@ public class PessoaService {
             throw new Exception("Pessoa com id " + id + " não identificado");
     }
 
-    public Pessoa findByCpf(String cpf) {
-        return pessoaRepository.findOneByCpf(cpf);
+    public Pessoa findByCpf(String cpf) throws Exception {
+        Pessoa retorno = pessoaRepository.findOneByCpf(cpf);
 
-        //    throw new Exception("Pessoa com o Cpf " + cpf + " não identificado");
+        if (retorno != null)
+            return retorno;
+        else
+            throw new Exception("Pessoa com o Cpf " + cpf + " não identificado");
     }
 
     public List<Pessoa> findAll() {

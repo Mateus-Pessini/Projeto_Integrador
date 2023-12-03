@@ -30,11 +30,16 @@ import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Pessoa;
 import com.example.denticare.api.models.pessoa.PreAgendamento;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import retrofit2.Call;
@@ -116,7 +121,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                 pre.setData(edDateTime.getText().toString());
 
-                Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA_BY_CPF("Bearer " + token, edCPF.getText().toString());
+                Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA_BY_CPF(edCPF.getText().toString());
                 pessoaCall.enqueue(new Callback<Pessoa>() {
                     @Override
                     public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
@@ -125,7 +130,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                             //pessoa = response.body();
                             pessoa.setId(response.body().getId());
                             pre.setPessoa(pessoa);
-                            Call<PreAgendamento> preAgendamentoCall = apiPreAgendamento.REGISTER_PRE_AGENDAMENTO("Bearer " + token, pre);
+                            Call<PreAgendamento> preAgendamentoCall = apiPreAgendamento.REGISTER_PRE_AGENDAMENTO(pre);
                             preAgendamentoCall.enqueue(new Callback<PreAgendamento>() {
                                 @Override
                                 public void onResponse(Call<PreAgendamento> call, Response<PreAgendamento> response) {
@@ -148,7 +153,20 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                                 }
                             });
                         } else {
-                            Toast.makeText(CadastroPreAgendamento.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            JSONObject jObjError;
+                            try {
+                                jObjError = new JSONObject(response.errorBody().string());
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            Log.e("",jObjError.toString());
+                            if (jObjError.toString().contains("Cpf")) {
+                                Toast.makeText(CadastroPreAgendamento.this, "Não foi encontrado Cliente com o CPF informado. Verifique ou Se cadastre!", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(CadastroPreAgendamento.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            }
                             Log.e("", "Message =" + response.code());
                             Log.e("", "Body =" + response.body());
                             Log.e("", "ErroBody =" + response.errorBody());
@@ -182,9 +200,11 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
 
-                        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                        sdf.setLenient(false);
+                        sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 
-                        date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
+                        date_time_in.setText(sdf.format(calendar.getTime()));
                     }
                 };
 

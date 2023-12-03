@@ -31,7 +31,7 @@ public interface ApiPessoa {
     Call<Pessoa> GET_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @GET("pessoa/find/{cpf}")
-    Call<Pessoa> GET_PESSOA_BY_CPF(@Header("Authorization") String authorization, @Path("cpf") String cpf);
+    Call<Pessoa> GET_PESSOA_BY_CPF(@Path("cpf") String cpf);
 
     @DELETE("pessoa/{id}")
     Call<Pessoa> DELETAR_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);

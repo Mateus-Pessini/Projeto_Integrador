@@ -14,13 +14,12 @@ import java.util.Date;
 
 @Entity
 @DynamicUpdate
-@Table(name = "PreAgendamento")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PreAgendamento {
+public class PreAgendamentoList {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)

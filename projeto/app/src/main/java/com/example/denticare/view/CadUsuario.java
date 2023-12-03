@@ -36,6 +36,10 @@ import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
 import com.example.denticare.api.models.pessoa.Pessoa;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -246,7 +250,24 @@ public class CadUsuario extends AppCompatActivity {
                             Intent intent = new Intent(CadUsuario.this, NewLogin.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(CadUsuario.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            JSONObject jObjError;
+                            try {
+                                jObjError = new JSONObject(response.errorBody().string());
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            Log.e("",jObjError.toString());
+                            if (jObjError.toString().contains("CPF") && jObjError.toString().contains("E-mail")) {
+                                Toast.makeText(CadUsuario.this, "Cliente/Usuário com este CPF e com este E-mail já está registrado. Verifique com o consultório!", Toast.LENGTH_LONG).show();
+                            } else if (jObjError.toString().contains("CPF")) {
+                                Toast.makeText(CadUsuario.this, "Cliente/Usuário com este CPF já está registrado. Verifique com o consultório!", Toast.LENGTH_LONG).show();
+                            } else if (jObjError.toString().contains("E-mail")) {
+                                Toast.makeText(CadUsuario.this, "Cliente/Usuário com este E-mail já está registrado. Verifique com o consultório!", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(CadUsuario.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                            }
                             Log.e("", "Message =" + response.code());
                             Log.e("", "Body =" + response.body());
                             Log.e("", "ErroBody =" + response.errorBody());

@@ -18,6 +18,8 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     public Pessoa findOneByCpf(String cpf);
 
+    public Pessoa findFirstByEmail(String email);
+
     UserDetails findByLogin(String login);
 
 }

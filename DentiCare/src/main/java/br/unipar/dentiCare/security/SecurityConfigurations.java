@@ -36,6 +36,7 @@ public class SecurityConfigurations {
                         .antMatchers(HttpMethod.POST, "/pre-agendamento").permitAll()
                         .antMatchers(HttpMethod.POST, "/pre-agendamento").permitAll()
                         .antMatchers(HttpMethod.POST, "/pessoa").permitAll()
+                        .antMatchers(HttpMethod.GET, "/pessoa/find/{cpf}").permitAll()
                         .antMatchers("/v2/api-docs", "/v3/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.htm", "/webjars/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -69,7 +69,7 @@ public class DadosDentista extends AppCompatActivity {
         String token = DataUtils.getToken(DadosDentista.this);
         ApiPessoa apiPessoa = RetroFit.REGISTER_PESSOA();
 
-        Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA_BY_CPF("Bearer " + token, DataUtils.getDataFromTokenToShow(DadosDentista.this, "cpf"));
+        Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA_BY_CPF(DataUtils.getDataFromTokenToShow(DadosDentista.this, "cpf"));
         pessoaCall.enqueue(new Callback<Pessoa>() {
             @Override
             public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {

@@ -2,16 +2,31 @@ package com.example.denticare.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.R;
+import com.example.denticare.api.Api.ApiPessoa;
+import com.example.denticare.api.Api.ApiPreAgendamento;
+import com.example.denticare.api.Api.RetroFit;
+import com.example.denticare.api.models.pessoa.ConsultaList;
+import com.example.denticare.api.models.pessoa.Pessoa;
+import com.example.denticare.api.models.pessoa.PreAgendamento;
+import com.example.denticare.util.DataUtils;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Consulta extends AppCompatActivity {
 
@@ -23,6 +38,7 @@ public class Consulta extends AppCompatActivity {
     private LinearLayout btCadClienteRecep;
     private TableLayout tableLayout;
     private Button btProximo;
+    private TextView tvNome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,32 +54,56 @@ public class Consulta extends AppCompatActivity {
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btProximo = findViewById(R.id.btProximo);
+        tvNome = findViewById(R.id.tvNomeEmConsulta);
+
+        tvNome.setText(DataUtils.getDataFromTokenToShow(Consulta.this, "name"));
 
         tableLayout = findViewById(R.id.tableLayout);
-        
-        String[][] dados = {
-                {"Status 1", "08:00", "Nome 1", "Tipo 1", "Data 1", "Valor 1"},
-                {"Status 2", "08:30", "Nome 2", "Tipo 2", "Data 2", "Valor 2"},
-                {"Status 3", "09:00", "Nome 3", "Tipo 3", "Data 3", "Valor 3"}
-        };
 
-        for (int i = 0; i < dados.length; i++) {
-            TableRow row = new TableRow(this);
-            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
-                    TableRow.LayoutParams.MATCH_PARENT,
-                    TableRow.LayoutParams.WRAP_CONTENT
-            );
-            row.setLayoutParams(layoutParams);
+        String token = DataUtils.getToken(Consulta.this);
+        ApiPreAgendamento apiPreAgendamento = RetroFit.REGISTER_PRE_AGENDAMENTO();
 
-            for (int j = 0; j < dados[i].length; j++) {
-                TextView cell = new TextView(this);
-                cell.setText(dados[i][j]);
-                cell.setPadding(10, 10, 10, 10);
-                row.addView(cell);
+        Call<List<ConsultaList>> preAgendamentoCall = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO(token);
+        preAgendamentoCall.enqueue(new Callback<List<ConsultaList>>() {
+            @Override
+            public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
+                if (response.isSuccessful()) {
+                    Log.e("", "Message =" + response.code());
+                    /*for (int i = 0; i < dados.length; i++) {
+                        TableRow row = new TableRow(this);
+                        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                                TableRow.LayoutParams.MATCH_PARENT,
+                                TableRow.LayoutParams.WRAP_CONTENT
+                        );
+                        row.setLayoutParams(layoutParams);
+
+                        for (int j = 0; j < dados[i].length; j++) {
+                            TextView cell = new TextView(this);
+                            cell.setText(dados[i][j]);
+                            cell.setPadding(10, 10, 10, 10);
+                            row.addView(cell);
+                        }
+
+                        tableLayout.addView(row);
+                    }*/
+
+                    Toast.makeText(Consulta.this, "Dados Obtidos com Sucesso!", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(Consulta.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                    Log.e("", "Message =" + response.code());
+                    Log.e("", "Body =" + response.body());
+                    Log.e("", "ErroBody =" + response.errorBody());
+                    Log.e("", "response =" + response);
+                }
             }
 
-            tableLayout.addView(row);
-        }
+            @Override
+            public void onFailure(Call<List<ConsultaList>> call, Throwable t) {
+                Toast.makeText(Consulta.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         btProximo.setOnClickListener(new View.OnClickListener() {
             @Override

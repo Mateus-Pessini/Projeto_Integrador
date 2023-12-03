@@ -47,12 +47,10 @@ public class PreAgendamentoService {
     }
 
 
-    public List<PreAgendamento> findAll() {
-        return preAgendamentoRepository.findAll();
+    public List<?> findAllWithPeopleName() {
+        List<Object[]> x = preAgendamentoRepository.findAllPreAgendamentoWithPeopleName();
+        return x;
     }
 
-/*    public List<PreAgendamento> findByFilters(String nome) {
-        return preAgendamentoRepository.findAllByNomeOrderByNomeAsc(nome);
-    }*/
 }
 
