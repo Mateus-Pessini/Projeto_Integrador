@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.unipar.dentiCare.repositories.PessoaRepository;
 
-import java.util.List;
-import java.util.Optional;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service
 public class PreAgendamentoService {
@@ -22,7 +24,7 @@ public class PreAgendamentoService {
 
         pre.setData(preAgendamentoDTO.getData());
         pre.setPessoa(preAgendamentoDTO.getPessoa());
-
+        filtro(pre);
         pre = preAgendamentoRepository.saveAndFlush(pre);
 
         return pre;
@@ -50,6 +52,38 @@ public class PreAgendamentoService {
     public List<?> findAllWithPeopleName() {
         List<Object[]> x = preAgendamentoRepository.findAllPreAgendamentoWithPeopleName();
         return x;
+    }
+
+    public void filtro(PreAgendamento preAgendamento) throws Exception {
+        Feriados feriados = new Feriados();
+        ArrayList<PreAgendamento> agendamentos = new ArrayList<>(preAgendamentoRepository.findAll());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(preAgendamento.getData());
+        calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar today = Calendar.getInstance();
+        today.setTimeZone(TimeZone.getTimeZone("UTC"));
+        DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss.S");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        for (int i = 0; i < agendamentos.size(); i++) {
+            if (agendamentos.get(i).getData().toString().equals(df.format(calendar.getTime()))) {
+                throw new Exception("Horário ocupado, favor selecionar outro");
+            }
+        }
+        if (dayOfWeek == 7 || dayOfWeek == 1) {
+            // Fim de semana, retorne um erro ou mensagem apropriada.
+            throw new Exception("Não atendemos nos finais de semana, favor escolher outra data");
+        } else if (feriados.isFeriado(calendar.getTime())) {
+            throw new Exception("Não atendemos nos feriados, favor escolher outra data");
+        } else if (calendar.getTime().before(today.getTime())) {
+            // Data passada, retorne um erro ou mensagem apropriada.
+            throw new Exception("Não é possível agendar em datas passadas, favor escolher outra data");
+        } else if (hourOfDay < 8 || (hourOfDay >= 12 && hourOfDay < 13) || hourOfDay >= 18) {
+            // Horário restrito, retorne um erro ou mensagem apropriada.
+            throw new Exception("Nosso expediente é das 8:00 ao 12:00 e das 13:00 as 18:00");
+        }
+
     }
 
 }

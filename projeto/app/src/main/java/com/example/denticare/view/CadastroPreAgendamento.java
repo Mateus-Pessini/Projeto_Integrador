@@ -30,6 +30,7 @@ import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Pessoa;
 import com.example.denticare.api.models.pessoa.PreAgendamento;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -83,23 +84,12 @@ public class CadastroPreAgendamento extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CadastroPreAgendamento.this, CadUsuario.class);
-                intent.putExtra("type","client");
+                intent.putExtra("type", "client");
                 startActivity(intent);
             }
         });
 
         btCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CadastroPreAgendamento.this, NewLogin.class);
-                startActivity(intent);
-
-                // Exibir uma mensagem de confirmação
-                Toast.makeText(CadastroPreAgendamento.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CadastroPreAgendamento.this, NewLogin.class);
@@ -139,11 +129,8 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                                         Intent intent = new Intent(CadastroPreAgendamento.this, NewLogin.class);
                                         startActivity(intent);
                                     } else {
-                                        Toast.makeText(CadastroPreAgendamento.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
-                                        Log.e("", "Message =" + response.code());
-                                        Log.e("", "Body =" + response.body());
-                                        Log.e("", "ErroBody =" + response.errorBody());
-                                        Log.e("", "response =" + response);
+                                        Log.e("", "Message =" + pre.getData());
+                                        handleError(response);
                                     }
                                 }
 
@@ -161,7 +148,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
-                            Log.e("",jObjError.toString());
+                            Log.e("", jObjError.toString());
                             if (jObjError.toString().contains("Cpf")) {
                                 Toast.makeText(CadastroPreAgendamento.this, "Não foi encontrado Cliente com o CPF informado. Verifique ou Se cadastre!", Toast.LENGTH_LONG).show();
                             } else {
@@ -186,19 +173,19 @@ public class CadastroPreAgendamento extends AppCompatActivity {
     }
 
     private void showDateTimeDialog(final EditText date_time_in) {
-        final Calendar calendar= Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo"));//Calendar.getInstance();
-        DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
+        final Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo"));//Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        calendar.set(Calendar.MINUTE,minute);
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
 
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                         sdf.setLenient(false);
@@ -208,11 +195,11 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                     }
                 };
 
-                new TimePickerDialog(CadastroPreAgendamento.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+                new TimePickerDialog(CadastroPreAgendamento.this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
             }
         };
 
-        new DatePickerDialog(CadastroPreAgendamento.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+        new DatePickerDialog(CadastroPreAgendamento.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
 
     }
 
@@ -227,4 +214,31 @@ public class CadastroPreAgendamento extends AppCompatActivity {
             edDateTime.setError("Campo obrigatório");
         }
     }
+
+    private void handleError(Response<PreAgendamento> response) {
+        try {
+            // Tentar converter o corpo do erro em uma String
+            String errorBody = response.errorBody().string();
+            Log.e("Error Body", errorBody);
+
+            // Tentar analisar o JSON da mensagem de erro
+            JSONObject jsonError = new JSONObject(errorBody);
+            JSONArray errorArray = jsonError.getJSONArray("error");
+            if (errorArray.length() > 0) {
+                // Obter a primeira mensagem de erro
+                String errorMessage = errorArray.getString(0);
+
+                // Exibir a mensagem de erro
+                Toast.makeText(CadastroPreAgendamento.this, errorMessage, Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e("Error Body", "Formato JSON de erro inesperado.");
+                Toast.makeText(CadastroPreAgendamento.this, "Erro inesperado ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException | IOException e) {
+            // Lidar com erros de conversão
+            e.printStackTrace();
+            Toast.makeText(CadastroPreAgendamento.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

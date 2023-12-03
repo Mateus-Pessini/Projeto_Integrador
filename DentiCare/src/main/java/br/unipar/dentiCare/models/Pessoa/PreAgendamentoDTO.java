@@ -8,7 +8,7 @@ import java.util.Date;
 public class PreAgendamentoDTO {
 
     private Long id;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date data;
 
     private Pessoa pessoa;

@@ -1,6 +1,7 @@
 package com.example.denticare.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.denticare.api.models.pessoa.Pessoa;
 import com.example.denticare.api.models.pessoa.PreAgendamento;
 import com.example.denticare.util.DataUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -61,16 +63,17 @@ public class Consulta extends AppCompatActivity {
         tableLayout = findViewById(R.id.tableLayout);
 
         String token = DataUtils.getToken(Consulta.this);
-        ApiPreAgendamento apiPreAgendamento = RetroFit.REGISTER_PRE_AGENDAMENTO();
+        ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
 
         Call<List<ConsultaList>> preAgendamentoCall = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO(token);
         preAgendamentoCall.enqueue(new Callback<List<ConsultaList>>() {
             @Override
             public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
                 if (response.isSuccessful()) {
-                    Log.e("", "Message =" + response.code());
-                    /*for (int i = 0; i < dados.length; i++) {
-                        TableRow row = new TableRow(this);
+                    /*Log.e("", "Message =" + response.code());
+                    ArrayList<PreAgendamento> dados = new ArrayList<>();
+                    for (int i = 0; i < dados.size(); i++) {
+                        TableRow row = new TableRow(Consulta.this);
                         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
                                 TableRow.LayoutParams.MATCH_PARENT,
                                 TableRow.LayoutParams.WRAP_CONTENT
@@ -78,16 +81,16 @@ public class Consulta extends AppCompatActivity {
                         row.setLayoutParams(layoutParams);
 
                         for (int j = 0; j < dados[i].length; j++) {
-                            TextView cell = new TextView(this);
+                            TextView cell = new TextView(Consulta.this);
                             cell.setText(dados[i][j]);
                             cell.setPadding(10, 10, 10, 10);
                             row.addView(cell);
                         }
 
                         tableLayout.addView(row);
-                    }*/
+                    }
 
-                    Toast.makeText(Consulta.this, "Dados Obtidos com Sucesso!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Consulta.this, "Dados Obtidos com Sucesso!", Toast.LENGTH_SHORT).show();*/
 
                 } else {
                     Toast.makeText(Consulta.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,7 @@
 package br.unipar.dentiCare.models.Pessoa;
 
 import br.unipar.dentiCare.models.User.Usuario;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class PreAgendamento {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date data;
 
     @OneToOne(/*cascade = CascadeType.PERSIST*/)

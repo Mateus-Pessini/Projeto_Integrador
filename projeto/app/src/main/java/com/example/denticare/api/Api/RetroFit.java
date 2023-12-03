@@ -83,4 +83,6 @@ public class RetroFit {
     //PREAGENDAMENTO
     public static ApiPreAgendamento REGISTER_PRE_AGENDAMENTO() {return retrofit1.create(ApiPreAgendamento.class);}
 
+    public static ApiPreAgendamento GET_ALL_PRE_AGENDAMENTO(){return retrofit1.create(ApiPreAgendamento.class);}
+
 }
