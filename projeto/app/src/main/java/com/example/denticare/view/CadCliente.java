@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,12 +27,18 @@ import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiEndereco;
 import com.example.denticare.api.Api.ApiEstado;
 import com.example.denticare.api.Api.RetroFit;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.Cidade;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
+import com.example.denticare.util.DataUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Base64;
 import java.util.List;
 
 import retrofit2.Call;
@@ -45,6 +52,8 @@ public class CadCliente extends AppCompatActivity {
     private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
 
     private Spinner spEstado, spCidade;
+    private TextView tvNome;
+    private ImageView ivImgDentista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +82,13 @@ public class CadCliente extends AppCompatActivity {
         edCEP = findViewById(R.id.editTextCEP);
         edNumero = findViewById(R.id.editTextNumero);
         edBairro = findViewById(R.id.editTextBairro);
-
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+
+
+        tvNome.setText(DataUtils.getDataFromTokenToShow(CadCliente.this, "name"));
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
@@ -140,7 +153,7 @@ public class CadCliente extends AppCompatActivity {
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, Login.class);
+                Intent intent = new Intent(CadCliente.this, NewLogin.class);
                 startActivity(intent);
             }
         });

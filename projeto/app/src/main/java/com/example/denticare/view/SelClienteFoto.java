@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.R;
+import com.example.denticare.util.DataUtils;
 
 public class SelClienteFoto extends AppCompatActivity {
 
@@ -19,6 +22,8 @@ public class SelClienteFoto extends AppCompatActivity {
     private LinearLayout btMeusDados;
     private Button btAddFotoContinuar;
     private LinearLayout btCadClienteRecep;
+    private TextView tvNome;
+    private ImageView ivImgDentista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,10 @@ public class SelClienteFoto extends AppCompatActivity {
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btAddFotoContinuar = findViewById(R.id.btAddFotoContinuar);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+
+        tvNome.setText(DataUtils.getDataFromTokenToShow(SelClienteFoto.this, "name"));
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override

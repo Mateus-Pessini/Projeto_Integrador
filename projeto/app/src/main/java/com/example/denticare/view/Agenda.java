@@ -8,12 +8,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.denticare.R;
+import com.example.denticare.util.DataUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +34,8 @@ public class Agenda extends AppCompatActivity {
     private GridView gvAgenda;
     private SimpleDateFormat dateFormatter;
     private TextView[] dayTextViews = new TextView[42];
+    private TextView tvNome;
+    private ImageView ivImgDentista;
 
 
 
@@ -52,6 +56,11 @@ public class Agenda extends AppCompatActivity {
         btnData = findViewById(R.id.btnData);
         edtData = findViewById(R.id.edtData);
         gvAgenda = findViewById(R.id.gvAgenda);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+
+
+        tvNome.setText(DataUtils.getDataFromTokenToShow(Agenda.this, "name"));
 
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());

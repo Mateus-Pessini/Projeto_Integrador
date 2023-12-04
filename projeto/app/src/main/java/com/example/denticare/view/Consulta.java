@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -41,6 +42,7 @@ public class Consulta extends AppCompatActivity {
     private TableLayout tableLayout;
     private Button btProximo;
     private TextView tvNome;
+    private ImageView ivImgDentista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +58,11 @@ public class Consulta extends AppCompatActivity {
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btProximo = findViewById(R.id.btProximo);
-        tvNome = findViewById(R.id.tvNomeEmConsulta);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
 
         tvNome.setText(DataUtils.getDataFromTokenToShow(Consulta.this, "name"));
+
 
         tableLayout = findViewById(R.id.tableLayout);
 
