@@ -1,5 +1,6 @@
 package com.example.denticare.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,12 +20,17 @@ import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiPessoa;
 import com.example.denticare.api.Api.ApiPreAgendamento;
 import com.example.denticare.api.Api.RetroFit;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.ConsultaList;
 import com.example.denticare.api.models.pessoa.Pessoa;
 import com.example.denticare.api.models.pessoa.PreAgendamento;
 import com.example.denticare.util.DataUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import retrofit2.Call;
@@ -60,11 +66,9 @@ public class Consulta extends AppCompatActivity {
         btProximo = findViewById(R.id.btProximo);
         tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
-
-        tvNome.setText(DataUtils.getDataFromTokenToShow(Consulta.this, "name"));
-
-
         tableLayout = findViewById(R.id.tableLayout);
+
+        buscaTipoUsuario();
 
         String token = DataUtils.getToken(Consulta.this);
         ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
@@ -144,7 +148,7 @@ public class Consulta extends AppCompatActivity {
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Consulta.this, Login.class);
+                Intent intent = new Intent(Consulta.this, NewLogin.class);
                 startActivity(intent);
             }
         });
@@ -167,5 +171,37 @@ public class Consulta extends AppCompatActivity {
             }
         });
 
+    }
+    private void buscaTipoUsuario(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
+
+            }
+        }
     }
 }

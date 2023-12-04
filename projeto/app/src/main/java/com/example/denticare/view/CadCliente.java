@@ -87,8 +87,7 @@ public class CadCliente extends AppCompatActivity {
         tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
 
-
-        tvNome.setText(DataUtils.getDataFromTokenToShow(CadCliente.this, "name"));
+        buscaTipoUsuario();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
@@ -290,6 +289,39 @@ public class CadCliente extends AppCompatActivity {
         });
 
 
+    }
+
+    private void buscaTipoUsuario(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
+
+            }
+        }
     }
 
     public void limparCampos() {

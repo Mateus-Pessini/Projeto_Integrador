@@ -119,7 +119,7 @@ public class DeleteCliente extends AppCompatActivity {
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DeleteCliente.this, Login.class);
+                Intent intent = new Intent(DeleteCliente.this, NewLogin.class);
                 startActivity(intent);
             }
         });

@@ -11,15 +11,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.denticare.R;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Base64;
 
 public class GeraPDF extends AppCompatActivity {
@@ -140,7 +136,7 @@ public class GeraPDF extends AppCompatActivity {
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GeraPDF.this, Login.class);
+                Intent intent = new Intent(GeraPDF.this, NewLogin.class);
                 startActivity(intent);
             }
         });
