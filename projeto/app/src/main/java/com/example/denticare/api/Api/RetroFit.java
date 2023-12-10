@@ -80,6 +80,9 @@ public class RetroFit {
 
     public static ApiCidade GET_ALL_BY_ESTADO(){return retrofit1.create(ApiCidade.class);}
 
+    //TRATAMENTO
+    public static ApiTratamento REGISTER_TRATAMENTO() {return retrofit1.create(ApiTratamento.class);}
+
     //PREAGENDAMENTO
     public static ApiPreAgendamento REGISTER_PRE_AGENDAMENTO() {return retrofit1.create(ApiPreAgendamento.class);}
 

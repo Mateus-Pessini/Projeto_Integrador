@@ -14,12 +14,12 @@ public class Tratamento {
 
     private String ds_observacao;
 
-    private Cliente cliente;
+    private Long cliente;
 
     public Tratamento() {
     }
 
-    public Tratamento(Long id, List<Dentes> dentesId, Consulta consultaId, String ds_observacao, Cliente cliente) {
+    public Tratamento(Long id, List<Dentes> dentesId, Consulta consultaId, String ds_observacao, Long cliente) {
         this.id = id;
         this.dentesId = dentesId;
         this.consultaId = consultaId;
@@ -59,11 +59,11 @@ public class Tratamento {
         this.ds_observacao = ds_observacao;
     }
 
-    public Cliente getCliente() {
+    public Long getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Long cliente) {
         this.cliente = cliente;
     }
 }

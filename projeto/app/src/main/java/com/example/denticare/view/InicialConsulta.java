@@ -37,6 +37,7 @@ public class InicialConsulta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicialConsulta.this, EscolhaDente.class);
+                intent.putExtra("pessoa","3");
                 startActivity(intent);
             }
         });

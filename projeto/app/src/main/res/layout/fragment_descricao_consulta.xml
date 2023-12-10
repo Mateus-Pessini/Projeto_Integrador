@@ -17,6 +17,7 @@
         android:layout_marginLeft="25dp" />
 
     <EditText
+        android:id="@+id/edDescDentes"
         android:layout_width="700dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -34,6 +35,7 @@
         android:layout_marginLeft="25dp"/>
 
     <EditText
+        android:id="@+id/edDescricaoDentes"
         android:layout_width="700dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
