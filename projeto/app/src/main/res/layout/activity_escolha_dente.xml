@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.EscolhaDente"
+    android:background="@color/prata"
     android:orientation="vertical"
-    android:background="@color/prata">
+    tools:context=".view.EscolhaDente">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,18 +18,19 @@
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="14dp"
-            android:src="@drawable/titulo"/>
+            android:src="@drawable/titulo" />
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:text="DentiCare"
-            android:textStyle="bold"
-            android:textSize="33dp"
-            android:textColor="#FFFFFFFF"
+            android:layout_marginLeft="9dp"
             android:layout_marginTop="12dp"
-            android:layout_marginLeft="9dp"/>
+            android:text="DentiCare"
+            android:textColor="#FFFFFFFF"
+            android:textSize="33dp"
+            android:textStyle="bold" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,41 +46,41 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:background="@drawable/formaimage"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:background="@drawable/formaimage" />
 
                 <TextView
                     android:id="@+id/tvNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
                     android:text="Nome"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="10dp"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btAgendarRecep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
-                android:id="@+id/btAgendarRecep">
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/calendario"/>
+                    android:src="@drawable/calendario" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -88,20 +89,21 @@
                     android:text="Agendamentos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btMeusDados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="10dp"
-                android:id="@+id/btMeusDados">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                    android:src="@drawable/pessoa" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -110,44 +112,46 @@
                     android:text="Meus Dados"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btConsultaRecep"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
+                android:layout_marginHorizontal="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:id="@+id/btConsultaRecep"
-                android:background="@drawable/column"
-                android:layout_marginHorizontal="5dp">
+                android:background="@drawable/column">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/document"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/document" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="4dp"
                     android:text="Consultas"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btPdfRecep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btPdfRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pdf"/>
+                    android:src="@drawable/pdf" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -156,19 +160,20 @@
                     android:text="Gerar PDF"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btCadClienteRecep"
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadClienteRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                    android:src="@drawable/pessoa" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -177,19 +182,20 @@
                     android:text="Cadastrar Clientes"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btCadFotoRecep"
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadFotoRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/img"/>
+                    android:src="@drawable/img" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -198,20 +204,21 @@
                     android:text="Cadastrar Fotos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btSair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
-                android:id="@+id/btSair">
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/exit"/>
+                    android:src="@drawable/exit" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -220,9 +227,10 @@
                     android:text="Sair"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -232,25 +240,25 @@
             <LinearLayout
                 android:layout_width="981dp"
                 android:layout_height="550dp"
-                android:orientation="vertical"
-                android:background="@drawable/campoverdeagua"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="40dp"
+                android:background="@drawable/campoverdeagua"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome: Cliente"
-                    android:textSize="25dp"
-                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"/>
+                    android:text="Nome: Cliente"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -268,415 +276,479 @@
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente18"
                                 android:layout_marginLeft="27dp"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente18" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente17"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente17" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente16"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente16" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente15"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente15" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente14"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente14" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente13"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente13" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente12"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente12" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente11"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente11" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente21"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente21" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente22"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente22" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente23"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente23" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente24"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente24" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente25"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente25" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente26"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente26" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente27"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente27" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente28"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente28" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:layout_marginLeft="27dp"
+                                android:gravity="center"
                                 android:text="18"
-                                android:layout_marginLeft="27dp"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="17"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="16"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="15"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="14"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="13"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="12"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="11"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="21"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="22"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="23"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="24"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="25"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="26"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="27"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="28"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="50dp">
+                            android:layout_marginTop="50dp"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:layout_marginLeft="27dp"
+                                android:gravity="center"
                                 android:text="48"
-                                android:layout_marginLeft="27dp"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="47"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="46"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="45"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="44"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="43"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="42"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="41"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="31"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="32"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="33"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="34"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="35"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="36"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="37"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
+
                             <TextView
                                 android:layout_width="37dp"
                                 android:layout_height="20dp"
+                                android:gravity="center"
                                 android:text="38"
-                                android:textSize="15dp"
                                 android:textColor="@color/cinza"
-                                android:gravity="center"/>
+                                android:textSize="15dp" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente48"
                                 android:layout_marginLeft="27dp"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente48" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente47"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente47" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente46"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente46" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente45"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente45" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente44"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente44" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente43"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente43" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente42"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente42" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente41"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente41" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente31"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente31" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente32"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente32" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente33"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente33" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente34"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente34" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente35"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente35" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente36"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente36" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente37"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente37" />
+
                             <ImageView
                                 android:layout_width="37dp"
                                 android:layout_height="80dp"
-                                android:src="@drawable/dente38"
-                                android:clickable="true"/>
+                                android:clickable="true"
+                                android:src="@drawable/dente38" />
 
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="400dp"
@@ -685,59 +757,60 @@
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/column"
                             android:text="SUPERIORES"
-                            android:textSize="25dp"
                             android:textColor="@color/white"
-                            android:layout_marginTop="30dp"/>
+                            android:textSize="25dp" />
 
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
+                            android:layout_marginVertical="100dp"
+                            android:background="@drawable/column"
                             android:text="TODOS"
-                            android:textSize="25dp"
                             android:textColor="@color/white"
-                            android:layout_marginVertical="100dp"/>
+                            android:textSize="25dp" />
 
                         <Button
                             android:layout_width="240dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/column"
                             android:layout_marginHorizontal="25dp"
+                            android:background="@drawable/column"
                             android:text="INFERIORES"
-                            android:textSize="25dp"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginVertical="30dp"
-                android:layout_marginHorizontal="30dp">
+                android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btVoltar"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="100dp"
+                    android:background="@drawable/botaoamarelo"
                     android:text="VOLTAR"
                     android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:background="@drawable/botaoamarelo"
-                    android:layout_marginHorizontal="100dp"
-                    android:id="@+id/btVoltar"/>
+                    android:textSize="25dp" />
 
                 <Button
+                    android:id="@+id/btContinuar"
                     android:layout_width="300dp"
                     android:layout_height="50dp"
+                    android:background="@drawable/botaoverde"
                     android:text="CONTINUAR"
                     android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:background="@drawable/botaoverde"
-                    android:id="@+id/btContinuar"/>
+                    android:textSize="25dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
