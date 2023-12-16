@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".agendamento.Consulta"
+    android:background="@color/prata"
     android:orientation="vertical"
-    android:background="@color/prata">
+    tools:context=".view.Consulta">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,18 +17,19 @@
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="14dp"
-            android:src="@drawable/titulo"/>
+            android:src="@drawable/titulo" />
 
         <TextView
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:text="DentiCare"
-            android:textStyle="bold"
-            android:textSize="33dp"
-            android:textColor="#FFFFFFFF"
+            android:layout_marginLeft="9dp"
             android:layout_marginTop="12dp"
-            android:layout_marginLeft="9dp"/>
+            android:text="DentiCare"
+            android:textColor="#FFFFFFFF"
+            android:textSize="33dp"
+            android:textStyle="bold" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,40 +45,42 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/ivImgDentista"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:background="@drawable/formaimage"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:background="@drawable/formaimage" />
 
                 <TextView
+                    android:id="@+id/tvNome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Picininha"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Nome"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="10dp"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btAgendarRecep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
-                android:id="@+id/btAgendarRecep">
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/calendario"/>
+                    android:src="@drawable/calendario" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -87,20 +89,21 @@
                     android:text="Agendamentos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btMeusDados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
-                android:id="@+id/btMeusDados">
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                    android:src="@drawable/pessoa" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -109,44 +112,46 @@
                     android:text="Meus Dados"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btConsultaRecep"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/column"
-                android:id="@+id/btConsultaRecep">
+                android:layout_marginRight="10dp"
+                android:background="@drawable/column">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/document"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/document" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="4dp"
                     android:text="Consultas"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btPdfRecep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btPdfRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pdf"/>
+                    android:src="@drawable/pdf" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -155,19 +160,20 @@
                     android:text="Gerar PDF"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btCadClienteRecep"
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadClienteRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/pessoa"/>
+                    android:src="@drawable/pessoa" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -176,19 +182,20 @@
                     android:text="Cadastrar Clientes"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btCadFotoRecep"
                 android:layout_width="210dp"
                 android:layout_height="58dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:id="@+id/btCadFotoRecep">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/img"/>
+                    android:src="@drawable/img" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -197,20 +204,21 @@
                     android:text="Cadastrar Fotos"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/btSair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
-                android:id="@+id/btSair">
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/exit"/>
+                    android:src="@drawable/exit" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -219,83 +227,95 @@
                     android:text="Sair"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="90dp"
             android:layout_weight="4"
-            android:orientation="vertical"
-            android:layout_marginTop="90dp">
+            android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TableLayout
-                    android:id="@+id/tableLayout"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
                         <TextView
-                            android:text="Status"
                             style="@style/TableCell"
-                            android:layout_weight="1"
                             android:layout_width="0dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:text="Hora"
-                            style="@style/TableCell"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"/>
-                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
                             android:text="Nome"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
                             style="@style/TableCell"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:layout_width="0dp"
-                            android:textStyle="bold"
+                            android:text="Horario"
                             android:textColor="@color/black"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:text="Tipo de Consulta"
-                            style="@style/TableCell"
-                            android:layout_weight="2"
-                            android:layout_width="0dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:text="Data"
-                            style="@style/TableCell"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"/>
-                        <TextView
-                            android:text="Valor"
-                            style="@style/TableCell"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="20dp" />
-                    </TableRow>
-                </TableLayout>
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <TextView
+                        style="@style/TableCell"
+                        android:id="@+id/TvConsultaDentes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Mateus Pessini Scherer"
+                        android:textSize="18sp" />
+
+                    <TextView android:text="14:00"
+                    style="@style/TableCell"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/buttonEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.999"
+                        android:text="Editar"
+                        android:background="@drawable/button_edit_style"/>
+
+                    <Button
+                        android:id="@+id/buttonDelete"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.999"
+                        android:text="Deletar"
+                        android:background="@drawable/button_delete_style"/>
+                </LinearLayout>
             </LinearLayout>
-            <Button
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:id="@+id/btProximo"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

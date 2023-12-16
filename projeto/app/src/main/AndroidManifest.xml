@@ -85,6 +85,9 @@
             android:name=".view.CadastroPreAgendamento"
             android:exported="false" />
         <activity
+            android:name=".view.DentesInfo"
+            android:exported="false" />
+        <activity
             android:name=".view.NewLogin"
             android:exported="true" >
             <intent-filter>

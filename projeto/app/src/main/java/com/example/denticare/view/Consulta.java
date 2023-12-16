@@ -21,8 +21,8 @@ public class Consulta extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
+    private TextView tvNome;
     private TableLayout tableLayout;
-    private Button btProximo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +31,16 @@ public class Consulta extends AppCompatActivity {
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
 
+        tvNome = findViewById(R.id.TvConsultaDentes);
         btMeusDados = findViewById(R.id.btMeusDados);
         btAgendarRecep = findViewById(R.id.btAgendarRecep);
         btPdfRecep = findViewById(R.id.btPdfRecep);
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
-        btProximo = findViewById(R.id.btProximo);
 
-        tableLayout = findViewById(R.id.tableLayout);
         
-        String[][] dados = {
+        /*String[][] dados = {
                 {"Status 1", "08:00", "Nome 1", "Tipo 1", "Data 1", "Valor 1"},
                 {"Status 2", "08:30", "Nome 2", "Tipo 2", "Data 2", "Valor 2"},
                 {"Status 3", "09:00", "Nome 3", "Tipo 3", "Data 3", "Valor 3"}
@@ -63,15 +62,16 @@ public class Consulta extends AppCompatActivity {
             }
 
             tableLayout.addView(row);
-        }
+        }*/
 
-        btProximo.setOnClickListener(new View.OnClickListener() {
+        tvNome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Consulta.this, InicialConsulta.class);
+                Intent intent = new Intent(Consulta.this, EscolhaDente.class);
                 startActivity(intent);
             }
         });
+
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

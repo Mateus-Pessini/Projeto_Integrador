@@ -1,5 +1,6 @@
 package com.example.denticare.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -45,14 +46,14 @@ public class Consulta2 extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
-    private TableLayout tableLayout;
-    private Button btProximo;
-    private TextView tvNome;
+    private Button btEdit, btDelete;
+    private TextView tvDentes;
     private ImageView ivImgDentista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta2);
+        setContentView(R.layout.activity_consulta);
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
@@ -63,10 +64,10 @@ public class Consulta2 extends AppCompatActivity {
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
-        btProximo = findViewById(R.id.btProximo);
-        tvNome = findViewById(R.id.tvNome);
+        btEdit = findViewById(R.id.buttonEdit);
+        btDelete = findViewById(R.id.buttonDelete);
+        tvDentes = findViewById(R.id.TvConsultaDentes);
         ivImgDentista = findViewById(R.id.ivImgDentista);
-        tableLayout = findViewById(R.id.tableLayout);
 
         buscaTipoUsuario();
 
@@ -115,14 +116,14 @@ public class Consulta2 extends AppCompatActivity {
             }
         });
 
-
-        btProximo.setOnClickListener(new View.OnClickListener() {
+        tvDentes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Consulta2.this, InicialConsulta.class);
+                Intent intent = new Intent(Consulta2.this, EscolhaDente.class);
                 startActivity(intent);
             }
         });
+
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,7 +189,6 @@ public class Consulta2 extends AppCompatActivity {
             } catch (JSONException e) {
                 name = "";
             }
-            tvNome.setText(name);
 
             if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
                 btCadClienteRecep.setVisibility(View.GONE);

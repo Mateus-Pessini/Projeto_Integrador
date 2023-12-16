@@ -20,7 +20,7 @@ public class DentesController {
 
     @PostMapping
     @ApiOperation(value = "Insere um Dente")
-    public Dentes insert(@Valid @RequestBody Dentes dentes) throws Exception{
+    public List<Dentes> insert(@Valid @RequestBody List<Dentes> dentes) throws Exception{
         return dentesService.insert(dentes);
     }
 

@@ -14,5 +14,5 @@ public interface ApiDente {
 
     @Headers("Content-Type: application/json")
     @POST("dentes")
-    Call<Dentes> REGISTER_DENTE(@Header("Authorization") String token, @Body List<Dentes> dentes);
+    Call<List<Dentes>> REGISTER_DENTE(@Header("Authorization") String token, @Body List<Dentes> dentes);
 }

@@ -26,8 +26,6 @@ public class Dentes {
 
     private int nrDente;
 
-    private String dsDente;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "dentesId")
     private List<Tratamento> tratamentoId;

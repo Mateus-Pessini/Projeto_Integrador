@@ -13,9 +13,9 @@ public class Dentes {
 
     private List<Tratamento> tratamentoId;
 
-    private Cliente cliente;
+    private Pessoa cliente;
 
-    public Dentes(Long id, int nrDente, String dsDente, List<Tratamento> tratamentoId, Cliente cliente) {
+    public Dentes(Long id, int nrDente, String dsDente, List<Tratamento> tratamentoId, Pessoa cliente) {
         this.id = id;
         this.nrDente = nrDente;
         this.dsDente = dsDente;
@@ -58,11 +58,11 @@ public class Dentes {
         this.tratamentoId = tratamentoId;
     }
 
-    public Cliente getCliente() {
+    public Pessoa getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Pessoa cliente) {
         this.cliente = cliente;
     }
 }

@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/prata"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".view.DentesInfo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Row for Upper Teeth -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Dentes Superiores"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="26" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="27" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="28" />
+            </LinearLayout>
+
+
+            <!-- Row for Lower Teeth -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Dentes Inferiores"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="48" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="47" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="46" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="44" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="43" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="42" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="41" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="31" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="32" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="33" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="34" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="35" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="36" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="37" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dente_32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="38" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Descrição"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/editTextDescricaoDentes"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/borda1"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btn_confirm_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/verdebotao"
+            android:onClick="onConfirmSelectionClicked"
+            android:text="Confirmar" />
+
+        <Button
+            android:id="@+id/btn_cancel_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:background="@color/vermelinho"
+            android:text="Cancelar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="650dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/campowhite"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="27dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente18" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente17" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente16" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente15" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente14" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente13" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente12" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente11" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente21" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente22" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente23" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente24" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente25" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente26" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente27" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente28" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="27dp"
+                    android:gravity="center"
+                    android:text="18"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="17"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="16"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="15"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="14"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="13"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="12"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="11"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="21"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="22"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="23"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="24"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="25"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="26"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="27"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="28"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="27dp"
+                    android:gravity="center"
+                    android:text="48"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="47"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="46"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="45"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="44"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="43"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="42"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="41"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="31"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="32"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="33"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="34"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="35"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="36"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="37"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="38"
+                    android:textColor="@color/cinza"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="27dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente48" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente47" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente46" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente45" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente44" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente43" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente42" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente41" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente31" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente32" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente33" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente34" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente35" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente36" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente37" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="80dp"
+                    android:clickable="true"
+                    android:src="@drawable/dente38" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -14,8 +14,8 @@ public class DentesService {
     @Autowired
     DentesRepository dentesRepository;
 
-    public Dentes insert(Dentes dentes) throws Exception{
-        return dentesRepository.saveAndFlush(dentes);
+    public List<Dentes> insert(List<Dentes> dentesList) {
+        return dentesRepository.saveAll(dentesList);
     }
 
     public Dentes edit(Dentes dentes) throws Exception{

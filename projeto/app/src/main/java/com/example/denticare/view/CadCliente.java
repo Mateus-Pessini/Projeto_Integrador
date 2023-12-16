@@ -106,7 +106,7 @@ public class CadCliente extends AppCompatActivity {
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spEstado.setAdapter(adapter);
                     } else {
-                        // Trate o erro de resposta da API, se necessári
+                        // Trate o erro de resposta da API, se necessário
                         System.out.println(response.body().toString());
                     }
                 }
@@ -205,7 +205,7 @@ public class CadCliente extends AppCompatActivity {
                 cli.setNome(edNomeCompleto.getText().toString());
                 cli.setNrtelefone(edTelefone.getText().toString());*/
                 cli.setEndereco(end);
-                criarDentes(cli);
+                //criarDentes(cli);
 
                 Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
                 enderecoCall.enqueue(new Callback<Endereco>() {
@@ -411,7 +411,7 @@ public class CadCliente extends AppCompatActivity {
             Dentes dente = new Dentes();
             dente.setNrDente(i);
             dente.setDsDente("Dente " + i);
-            dente.setCliente(cliente);
+            //dente.setCliente(cliente);
         }
     }
 
