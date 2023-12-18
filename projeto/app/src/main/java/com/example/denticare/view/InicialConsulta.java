@@ -55,7 +55,7 @@ public class InicialConsulta extends AppCompatActivity {
         btFimConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InicialConsulta.this, Consulta.class);
+                Intent intent = new Intent(InicialConsulta.this, Consulta2.class);
                 startActivity(intent);
             }
         });

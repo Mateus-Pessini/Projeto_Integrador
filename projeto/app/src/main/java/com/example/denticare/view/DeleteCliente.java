@@ -90,7 +90,7 @@ public class DeleteCliente extends AppCompatActivity {
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DeleteCliente.this, Consulta.class);
+                Intent intent = new Intent(DeleteCliente.this, Consulta2.class);
                 startActivity(intent);
             }
         });

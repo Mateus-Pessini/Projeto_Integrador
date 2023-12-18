@@ -75,6 +75,61 @@ public class DentesInfo extends AppCompatActivity {
 
         buscaTipoUsuario();
 
+        btConsultaRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, Consulta2.class);
+                startActivity(intent);
+            }
+        });
+        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, Agenda.class);
+                startActivity(intent);
+            }
+        });
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, GeraPDF.class);
+                startActivity(intent);
+            }
+        });
+
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, SelClienteFoto.class);
+                startActivity(intent);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpcaoCadUsuario.showCustomDialog(DentesInfo.this, new OpcaoCadUsuario.CustomDialogListener() {
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                });
+            }
+        });
+        btMeusDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, DadosDentista.class);
+                startActivity(intent);
+            }
+        });
+
         for (int i = 0; i < checkBoxes.length; i++) {
             String checkBoxId = "checkbox_dente_" + (i + 1);
             int resID = getResources().getIdentifier(checkBoxId, "id", getPackageName());

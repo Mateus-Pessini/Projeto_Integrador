@@ -77,7 +77,7 @@ public class Agenda extends AppCompatActivity {
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Agenda.this, Consulta.class);
+                Intent intent = new Intent(Agenda.this, Consulta2.class);
                 startActivity(intent);
             }
         });
