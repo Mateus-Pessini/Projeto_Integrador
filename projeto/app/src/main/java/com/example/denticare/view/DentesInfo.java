@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.denticare.Adapter.SelectionStrategy;
 import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiDente;
+import com.example.denticare.api.Api.ApiPessoa;
 import com.example.denticare.api.Api.ApiTratamento;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.Tratamentos.Tratamento;
@@ -140,29 +141,45 @@ public class DentesInfo extends AppCompatActivity {
     }
 
     public void sendSelectionToBackend(List<Integer> selectedTeeth) {
-        // Suponha que você já tenha uma instância de Retrofit configurada
-        ApiTratamento apiTratamento = RetroFit.REGISTER_TRATAMENTO();
-        Pessoa cli = new Pessoa();
-        cli.setNome("Mateus Pessini Scherer");
-        cli.setId(99L);
+        ApiPessoa apiPessoa = RetroFit.GET_PESSOA();
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
-        Log.e("", "" + token);
-        // Você precisará criar uma lista de objetos Dentes com base nos números selecionados
+
+        Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA("Bearer " + token, Long.valueOf(99));
+
+        pessoaCall.enqueue(new Callback<Pessoa>() {
+            @Override
+            public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
+                if (response.isSuccessful()) {
+                    Pessoa cli = response.body();
+                    createAndSendTratamento(cli, selectedTeeth, token);
+                } else {
+                    handleErrorPessoa(response);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Pessoa> call, Throwable t) {
+                // Tratamento de falha ao buscar a pessoa
+            }
+        });
+    }
+
+    private void createAndSendTratamento(Pessoa cli, List<Integer> selectedTeeth, String token) {
+        ApiTratamento apiTratamento = RetroFit.REGISTER_TRATAMENTO();
         List<Dentes> dentesList = new ArrayList<>();
         for (Integer toothNumber : selectedTeeth) {
             Dentes dente = new Dentes();
             dente.setNrDente(toothNumber);
             dente.setDsDente(edDesc.getText().toString());
-            dente.setCliente(cli);
-            // Configure qualquer outra propriedade necessária de Dentes
+            dente.setCliente(cli); // Use o objeto 'cli' que foi obtido com sucesso
             dentesList.add(dente);
         }
 
         Tratamento tratamento = new Tratamento();
         tratamento.setDentesId(dentesList);
         tratamento.setDs_observacao(edDesc.getText().toString());
-        tratamento.setCliente(99L);
+        tratamento.setCliente(cli.getId()); // Agora 'cli' não é mais nulo
 
         // Agora faça a chamada de API para enviar o objeto Tratamento
         Call<Tratamento> call = apiTratamento.REGISTER_TRATAMENTO("Bearer " + token, tratamento);
@@ -180,11 +197,35 @@ public class DentesInfo extends AppCompatActivity {
             public void onFailure(Call<Tratamento> call, Throwable t) {
                 Toast.makeText(DentesInfo.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 
     private void handleError(Response<Tratamento> response) {
+        try {
+            // Tentar converter o corpo do erro em uma String
+            String errorBody = response.errorBody().string();
+            Log.e("Error Body", errorBody);
+
+            // Tentar analisar o JSON da mensagem de erro
+            JSONObject jsonError = new JSONObject(errorBody);
+            JSONArray errorArray = jsonError.getJSONArray("error");
+            if (errorArray.length() > 0) {
+                // Obter a primeira mensagem de erro
+                String errorMessage = errorArray.getString(0);
+
+                // Exibir a mensagem de erro
+                Toast.makeText(DentesInfo.this, errorMessage, Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e("Error Body", "Formato JSON de erro inesperado.");
+                Toast.makeText(DentesInfo.this, "Erro inesperado ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException | IOException e) {
+            // Lidar com erros de conversão
+            e.printStackTrace();
+            Toast.makeText(DentesInfo.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void handleErrorPessoa(Response<Pessoa> response) {
         try {
             // Tentar converter o corpo do erro em uma String
             String errorBody = response.errorBody().string();
