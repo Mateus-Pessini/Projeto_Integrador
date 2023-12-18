@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,7 @@ import com.example.denticare.api.Api.ApiDente;
 import com.example.denticare.api.Api.ApiTratamento;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.Tratamentos.Tratamento;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Pessoa;
@@ -30,6 +34,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,8 +45,10 @@ import retrofit2.Retrofit;
 public class DentesInfo extends AppCompatActivity {
     private CheckBox[] checkBoxes = new CheckBox[32]; // Seu array de CheckBoxes.
     private SelectionStrategy selectionStrategy;
-
+    private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private EditText edDesc;
+    private TextView tvNome;
+    private ImageView ivImgDentista;
     private Button btCancel, btContinue;
 
 
@@ -50,9 +57,22 @@ public class DentesInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentes);
 
+        NavigationUtil.hideNavigation(this);
+
         edDesc = findViewById(R.id.editTextDescricaoDentes);
         btCancel = findViewById(R.id.btn_cancel_selection);
         btContinue = findViewById(R.id.btn_confirm_selection);
+        btMeusDados = findViewById(R.id.btMeusDados);
+        btAgendarRecep = findViewById(R.id.btAgendarRecep);
+        btPdfRecep = findViewById(R.id.btPdfRecep);
+        btSair = findViewById(R.id.btSair);
+        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
+        btConsultaRecep = findViewById(R.id.btConsultaRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
+
+        buscaTipoUsuario();
 
         for (int i = 0; i < checkBoxes.length; i++) {
             String checkBoxId = "checkbox_dente_" + (i + 1);
@@ -90,7 +110,7 @@ public class DentesInfo extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
+                Intent intent = new Intent(DentesInfo.this, InicialConsulta.class);
                 startActivity(intent);
             }
         });
@@ -207,6 +227,39 @@ public class DentesInfo extends AppCompatActivity {
             // Lidar com erros de conversão
             e.printStackTrace();
             Toast.makeText(DentesInfo.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void buscaTipoUsuario(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
+
+            }
         }
     }
 

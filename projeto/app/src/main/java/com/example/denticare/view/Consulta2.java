@@ -119,7 +119,7 @@ public class Consulta2 extends AppCompatActivity {
         tvDentes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Consulta2.this, EscolhaDente.class);
+                Intent intent = new Intent(Consulta2.this, InicialConsulta.class);
                 startActivity(intent);
             }
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -23,6 +24,8 @@ public class Consulta extends AppCompatActivity {
     private LinearLayout btCadClienteRecep;
     private TextView tvNome;
     private TableLayout tableLayout;
+    private ImageView ivImgDentista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +70,7 @@ public class Consulta extends AppCompatActivity {
         tvNome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Consulta.this, EscolhaDente.class);
+                Intent intent = new Intent(Consulta.this, InicialConsulta.class);
                 startActivity(intent);
             }
         });
