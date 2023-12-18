@@ -86,12 +86,18 @@ public class PessoaService {
     }
 
     public Pessoa findById(Long id) throws Exception {
-        Optional<Pessoa> retorno = pessoaRepository.findById(id);
+        try {
+            Optional<Pessoa> retorno = pessoaRepository.findById(id);
+            if (retorno.isPresent())
+                return retorno.get();
+            else
+                throw new Exception("Pessoa com id " + id + " não identificado");
+        } catch (Exception e) {
+            // Imprime o stack trace do erro
+            System.out.println(e.getStackTrace());
+        }
 
-        if (retorno.isPresent())
-            return retorno.get();
-        else
-            throw new Exception("Pessoa com id " + id + " não identificado");
+            return null;
     }
 
     public Pessoa findByCpf(String cpf) throws Exception {

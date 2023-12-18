@@ -1,10 +1,12 @@
 package br.unipar.dentiCare.models.Pessoa;
 
+import java.util.List;
+
 public class TratamentoDTO {
 
     private Long id;
 
-    private Long dentesId;
+    private List<Long> dentesId;
 
     private Long consultaId;
 
@@ -12,7 +14,7 @@ public class TratamentoDTO {
 
     private Long clienteId;
 
-    public TratamentoDTO(Long id, Long dentesId, Long consultaId, String ds_observacao, Long clienteId) {
+    public TratamentoDTO(Long id, List<Long> dentesId, Long consultaId, String ds_observacao, Long clienteId) {
         this.id = id;
         this.dentesId = dentesId;
         this.consultaId = consultaId;
@@ -28,11 +30,11 @@ public class TratamentoDTO {
         this.id = id;
     }
 
-    public Long getDentesId() {
+    public List<Long> getDentesId() {
         return dentesId;
     }
 
-    public void setDentesId(Long dentesId) {
+    public void setDentesId(List<Long> dentesId) {
         this.dentesId = dentesId;
     }
 
