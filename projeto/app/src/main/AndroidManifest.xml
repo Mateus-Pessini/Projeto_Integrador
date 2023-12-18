@@ -43,7 +43,7 @@
             android:name=".view.CadInicial"
             android:exported="false" />
         <activity
-            android:name=".view.Consulta"
+            android:name=".view.Consulta2"
             android:exported="false" />
         <activity
             android:name=".view.AddFoto"
@@ -77,7 +77,7 @@
             android:exported="false" />
         <activity
             android:name=".view.InicialCell"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".view.CadUsuario"
             android:exported="false" />
@@ -89,9 +89,10 @@
             android:exported="false" />
         <activity
             android:name=".view.NewLogin"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

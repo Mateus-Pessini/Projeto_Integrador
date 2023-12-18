@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.EscolhaDente"
+    android:orientation="vertical"
+    android:background="@color/prata">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/cabecalho">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/titulo" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:text="DentiCare"
+            android:textColor="#FFFFFFFF"
+            android:textSize="33dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lateral"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/formaimage" />
+
+                <TextView
+                    android:id="@+id/tvNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Nome"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btAgendarRecep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/calendario" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Agendamentos"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btMeusDados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/pessoa" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Meus Dados"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btConsultaRecep"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/column">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/document" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Consultas"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btPdfRecep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/pdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Gerar PDF"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btCadClienteRecep"
+                android:layout_width="210dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/pessoa" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Cadastrar Clientes"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btCadFotoRecep"
+                android:layout_width="210dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/img" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Cadastrar Fotos"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btSair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/exit" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Sair"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="981dp"
+                android:layout_height="550dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/campoverdeagua"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Nome: Mateus Pessini Scherer"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="650dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/campowhite"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="60dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/dente1"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:layout_marginLeft="27dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente18"
+                                android:tag="1" />
+
+                            <ImageView
+                                android:id="@+id/dente2"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente17"
+                                android:tag="2" />
+
+                            <ImageView
+                                android:id="@+id/dente3"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente16"
+                                android:tag="3" />
+
+                            <ImageView
+                                android:id="@+id/dente4"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente15"
+                                android:tag="4" />
+
+                            <ImageView
+                                android:id="@+id/dente5"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente14"
+                                android:tag="5" />
+
+                            <ImageView
+                                android:id="@+id/dente6"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente13"
+                                android:tag="6" />
+
+                            <ImageView
+                                android:id="@+id/dente7"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente12"
+                                android:tag="7" />
+
+                            <ImageView
+                                android:id="@+id/dente8"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente11"
+                                android:tag="8" />
+
+                            <ImageView
+                                android:id="@+id/dente9"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente21"
+                                android:tag="9" />
+
+                            <ImageView
+                                android:id="@+id/dente10"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente22"
+                                android:tag="10" />
+
+                            <ImageView
+                                android:id="@+id/dente11"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente23"
+                                android:tag="11" />
+
+                            <ImageView
+                                android:id="@+id/dente12"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente24"
+                                android:tag="12" />
+
+                            <ImageView
+                                android:id="@+id/dente13"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente25"
+                                android:tag="13" />
+
+                            <ImageView
+                                android:id="@+id/dente14"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente26"
+                                android:tag="14"/>
+
+                            <ImageView
+                                android:id="@+id/dente15"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente27"
+                                android:tag="15" />
+
+                            <ImageView
+                                android:id="@+id/dente16"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente28"
+                                android:tag="16" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="27dp"
+                                android:gravity="center"
+                                android:text="18"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="17"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="16"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="15"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="14"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="13"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="12"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="11"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="21"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="22"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="23"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="24"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="25"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="26"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="27"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="28"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="27dp"
+                                android:gravity="center"
+                                android:text="48"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="47"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="46"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="45"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="44"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="43"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="42"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="41"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="31"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="32"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="33"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="34"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="35"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="36"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="37"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="37dp"
+                                android:layout_height="20dp"
+                                android:gravity="center"
+                                android:text="38"
+                                android:textColor="@color/cinza"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/dente17"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:layout_marginLeft="27dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente48"
+                                android:tag="17" />
+
+                            <ImageView
+                                android:id="@+id/dente18"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente47"
+                                android:tag="18" />
+
+                            <ImageView
+                                android:id="@+id/dente19"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente46"
+                                android:tag="19" />
+
+                            <ImageView
+                                android:id="@+id/dente20"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente45"
+                                android:tag="20" />
+
+                            <ImageView
+                                android:id="@+id/dente21"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente44"
+                                android:tag="21" />
+
+                            <ImageView
+                                android:id="@+id/dente22"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente43"
+                                android:tag="22" />
+
+                            <ImageView
+                                android:id="@+id/dente23"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente42"
+                                android:tag="23"/>
+
+                            <ImageView
+                                android:id="@+id/dente24"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente41"
+                                android:tag="24" />
+
+                            <ImageView
+                                android:id="@+id/dente25"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente31"
+                                android:tag="25"/>
+
+                            <ImageView
+                                android:id="@+id/dente26"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente32"
+                                android:tag="26"/>
+
+                            <ImageView
+                                android:id="@+id/dente27"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente33"
+                                android:tag="27"/>
+
+                            <ImageView
+                                android:id="@+id/dente28"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente34"
+                                android:tag="28"/>
+
+                            <ImageView
+                                android:id="@+id/dente29"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente35"
+                                android:tag="29"/>
+
+                            <ImageView
+                                android:id="@+id/dente30"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente36"
+                                android:tag="30"/>
+
+                            <ImageView
+                                android:id="@+id/dente31"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente37"
+                                android:tag="31"/>
+
+                            <ImageView
+                                android:id="@+id/dente32"
+                                android:layout_width="37dp"
+                                android:layout_height="80dp"
+                                android:clickable="true"
+                                android:src="@drawable/dente38"
+                                android:tag="32"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="300dp"
+                        android:layout_height="400dp"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btSuperiorDentes"
+                            android:layout_width="240dp"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="25dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/column"
+                            android:text="SUPERIORES"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+
+                        <Button
+                            android:id="@+id/btTodosDentes"
+                            android:layout_width="240dp"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="25dp"
+                            android:layout_marginVertical="100dp"
+                            android:background="@drawable/column"
+                            android:text="TODOS"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+
+                        <Button
+                            android:id="@+id/btInferiorDentes"
+                            android:layout_width="240dp"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="25dp"
+                            android:background="@drawable/column"
+                            android:text="INFERIORES"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="30dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btVoltar"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="100dp"
+                    android:background="@drawable/botaoamarelo"
+                    android:text="VOLTAR"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
