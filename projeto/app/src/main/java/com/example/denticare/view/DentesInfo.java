@@ -73,6 +73,37 @@ public class DentesInfo extends AppCompatActivity {
         tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
+
+            }
+        }
+
         buscaTipoUsuario();
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +197,7 @@ public class DentesInfo extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DentesInfo.this, InicialConsulta.class);
+                Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
                 startActivity(intent);
             }
         });
@@ -220,7 +251,7 @@ public class DentesInfo extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
 
-        Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA("Bearer " + token, Long.valueOf(99));
+        Call<Pessoa> pessoaCall = apiPessoa.GET_PESSOA("Bearer " + token, 99L);
 
         pessoaCall.enqueue(new Callback<Pessoa>() {
             @Override
@@ -251,18 +282,20 @@ public class DentesInfo extends AppCompatActivity {
             dentesList.add(dente);
         }
 
-        Tratamento tratamento = new Tratamento();
-        tratamento.setDentesId(dentesList);
-        tratamento.setDs_observacao(edDesc.getText().toString());
-        tratamento.setCliente(cli.getId()); // Agora 'cli' não é mais nulo
+        Tratamento trat = new Tratamento();
+        trat.setDentesId(dentesList);
+        trat.setDs_observacao(edDesc.getText().toString());
+        trat.setCliente(cli);
 
         // Agora faça a chamada de API para enviar o objeto Tratamento
-        Call<Tratamento> call = apiTratamento.REGISTER_TRATAMENTO("Bearer " + token, tratamento);
+        Call<Tratamento> call = apiTratamento.REGISTER_TRATAMENTO("Bearer " + token, trat);
         call.enqueue(new Callback<Tratamento>() {
             @Override
             public void onResponse(Call<Tratamento> call, Response<Tratamento> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(DentesInfo.this, "Tratamento cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
+                    startActivity(intent);
                 } else {
                     handleError(response);
                 }

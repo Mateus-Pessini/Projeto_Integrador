@@ -18,12 +18,14 @@ public class TratamentoService {
     @Autowired
     TratamentoRepository tratamentoRepository;
 
+    @Autowired
+    PessoaService pessoaService;
+
 
     public Tratamento insert(TratamentoDTO tratamentoDTO) throws Exception{
         Tratamento trat = new Tratamento();
-        PessoaService pessoaService = new PessoaService();
-        Pessoa p = pessoaService.findById(tratamentoDTO.getClienteId());
-        trat.setClienteId(p);
+        trat.setClienteId(tratamentoDTO.getClienteId());
+        trat.setDentesId(tratamentoDTO.getDentesId());
         trat.setDs_observacao(tratamentoDTO.getDs_observacao());
         return tratamentoRepository.saveAndFlush(trat);
     }

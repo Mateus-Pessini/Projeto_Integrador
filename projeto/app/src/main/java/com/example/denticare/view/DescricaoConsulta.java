@@ -63,7 +63,6 @@ public class DescricaoConsulta {
                 trat.setId(null);
                 trat.setConsultaId(null);
                 trat.setDentesId(null);
-                trat.setCliente(3L);
                 trat.setDs_observacao(edDente.getText().toString() + " - " + edDescricao.getText().toString());
 
                 Call<Tratamento> tratamentoCall = apiTratamento.REGISTER_TRATAMENTO(token, trat);

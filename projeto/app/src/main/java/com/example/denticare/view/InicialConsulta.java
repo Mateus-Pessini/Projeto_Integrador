@@ -52,6 +52,24 @@ public class InicialConsulta extends AppCompatActivity {
 
         buscaTipoUsuario();
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+        }
+
         btFimConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +80,7 @@ public class InicialConsulta extends AppCompatActivity {
         btIniConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InicialConsulta.this, DentesInfo.class);
+                Intent intent = new Intent(InicialConsulta.this, EscolhaDente.class);
                 intent.putExtra("pessoa","3");
                 startActivity(intent);
             }

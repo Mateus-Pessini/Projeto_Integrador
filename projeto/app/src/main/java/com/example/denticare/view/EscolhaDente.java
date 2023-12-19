@@ -2,18 +2,30 @@ package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.denticare.R;
+import com.example.denticare.api.models.enums.TpPessoaEnum;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Base64;
 
 public class EscolhaDente extends AppCompatActivity {
 
     private Button btVoltar, btTodos, btSuperior, btInferior;
+
+    private TextView tvNome;
 
     private EditText edDente, edDescricao;
 
@@ -37,6 +49,25 @@ public class EscolhaDente extends AppCompatActivity {
         btTodos = findViewById(R.id.btTodosDentes);
         btInferior = findViewById(R.id.btInferiorDentes);
         btVoltar = findViewById(R.id.btVoltar);
+        tvNome = findViewById(R.id.tvNome);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
+        }
 
         for (int i = 1; i <= 32; i++) { // Ajuste os números de acordo com seus IDs e tags
             String imageViewId = "dente" + i;
@@ -80,7 +111,7 @@ public class EscolhaDente extends AppCompatActivity {
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EscolhaDente.this, MainActivity.class);
+                Intent intent = new Intent(EscolhaDente.this, InicialConsulta.class);
                 startActivity(intent);
             }
         });

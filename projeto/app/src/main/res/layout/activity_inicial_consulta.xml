@@ -264,6 +264,7 @@
                     android:background="@drawable/editext"
                     android:layout_marginLeft="20dp"
                     android:layout_marginVertical="5dp"
+                    android:text="Mateus Pessini Scherer"
                     android:textColor="@color/black"/>
 
                 <TextView
@@ -280,6 +281,7 @@
                     android:background="@drawable/editext"
                     android:layout_marginLeft="20dp"
                     android:layout_marginVertical="5dp"
+                    android:text="mateuspessini@outlook.com"
                     android:textColor="@color/black"/>
 
                 <TextView
@@ -296,6 +298,7 @@
                     android:background="@drawable/editext"
                     android:layout_marginLeft="20dp"
                     android:layout_marginVertical="5dp"
+                    android:text="45 998422772"
                     android:textColor="@color/black"/>
 
                 <TextView
@@ -310,6 +313,7 @@
                     android:layout_width="400dp"
                     android:layout_height="35dp"
                     android:background="@drawable/editext"
+                    android:text="092.966.339-07"
                     android:layout_marginLeft="20dp"
                     android:layout_marginVertical="5dp"
                     android:textColor="@color/black"/>
