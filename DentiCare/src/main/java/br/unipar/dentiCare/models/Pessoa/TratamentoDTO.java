@@ -16,6 +16,9 @@ public class TratamentoDTO {
 
     private Pessoa clienteId;
 
+    public TratamentoDTO() {
+    }
+
     public TratamentoDTO(Long id, List<Dentes> dentesId, Long consultaId, String ds_observacao, Pessoa clienteId) {
         this.id = id;
         this.dentesId = dentesId;

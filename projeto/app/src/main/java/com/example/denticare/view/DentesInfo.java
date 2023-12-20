@@ -104,6 +104,7 @@ public class DentesInfo extends AppCompatActivity {
             }
         }
 
+
         buscaTipoUsuario();
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +166,24 @@ public class DentesInfo extends AppCompatActivity {
             String checkBoxId = "checkbox_dente_" + (i + 1);
             int resID = getResources().getIdentifier(checkBoxId, "id", getPackageName());
             checkBoxes[i] = findViewById(resID);
+        }
+
+        String edit = getIntent().getStringExtra("edit");
+
+        if(edit != null && edit.equals("VISUALIZAR")){
+            checkBoxes[0].setChecked(true);
+            for (int i = 0; i < checkBoxes.length; i++) {
+                checkBoxes[i].setEnabled(false);
+            }
+            edDesc.setText("teste");
+            edDesc.setEnabled(false);
+        }else if(edit != null && edit.equals("EDIT")){
+            checkBoxes[0].setChecked(true);
+            for (int i = 0; i < checkBoxes.length; i++) {
+                checkBoxes[i].setEnabled(true);
+            }
+            edDesc.setText("teste");
+            edDesc.setEnabled(false);
         }
 
         int denteSelecionado = getIntent().getIntExtra("denteSelecionado", -1);
@@ -286,6 +305,13 @@ public class DentesInfo extends AppCompatActivity {
         trat.setDentesId(dentesList);
         trat.setDs_observacao(edDesc.getText().toString());
         trat.setCliente(cli);
+        Log.d("TratamentoDebug", "DentesList: " + dentesList.toString());
+        Log.d("TratamentoDebug", "Descrição: " + edDesc.getText().toString());
+        if (cli != null) {
+            Log.d("TratamentoDebug", "Cliente ID: " + cli.getId());
+        } else {
+            Log.e("TratamentoDebug", "Objeto 'cli' é null");
+        }
 
         // Agora faça a chamada de API para enviar o objeto Tratamento
         Call<Tratamento> call = apiTratamento.REGISTER_TRATAMENTO("Bearer " + token, trat);
@@ -293,8 +319,14 @@ public class DentesInfo extends AppCompatActivity {
             @Override
             public void onResponse(Call<Tratamento> call, Response<Tratamento> response) {
                 if (response.isSuccessful()) {
+                    String edit = getIntent().getStringExtra("edit");
+                    if(edit.equals("EDIT")){
+                        Toast.makeText(DentesInfo.this, "Tratamento editado com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DentesInfo.this, HistoricoDentario.class);
+                        startActivity(intent);
+                    }
                     Toast.makeText(DentesInfo.this, "Tratamento cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
+                    Intent intent = new Intent(DentesInfo.this, Consulta2.class);
                     startActivity(intent);
                 } else {
                     handleError(response);
@@ -333,6 +365,7 @@ public class DentesInfo extends AppCompatActivity {
             Toast.makeText(DentesInfo.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void handleErrorPessoa(Response<Pessoa> response) {
         try {
             // Tentar converter o corpo do erro em uma String
@@ -359,7 +392,7 @@ public class DentesInfo extends AppCompatActivity {
         }
     }
 
-    private void buscaTipoUsuario(){
+    private void buscaTipoUsuario() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
         String role = "";

@@ -26,12 +26,11 @@ public class Dentes {
 
     private int nrDente;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "dentesId")
-    private List<Tratamento> tratamentoId;
+    private Tratamento dentes;
 
-
-    @ManyToOne(cascade =  CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "denteId")
     @JsonIgnore
     private Pessoa cliente;

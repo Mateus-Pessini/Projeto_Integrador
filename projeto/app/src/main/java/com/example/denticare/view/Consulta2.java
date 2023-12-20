@@ -46,7 +46,7 @@ public class Consulta2 extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
-    private Button btEdit, btDelete;
+    private Button btDelete;
     private TextView tvDentes;
     private ImageView ivImgDentista;
 
@@ -64,7 +64,6 @@ public class Consulta2 extends AppCompatActivity {
         btSair = findViewById(R.id.btSair);
         btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
-        btEdit = findViewById(R.id.buttonEdit);
         btDelete = findViewById(R.id.buttonDelete);
         tvDentes = findViewById(R.id.TvConsultaDentes);
         ivImgDentista = findViewById(R.id.ivImgDentista);

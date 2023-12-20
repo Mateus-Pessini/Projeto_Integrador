@@ -15,7 +15,7 @@ public class Tratamento {
 
     private String ds_observacao;
 
-    private Pessoa cliente;
+    private Pessoa clienteId;
 
     public Tratamento() {
     }
@@ -25,7 +25,7 @@ public class Tratamento {
         this.dentesId = dentesId;
         this.consultaId = consultaId;
         this.ds_observacao = ds_observacao;
-        this.cliente = cliente;
+        this.clienteId = cliente;
     }
 
     public Long getId() {
@@ -61,10 +61,10 @@ public class Tratamento {
     }
 
     public Pessoa getCliente() {
-        return cliente;
+        return clienteId;
     }
 
     public void setCliente(Pessoa cliente) {
-        this.cliente = cliente;
+        this.clienteId = cliente;
     }
 }

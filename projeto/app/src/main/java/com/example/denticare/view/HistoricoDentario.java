@@ -19,8 +19,8 @@ import java.util.Base64;
 
 public class HistoricoDentario extends AppCompatActivity {
 
-    private Button btVoltar;
-    private TextView tvNome;
+    private Button btVoltar,btEdit;
+    private TextView tvNome, tvConsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,9 @@ public class HistoricoDentario extends AppCompatActivity {
         NavigationUtil.hideNavigation(this);
 
         btVoltar = findViewById(R.id.btVoltar);
+        btEdit = findViewById(R.id.buttonEdit);
         tvNome = findViewById(R.id.tvNome);
+        tvConsulta = findViewById(R.id.TvConsultaDentes);
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
@@ -52,6 +54,24 @@ public class HistoricoDentario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HistoricoDentario.this, InicialConsulta.class);
+                startActivity(intent);
+            }
+        });
+
+        tvConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HistoricoDentario.this, DentesInfo.class);
+                intent.putExtra("edit", "VISUALIZAR");
+                startActivity(intent);
+            }
+        });
+
+        btEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HistoricoDentario.this, DentesInfo.class);
+                intent.putExtra("edit", "EDIT");
                 startActivity(intent);
             }
         });
