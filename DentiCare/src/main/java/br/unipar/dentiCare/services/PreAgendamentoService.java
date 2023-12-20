@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.services;
 
+import br.unipar.dentiCare.models.Consulta.ConsultaList;
 import br.unipar.dentiCare.models.Pessoa.*;
 import br.unipar.dentiCare.repositories.CidadeRepository;
 import br.unipar.dentiCare.repositories.PreAgendamentoRepository;
@@ -7,9 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.unipar.dentiCare.repositories.PessoaRepository;
 
+import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -48,10 +54,31 @@ public class PreAgendamentoService {
             throw new Exception("PreAgendamento com id " + id + " não identificado");
     }
 
+    public List<ConsultaList> findAllWithPeopleName() {
+        List<ConsultaList> consultaListRetorno = new ArrayList<>();
+        List<PreAgendamento> preAgendamentos = preAgendamentoRepository.findAll();
 
-    public List<?> findAllWithPeopleName() {
-        List<Object[]> x = preAgendamentoRepository.findAllPreAgendamentoWithPeopleName();
-        return x;
+        for (PreAgendamento preAgendamento : preAgendamentos) {
+            ConsultaList consultaList = new ConsultaList();
+
+            // Converta Date para LocalDateTime
+            LocalDateTime dataHora = preAgendamento.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+            LocalDateTime novaDataHora = dataHora.plusHours(3);
+
+            // Defina o formato desejado para a data
+            DateTimeFormatter formatoDesejado = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+
+            // Formate a data
+            String dataFormatada = novaDataHora.format(formatoDesejado);
+
+            consultaList.setData(dataFormatada);
+            consultaList.setId(preAgendamento.getId());
+            consultaList.setNome(preAgendamento.getPessoa().getNome());
+
+            consultaListRetorno.add(consultaList);
+        }
+
+        return consultaListRetorno;
     }
 
     public void filtro(PreAgendamento preAgendamento) throws Exception {

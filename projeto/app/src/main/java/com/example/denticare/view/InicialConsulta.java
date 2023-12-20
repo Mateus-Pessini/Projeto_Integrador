@@ -62,7 +62,7 @@ public class InicialConsulta extends AppCompatActivity {
         btIniConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InicialConsulta.this, DentesInfo.class);
+                Intent intent = new Intent(InicialConsulta.this, EscolhaDente.class);
                 intent.putExtra("pessoa","3");
                 startActivity(intent);
             }

@@ -20,4 +20,5 @@ public interface ApiPreAgendamento {
 
     @GET("pre-agendamento")
     Call<List<ConsultaList>> GET_ALL_PRE_AGENDAMENTO(@Header("Authorization") String authorization);
+
 }

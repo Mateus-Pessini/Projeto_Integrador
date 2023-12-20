@@ -277,8 +277,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginVertical="30dp"
                     android:layout_marginHorizontal="15dp"
-                    android:numColumns="7"
-                    android:background="@drawable/border_calendario"/>
+                    android:numColumns="4"
+                    android:background="@drawable/border_calendario"
+                    android:padding="10dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

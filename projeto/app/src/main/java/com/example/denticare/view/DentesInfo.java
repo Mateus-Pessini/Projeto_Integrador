@@ -166,7 +166,7 @@ public class DentesInfo extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DentesInfo.this, InicialConsulta.class);
+                Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
                 startActivity(intent);
             }
         });

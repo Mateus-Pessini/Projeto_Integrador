@@ -14,20 +14,32 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.denticare.Adapter.PreAgendamentoAdapter;
 import com.example.denticare.R;
+import com.example.denticare.api.Api.ApiPreAgendamento;
+import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
+import com.example.denticare.api.models.pessoa.ConsultaList;
+import com.example.denticare.api.models.pessoa.PreAgendamento;
 import com.example.denticare.util.DataUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Agenda extends AppCompatActivity {
 
@@ -45,6 +57,8 @@ public class Agenda extends AppCompatActivity {
     private TextView[] dayTextViews = new TextView[42];
     private TextView tvNome;
     private ImageView ivImgDentista;
+    private PreAgendamentoAdapter preAgendamentoAdapter;
+    private List<ConsultaList> listaPreAgendamento;
 
 
 
@@ -69,8 +83,49 @@ public class Agenda extends AppCompatActivity {
         tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
 
-
         buscaTipoUsuario();
+
+        listaPreAgendamento = new ArrayList<>();
+        preAgendamentoAdapter = new PreAgendamentoAdapter(this, listaPreAgendamento);
+        gvAgenda.setAdapter(preAgendamentoAdapter);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
+
+        Call<List<ConsultaList>> call = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO("Bearer " + token);
+        call.enqueue(new Callback<List<ConsultaList>>() {
+            @Override
+            public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
+                if(response.isSuccessful()){
+                    List<ConsultaList> listaConsulta = response.body();
+                    if(listaConsulta != null){
+                        // Limpar a lista antes de adicionar novos itens
+                        listaPreAgendamento.clear();
+
+                        // Adicionar cada item individualmente à lista
+                        for (ConsultaList consulta : listaConsulta) {
+                            listaPreAgendamento.add(consulta);
+                        }
+
+                        preAgendamentoAdapter.notifyDataSetChanged();
+                    }
+                } else {
+                    Log.e("nao deu", "Erro na resposta: " + response.message());
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<ConsultaList>> call, Throwable t) {
+                Log.e("nao deu", "Erro na requisição: " + t.getMessage());
+            }
+        });
+
+
+
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
@@ -193,6 +248,36 @@ public class Agenda extends AppCompatActivity {
             }
         }
     }
+
+    public void retornapreAgendamento(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
+
+        Call<List<ConsultaList>> call = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO("Bearer " + token);
+        call.enqueue(new Callback<List<ConsultaList>>() {
+            @Override
+            public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
+                if(response.isSuccessful()){
+                    List<ConsultaList> listaConsulta = response.body();
+                    for (ConsultaList consulta : listaConsulta) {
+                        // Faça algo com cada objeto ConsultaList aqui
+                        Log.e("", "" + consulta.getId()+ consulta.getData());
+                    }
+                } else {
+                    Log.e("nao deu", "Erro na resposta: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ConsultaList>> call, Throwable t) {
+                Log.e("nao deu", "Erro na requisição: " + t.getMessage());
+            }
+        });
+    }
+
+
 }
 
 

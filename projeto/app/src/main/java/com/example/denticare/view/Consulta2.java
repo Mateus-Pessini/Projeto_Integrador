@@ -69,7 +69,7 @@ public class Consulta2 extends AppCompatActivity {
         tvDentes = findViewById(R.id.TvConsultaDentes);
         ivImgDentista = findViewById(R.id.ivImgDentista);
 
-        buscaTipoUsuario();
+      /*  buscaTipoUsuario();
 
         String token = DataUtils.getToken(Consulta2.this);
         ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
@@ -79,7 +79,7 @@ public class Consulta2 extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
                 if (response.isSuccessful()) {
-                    /*Log.e("", "Message =" + response.code());
+                    Log.e("", "Message =" + response.code());
                     ArrayList<PreAgendamento> dados = new ArrayList<>();
                     for (int i = 0; i < dados.size(); i++) {
                         TableRow row = new TableRow(Consulta.this);
@@ -100,7 +100,7 @@ public class Consulta2 extends AppCompatActivity {
                     }
 
                     Toast.makeText(Consulta.this, "Dados Obtidos com Sucesso!", Toast.LENGTH_SHORT).show();*/
-
+/*
                 } else {
                     Toast.makeText(Consulta2.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
                     Log.e("", "Message =" + response.code());
@@ -115,6 +115,8 @@ public class Consulta2 extends AppCompatActivity {
                 Toast.makeText(Consulta2.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
             }
         });
+
+ */
 
         tvDentes.setOnClickListener(new View.OnClickListener() {
             @Override
