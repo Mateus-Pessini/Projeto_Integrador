@@ -300,19 +300,11 @@
                     android:textSize="18sp" />
 
                     <Button
-                        android:id="@+id/buttonEdit"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.999"
-                        android:text="Editar"
-                        android:background="@drawable/button_edit_style"/>
-
-                    <Button
                         android:id="@+id/buttonDelete"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.999"
-                        android:text="Deletar"
+                        android:text="Cancelar"
                         android:background="@drawable/button_delete_style"/>
                 </LinearLayout>
             </LinearLayout>

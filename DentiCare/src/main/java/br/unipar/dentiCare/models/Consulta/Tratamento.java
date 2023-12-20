@@ -27,13 +27,13 @@ public class Tratamento {
     @JoinColumn(name = "dentesId")
     private List<Dentes> dentesId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "consultaId")
     private Consulta consultaId;
 
     private String ds_observacao;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "clienteId")
     private Pessoa clienteId;
 

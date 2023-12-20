@@ -2,6 +2,7 @@ package br.unipar.dentiCare.models.Pessoa;
 
 import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Consulta.Dentes;
+import br.unipar.dentiCare.models.Consulta.Tratamento;
 import br.unipar.dentiCare.models.User.Usuario;
 import br.unipar.dentiCare.models.User.UsuarioRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;

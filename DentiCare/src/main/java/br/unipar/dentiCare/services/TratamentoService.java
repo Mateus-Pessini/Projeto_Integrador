@@ -1,13 +1,12 @@
 package br.unipar.dentiCare.services;
 
 import br.unipar.dentiCare.models.Consulta.Tratamento;
-import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.Pessoa.TratamentoDTO;
-import br.unipar.dentiCare.repositories.PessoaRepository;
 import br.unipar.dentiCare.repositories.TratamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.StreamingHttpOutputMessage;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,12 +17,16 @@ public class TratamentoService {
     @Autowired
     TratamentoRepository tratamentoRepository;
 
+    @Autowired
+    PessoaService pessoaService;
+
+    private static final Logger logger = LoggerFactory.getLogger(TratamentoService.class);
 
     public Tratamento insert(TratamentoDTO tratamentoDTO) throws Exception{
         Tratamento trat = new Tratamento();
-        PessoaService pessoaService = new PessoaService();
-        Pessoa p = pessoaService.findById(tratamentoDTO.getClienteId());
-        trat.setClienteId(p);
+        logger.info("Informação de debug: " + tratamentoDTO.getClienteId());
+        trat.setClienteId(tratamentoDTO.getClienteId());
+        trat.setDentesId(tratamentoDTO.getDentesId());
         trat.setDs_observacao(tratamentoDTO.getDs_observacao());
         return tratamentoRepository.saveAndFlush(trat);
     }

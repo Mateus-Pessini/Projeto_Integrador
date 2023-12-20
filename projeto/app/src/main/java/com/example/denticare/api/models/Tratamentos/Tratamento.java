@@ -2,6 +2,7 @@ package com.example.denticare.api.models.Tratamentos;
 
 import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
+import com.example.denticare.api.models.pessoa.Pessoa;
 
 import java.util.List;
 
@@ -14,17 +15,17 @@ public class Tratamento {
 
     private String ds_observacao;
 
-    private Long cliente;
+    private Pessoa clienteId;
 
     public Tratamento() {
     }
 
-    public Tratamento(Long id, List<Dentes> dentesId, Consulta consultaId, String ds_observacao, Long cliente) {
+    public Tratamento(Long id, List<Dentes> dentesId, Consulta consultaId, String ds_observacao, Pessoa cliente) {
         this.id = id;
         this.dentesId = dentesId;
         this.consultaId = consultaId;
         this.ds_observacao = ds_observacao;
-        this.cliente = cliente;
+        this.clienteId = cliente;
     }
 
     public Long getId() {
@@ -59,11 +60,11 @@ public class Tratamento {
         this.ds_observacao = ds_observacao;
     }
 
-    public Long getCliente() {
-        return cliente;
+    public Pessoa getCliente() {
+        return clienteId;
     }
 
-    public void setCliente(Long cliente) {
-        this.cliente = cliente;
+    public void setCliente(Pessoa cliente) {
+        this.clienteId = cliente;
     }
 }
