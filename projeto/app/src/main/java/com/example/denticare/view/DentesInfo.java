@@ -139,7 +139,7 @@ public class DentesInfo extends AppCompatActivity {
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DentesInfo.this, Login.class);
+                Intent intent = new Intent(DentesInfo.this, NewLogin.class);
                 startActivity(intent);
             }
         });
