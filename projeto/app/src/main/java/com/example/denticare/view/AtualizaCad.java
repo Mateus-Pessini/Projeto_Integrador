@@ -132,13 +132,9 @@ public class AtualizaCad extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(AtualizaCad.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(AtualizaCad.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btCancel.setOnClickListener(new View.OnClickListener() {

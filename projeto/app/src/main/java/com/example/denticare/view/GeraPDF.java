@@ -117,13 +117,9 @@ public class GeraPDF extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(GeraPDF.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(GeraPDF.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btCadFotoRecep.setOnClickListener(new View.OnClickListener() {

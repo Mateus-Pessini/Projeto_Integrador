@@ -84,13 +84,9 @@ public class AddFoto extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(AddFoto.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(AddFoto.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btSair.setOnClickListener(new View.OnClickListener() {

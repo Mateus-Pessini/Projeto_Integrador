@@ -199,13 +199,9 @@ public class DadosDentista extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(DadosDentista.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(DadosDentista.this, Clientes.class);
+                startActivity(intent);
             }
         });
 

@@ -165,13 +165,9 @@ public class CadCliente extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(CadCliente.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(CadCliente.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btCancel.setOnClickListener(new View.OnClickListener() {

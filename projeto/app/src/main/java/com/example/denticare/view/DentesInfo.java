@@ -145,13 +145,9 @@ public class DentesInfo extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(DentesInfo.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(DentesInfo.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btMeusDados.setOnClickListener(new View.OnClickListener() {

@@ -138,13 +138,9 @@ public class Agenda extends AppCompatActivity {
         });
         btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                OpcaoCadUsuario.showCustomDialog(Agenda.this, new OpcaoCadUsuario.CustomDialogListener() {
-                    @Override
-                    public void onNegativeButtonClick() {
-
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(Agenda.this, Clientes.class);
+                startActivity(intent);
             }
         });
         btPdfRecep.setOnClickListener(new View.OnClickListener() {

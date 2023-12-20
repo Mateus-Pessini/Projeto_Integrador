@@ -122,6 +122,57 @@ public class EscolhaDente extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btConsultaRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, Consulta2.class);
+                startActivity(intent);
+            }
+        });
+        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, Agenda.class);
+                startActivity(intent);
+            }
+        });
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, GeraPDF.class);
+                startActivity(intent);
+            }
+        });
+
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, SelClienteFoto.class);
+                startActivity(intent);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, Clientes.class);
+                startActivity(intent);
+            }
+        });
+        btMeusDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EscolhaDente.this, DadosDentista.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

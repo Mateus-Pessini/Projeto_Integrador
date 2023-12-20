@@ -167,7 +167,7 @@
             <LinearLayout
                 android:id="@+id/btCadClienteRecep"
                 android:layout_width="210dp"
-                android:layout_height="58dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp">
 
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="Cadastrar Clientes"
+                    android:text="Clientes"
                     android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold" />

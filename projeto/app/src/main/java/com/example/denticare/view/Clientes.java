@@ -1,5 +1,7 @@
 package com.example.denticare.view;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,99 +13,104 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.denticare.R;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
-import com.example.denticare.util.DataUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Base64;
 
-public class SelClienteFoto extends AppCompatActivity {
+public class Clientes extends AppCompatActivity {
 
     private LinearLayout btConsultaRecep;
     private LinearLayout btAgendarRecep;
     private LinearLayout btPdfRecep;
+    private LinearLayout btCadFotoRecep;
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
-    private Button btAddFotoContinuar;
     private LinearLayout btCadClienteRecep;
-    private TextView tvNome;
     private ImageView ivImgDentista;
+    private TextView tvNomeDentista;
+    private Button btAddCliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selclientefoto);
+        setContentView(R.layout.activity_clientes);
 
-        // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
 
         btMeusDados = findViewById(R.id.btMeusDados);
         btAgendarRecep = findViewById(R.id.btAgendarRecep);
         btPdfRecep = findViewById(R.id.btPdfRecep);
         btSair = findViewById(R.id.btSair);
+        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
-        btAddFotoContinuar = findViewById(R.id.btAddFotoContinuar);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
-        tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
+        tvNomeDentista = findViewById(R.id.tvNomeDentista);
+        btAddCliente = findViewById(R.id.btAddCliente);
 
         buscaTipoUsuario();
 
+        btAddCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Clientes.this, CadCliente.class);
+                startActivity(intent);
+            }
+        });
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, Consulta2.class);
+                Intent intent = new Intent(Clientes.this, Consulta2.class);
                 startActivity(intent);
             }
         });
         btAgendarRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, Agenda.class);
+                Intent intent = new Intent(Clientes.this, Agenda.class);
                 startActivity(intent);
             }
         });
         btPdfRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, GeraPDF.class);
+                Intent intent = new Intent(Clientes.this, GeraPDF.class);
                 startActivity(intent);
             }
         });
-        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, Clientes.class);
+                Intent intent = new Intent(Clientes.this, SelClienteFoto.class);
                 startActivity(intent);
             }
         });
         btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, NewLogin.class);
+                Intent intent = new Intent(Clientes.this, NewLogin.class);
                 startActivity(intent);
             }
         });
         btMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, DadosDentista.class);
+                Intent intent = new Intent(Clientes.this, DadosDentista.class);
                 startActivity(intent);
             }
         });
-        btAddFotoContinuar.setOnClickListener(new View.OnClickListener() {
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelClienteFoto.this, AddFoto.class);
+                Intent intent = new Intent(Clientes.this, Clientes.class);
                 startActivity(intent);
             }
         });
-
 
     }
     private void buscaTipoUsuario(){
@@ -122,7 +129,6 @@ public class SelClienteFoto extends AppCompatActivity {
             } catch (JSONException e) {
                 name = "";
             }
-            tvNome.setText(name);
 
             if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
                 btCadClienteRecep.setVisibility(View.GONE);

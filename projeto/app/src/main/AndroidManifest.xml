@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.item_clientes_grid"
+            android:exported="false" />
+        <activity
+            android:name=".view.Clientes"
+            android:exported="false" />
+        <activity
             android:name=".view.EscolhaDente"
             android:exported="false" />
         <activity

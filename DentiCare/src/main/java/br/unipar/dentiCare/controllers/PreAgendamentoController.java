@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.controllers;
 
+import br.unipar.dentiCare.models.Consulta.Tratamento;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.Pessoa.PreAgendamento;
 import br.unipar.dentiCare.models.Pessoa.PreAgendamentoDTO;
@@ -31,4 +32,7 @@ public class PreAgendamentoController {
     public List<?> findAll(){
         return preAgendamentoService.findAllWithPeopleName();
     }
+
+    
+
 }

@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.denticare.R;
 
-public class AgendCell extends AppCompatActivity {
+public class item_clientes_grid extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agend_cell);
+        setContentView(R.layout.activity_item_clientes_grid);
     }
 }
