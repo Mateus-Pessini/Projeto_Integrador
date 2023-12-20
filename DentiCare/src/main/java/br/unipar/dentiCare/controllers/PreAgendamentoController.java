@@ -33,6 +33,17 @@ public class PreAgendamentoController {
         return preAgendamentoService.findAllWithPeopleName();
     }
 
-    
+    @PutMapping
+    @ApiOperation(value = "Edita um Agendamento")
+    public PreAgendamento edit(@Valid @RequestBody PreAgendamento preAgendamento) throws Exception{
+        return preAgendamentoService.edit(preAgendamento);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    @ApiOperation(value = "Remove um Agendamento")
+    public void remove(@PathVariable Long id) throws Exception{
+        preAgendamentoService.remove(id);
+    }
+
 
 }
