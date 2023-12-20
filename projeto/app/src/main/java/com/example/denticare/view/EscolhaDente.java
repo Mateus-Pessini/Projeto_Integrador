@@ -1,7 +1,6 @@
 package com.example.denticare.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,13 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.denticare.R;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Base64;
 
 public class EscolhaDente extends AppCompatActivity {
@@ -30,7 +26,6 @@ public class EscolhaDente extends AppCompatActivity {
 
     private EditText edDente, edDescricao;
     private ImageView ivImgDentista;
-    private TextView tvNome;
     private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
 
 
