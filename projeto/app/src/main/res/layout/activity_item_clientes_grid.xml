@@ -49,6 +49,20 @@
             android:layout_height="wrap_content"
             android:paddingRight="10dp"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgPessoa"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/photo"
+                android:layout_marginHorizontal="20dp"/>
+
+            <ImageView
+                android:id="@+id/imgPdfPessoa"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/imgpdf" />
+
             <ImageView
                 android:id="@+id/ivHistorico"
                 android:layout_width="60dp"
