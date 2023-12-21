@@ -16,6 +16,7 @@ import com.example.denticare.R;
 import com.example.denticare.api.Api.ApiPessoa;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.pessoa.Pessoa;
+import com.example.denticare.view.AddFoto;
 import com.example.denticare.view.CadCliente;
 import com.example.denticare.view.CadClienteTest;
 import com.example.denticare.view.Clientes;
@@ -67,6 +68,8 @@ public class PessoaAdapter extends BaseAdapter {
         ImageView imgDeletarCliente = convertView.findViewById(R.id.imgDeletarPessoa);
         LinearLayout llItem = convertView.findViewById(R.id.llItem);
         ImageView ivHistorico = convertView.findViewById(R.id.ivHistorico);
+        ImageView imgPessoa = convertView.findViewById(R.id.imgPessoa);
+        ImageView imgPdfPessoa = convertView.findViewById(R.id.imgPdfPessoa);
 
         ivHistorico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +77,22 @@ public class PessoaAdapter extends BaseAdapter {
                 Intent intent = new Intent(context, HistoricoDentario.class);
                 intent.putExtra("id_cliente", pessoaClicada.getId());
                 context.startActivity(intent);
+            }
+        });
+
+        imgPessoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AddFoto.class);
+                intent.putExtra("id_cliente", pessoaClicada.getId());
+                context.startActivity(intent);
+            }
+        });
+
+        imgPdfPessoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Essa funcionalidade ainda não esta disponivel!", Toast.LENGTH_SHORT).show();
             }
         });
 
