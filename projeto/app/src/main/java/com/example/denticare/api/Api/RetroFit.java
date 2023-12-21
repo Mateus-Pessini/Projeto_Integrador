@@ -49,6 +49,9 @@ public class RetroFit {
     public  static  ApiPessoa GET_ALL_PESSOA(){return retrofit1.create(ApiPessoa.class);}
 
     public static ApiPessoa GET_PESSOA(){ return retrofit1.create(ApiPessoa.class); }
+    public static ApiPessoa FIND_CLIENTES(){
+        return  retrofit1.create(ApiPessoa.class);
+    }
 
     public static ApiPessoa DELETAR_PESSOA(){ return  retrofit1.create(ApiPessoa.class); }
 

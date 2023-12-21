@@ -16,6 +16,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.denticare.Adapter.PreAgendamentoAdapter;
 import com.example.denticare.R;
@@ -23,6 +25,8 @@ import com.example.denticare.api.Api.ApiPreAgendamento;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.ConsultaList;
+import com.example.denticare.api.models.pessoa.PreAgendamento;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.text.SimpleDateFormat;
@@ -52,7 +56,7 @@ public class Agenda extends AppCompatActivity {
     private TextView tvNome;
     private ImageView ivImgDentista;
     private PreAgendamentoAdapter preAgendamentoAdapter;
-    private List<ConsultaList> listaPreAgendamento;
+    private List<PreAgendamento> listaPreAgendamento;
 
 
 
@@ -89,19 +93,20 @@ public class Agenda extends AppCompatActivity {
 
         ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
 
-        Call<List<ConsultaList>> call = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO("Bearer " + token);
-        call.enqueue(new Callback<List<ConsultaList>>() {
+        Call<List<PreAgendamento>> call = apiPreAgendamento.GET_ALL_PRE_AGENDAMENTO("Bearer " + token);
+        call.enqueue(new Callback<List<PreAgendamento>>() {
             @Override
-            public void onResponse(Call<List<ConsultaList>> call, Response<List<ConsultaList>> response) {
+            public void onResponse(Call<List<PreAgendamento>> call, Response<List<PreAgendamento>> response) {
                 if(response.isSuccessful()){
-                    List<ConsultaList> listaConsulta = response.body();
+                    List<PreAgendamento> listaConsulta = response.body();
                     if(listaConsulta != null){
                         // Limpar a lista antes de adicionar novos itens
                         listaPreAgendamento.clear();
 
                         // Adicionar cada item individualmente à lista
-                        for (ConsultaList consulta : listaConsulta) {
+                        for (PreAgendamento consulta : listaConsulta) {
                             listaPreAgendamento.add(consulta);
+
                         }
 
                         preAgendamentoAdapter.notifyDataSetChanged();
@@ -113,7 +118,7 @@ public class Agenda extends AppCompatActivity {
 
 
             @Override
-            public void onFailure(Call<List<ConsultaList>> call, Throwable t) {
+            public void onFailure(Call<List<PreAgendamento>> call, Throwable t) {
                 Log.e("nao deu", "Erro na requisição: " + t.getMessage());
             }
         });
@@ -239,6 +244,7 @@ public class Agenda extends AppCompatActivity {
         }
     }
 
+/*
     public void retornapreAgendamento(){
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
@@ -265,7 +271,9 @@ public class Agenda extends AppCompatActivity {
                 Log.e("nao deu", "Erro na requisição: " + t.getMessage());
             }
         });
-    }
+        }
+*/
+
 
 
 }
