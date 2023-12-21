@@ -72,8 +72,9 @@ public class PessoaController {
 
     @GetMapping(path = "/find/cliente/{nome}")
     @ApiOperation(value = "Busca um cliente pelo nome")
-    public List<Pessoa> findClientes(@PathVariable String nome) throws Exception{
-        return pessoaService.findByFilters(nome);
+    public List<Pessoa> findClientes(@PathVariable String nome) throws Exception {
+        TpPessoaEnum tipoPessoa = TpPessoaEnum.CLIENTE;
+        return pessoaService.findByFilters(nome, tipoPessoa);
     }
 
     @GetMapping(path = "/find/{cpf}")

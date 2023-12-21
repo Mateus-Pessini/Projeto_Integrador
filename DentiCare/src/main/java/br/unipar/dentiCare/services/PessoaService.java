@@ -114,12 +114,16 @@ public class PessoaService {
     public List<Pessoa> findClientes() {
         return pessoaRepository.findAllByTpPessoa(TpPessoaEnum.CLIENTE);
     }
-    public List<Pessoa> findByFilters(String nome) {
+    public List<Pessoa> findByFilters(String nome, TpPessoaEnum tipoPessoa) {
         if (nome == null) {
-
             return Collections.emptyList();
         }
-        return pessoaRepository.findAllByNomeOrderByNomeAsc(nome);
+
+        if (tipoPessoa != null) {
+            return pessoaRepository.findAllByNomeAndTpPessoaOrderByNomeAsc(nome, tipoPessoa);
+        } else {
+            return pessoaRepository.findAllByNomeOrderByNomeAsc(nome);
+        }
     }
 
 }

@@ -16,7 +16,8 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     @Query("SELECT p FROM Pessoa p WHERE LOWER(p.nome) LIKE LOWER(CONCAT('%', :nome, '%')) ORDER BY p.nome ASC")
     List<Pessoa> findAllByNomeOrderByNomeAsc(@Param("nome") String nome);
-
+    @Query("SELECT p FROM Pessoa p WHERE LOWER(p.nome) LIKE LOWER(CONCAT('%', :nome, '%')) AND (:tipoPessoa IS NULL OR p.tpPessoa = :tipoPessoa) ORDER BY p.nome ASC")
+    List<Pessoa> findAllByNomeAndTpPessoaOrderByNomeAsc(@Param("nome") String nome, @Param("tipoPessoa") TpPessoaEnum tipoPessoa);
 
     public Pessoa findOneByCpf(String cpf);
 
