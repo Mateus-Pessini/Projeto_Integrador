@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import br.unipar.dentiCare.repositories.PessoaRepository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,16 +111,16 @@ public class PessoaService {
     public List<Pessoa> findAll() {
         return pessoaRepository.findAll();
     }
-
     public List<Pessoa> findClientes() {
-
         return pessoaRepository.findAllByTpPessoa(TpPessoaEnum.CLIENTE);
-
-
     }
-
     public List<Pessoa> findByFilters(String nome) {
+        if (nome == null) {
+
+            return Collections.emptyList();
+        }
         return pessoaRepository.findAllByNomeOrderByNomeAsc(nome);
     }
+
 }
 

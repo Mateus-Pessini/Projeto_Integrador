@@ -70,6 +70,12 @@ public class PessoaController {
         return pessoaService.findById(id);
     }
 
+    @GetMapping(path = "/find/cliente/{nome}")
+    @ApiOperation(value = "Busca um cliente pelo nome")
+    public List<Pessoa> findClientes(@PathVariable String nome) throws Exception{
+        return pessoaService.findByFilters(nome);
+    }
+
     @GetMapping(path = "/find/{cpf}")
     @ApiOperation(value = "Busca uma Pessoa pelo cpf")
     public Pessoa findById(@PathVariable String cpf) throws Exception{

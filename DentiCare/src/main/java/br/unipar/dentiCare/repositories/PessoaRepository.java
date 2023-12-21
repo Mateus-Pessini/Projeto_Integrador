@@ -14,8 +14,9 @@ import java.util.List;
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
-    @Query
-    List<Pessoa> findAllByNomeOrderByNomeAsc(String nome);
+    @Query("SELECT p FROM Pessoa p WHERE LOWER(p.nome) LIKE LOWER(CONCAT('%', :nome, '%')) ORDER BY p.nome ASC")
+    List<Pessoa> findAllByNomeOrderByNomeAsc(@Param("nome") String nome);
+
 
     public Pessoa findOneByCpf(String cpf);
 
