@@ -52,6 +52,10 @@ public class RetroFit {
 
     public static ApiPessoa DELETAR_PESSOA(){ return  retrofit1.create(ApiPessoa.class); }
 
+    public static ApiPessoa GET_PESSOA_CLIENTE(){
+        return retrofit1.create(ApiPessoa.class);
+    }
+
     //ENDERECO
 
     public static ApiEndereco REGISTER_ENDERECO() {return retrofit1.create(ApiEndereco.class);}

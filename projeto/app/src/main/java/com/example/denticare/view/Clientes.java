@@ -9,17 +9,29 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.denticare.Adapter.PessoaAdapter;
 import com.example.denticare.R;
+import com.example.denticare.api.Api.ApiPessoa;
+import com.example.denticare.api.Api.ApiPreAgendamento;
+import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
+import com.example.denticare.api.models.pessoa.ConsultaList;
+import com.example.denticare.api.models.pessoa.Pessoa;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Base64;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Clientes extends AppCompatActivity {
 
@@ -33,6 +45,8 @@ public class Clientes extends AppCompatActivity {
     private ImageView ivImgDentista;
     private TextView tvNomeDentista;
     private Button btAddCliente;
+    private Pessoa listPessoaCliente;
+    private GridView gvClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +65,35 @@ public class Clientes extends AppCompatActivity {
         ivImgDentista = findViewById(R.id.ivImgDentista);
         tvNomeDentista = findViewById(R.id.tvNomeDentista);
         btAddCliente = findViewById(R.id.btAddCliente);
+        gvClientes = findViewById(R.id.gvClientes);
 
         buscaTipoUsuario();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPessoa apiPessoa = RetroFit.GET_PESSOA_CLIENTE();
+
+        Call<List<Pessoa>> call = apiPessoa.GET_PESSOA_CLIENTE("Bearer " + token);
+        call.enqueue(new Callback<List<Pessoa>>() {
+            @Override
+            public void onResponse(Call<List<Pessoa>> call, Response<List<Pessoa>> response) {
+                if(response.isSuccessful()){
+                    List<Pessoa> listaPessoa = response.body();
+
+                    PessoaAdapter pessoaAdapter = new PessoaAdapter(Clientes.this, listaPessoa);
+                    gvClientes.setAdapter(pessoaAdapter);
+
+                } else {
+                    Log.e("", "Erro na resposta: " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Pessoa>> call, Throwable t) {
+                Log.e("", "Erro na requisição: " + t.getMessage());
+            }
+        });
 
         btAddCliente.setOnClickListener(new View.OnClickListener() {
             @Override

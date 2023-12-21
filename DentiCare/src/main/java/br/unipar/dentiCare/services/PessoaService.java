@@ -70,6 +70,11 @@ public class PessoaService {
         pessoa.setLogin(pessoa.getEmail());
         return pessoaRepository.saveAndFlush(pessoa);
     }
+    public Pessoa editClietne(Pessoa pessoa) throws Exception {
+        pessoa.setLogin(pessoa.getEmail());
+        pessoa.setTpPessoa(TpPessoaEnum.CLIENTE);
+        return pessoaRepository.saveAndFlush(pessoa);
+    }
 
     public Pessoa editDentista(Pessoa pessoa, Long id) throws Exception {
         Pessoa p = findById(id);
@@ -104,6 +109,13 @@ public class PessoaService {
 
     public List<Pessoa> findAll() {
         return pessoaRepository.findAll();
+    }
+
+    public List<Pessoa> findClientes() {
+
+        return pessoaRepository.findAllByTpPessoa(TpPessoaEnum.CLIENTE);
+
+
     }
 
     public List<Pessoa> findByFilters(String nome) {

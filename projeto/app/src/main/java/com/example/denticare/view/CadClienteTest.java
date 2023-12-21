@@ -15,8 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
 import com.example.denticare.Adapter.CidadeAdapter;
 import com.example.denticare.Adapter.EstadoAdapter;
 import com.example.denticare.R;
@@ -24,6 +26,7 @@ import com.example.denticare.api.Api.ApiCidade;
 import com.example.denticare.api.Api.ApiCliente;
 import com.example.denticare.api.Api.ApiEndereco;
 import com.example.denticare.api.Api.ApiEstado;
+import com.example.denticare.api.Api.ApiPessoa;
 import com.example.denticare.api.Api.RetroFit;
 import com.example.denticare.api.models.enums.TpPessoaEnum;
 import com.example.denticare.api.models.pessoa.Cidade;
@@ -31,10 +34,14 @@ import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
+import com.example.denticare.api.models.pessoa.Pessoa;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.Base64;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,10 +57,40 @@ public class CadClienteTest extends AppCompatActivity {
     private TextView tvNome;
     private ImageView ivImgDentista;
 
+    private long idPessoa;
+    private boolean isEditando = false;
+
+    private List<Estado> estados;
+
+    private Pessoa pessoaCarregada;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        carregaDados(idPessoa);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadcliente);
+
+        //pega o id do cliente clicado
+        idPessoa = getIntent().getLongExtra("id_cliente", 0);
+
+        if (idPessoa == 0) {
+            isEditando = false;
+            Log.d("TST", "Caiu no novo");
+
+        } else {
+            isEditando = true;
+            Log.d("TST", "Caiu no editando");
+
+            carregaDados(idPessoa);
+
+
+        }
+
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
@@ -96,7 +133,7 @@ public class CadClienteTest extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                     if (response.isSuccessful()) {
-                        List<Estado> estados = response.body();
+                        estados = response.body();
                         EstadoAdapter adapter = new EstadoAdapter(CadClienteTest.this, estados);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spEstado.setAdapter(adapter);
@@ -168,26 +205,31 @@ public class CadClienteTest extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadClienteTest.this, MainActivity.class);
+                Intent intent = new Intent(CadClienteTest.this, Clientes.class);
                 startActivity(intent);
 
                 // Exibir uma mensagem de confirmação
                 Toast.makeText(CadClienteTest.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
             }
         });
+
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
                 ApiEndereco apiEndereco = RetroFit.REGISTER_ENDERECO();
-                validaCampos();
+                boolean isErros = validaCampos();
                 Endereco end = new Endereco();
                 Cliente cli = new Cliente();
                 end.setCep(edCEP.getText().toString());
                 end.setCidade((Cidade) spCidade.getSelectedItem());
                 end.setComplemento(edComplemento.getText().toString());
                 end.setNmRua(edRua.getText().toString());
-                end.setNumero(Integer.parseInt(edNumero.getText().toString()));
+                if (edNumero.getText().toString().equals("")) {
+                    end.setNumero(0);
+                } else {
+                    end.setNumero(Integer.parseInt(edNumero.getText().toString()));
+                }
                 end.setBairro(edBairro.getText().toString());
 
                 cli.setCpf(edCPF.getText().toString());
@@ -198,47 +240,92 @@ public class CadClienteTest extends AppCompatActivity {
                 cli.setEndereco(end);
                 //criarDentes(cli);
 
-                Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
-                enderecoCall.enqueue(new Callback<Endereco>() {
-                    @Override
-                    public void onResponse(Call<Endereco> call, Response<Endereco> response) {
-                        if (response.isSuccessful()) {
-                            Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer " + token, cli);
-                            clienteCall.enqueue(new Callback<Cliente>() {
-                                @Override
-                                public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                                    if (response.isSuccessful()) {
-                                        Toast.makeText(CadClienteTest.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
-                                        limparCampos();
-                                        Log.e("nao deu", "deu certo mas nao aparece: " + response.message());
-                                    } else {
-                                        Toast.makeText(CadClienteTest.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
-                                        Log.e("", "Message =" + response.code());
-                                        Log.e("", "Body =" + response.body());
-                                        Log.e("", "ErroBody =" + response.errorBody());
-                                        Log.e("", "response =" + response);
-                                        Log.e("nao deu", "Erro na resposta: " + response.message());
-                                    }
-                                }
 
-                                @Override
-                                public void onFailure(Call<Cliente> call, Throwable t) {
-                                    Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                if (!isErros) {
+                    if (!isEditando) {
+
+                        Call<Endereco> enderecoCall = apiEndereco.REGISTER_ENDERECO("Bearer " + token, end);
+                        enderecoCall.enqueue(new Callback<Endereco>() {
+                            @Override
+                            public void onResponse(Call<Endereco> call, Response<Endereco> response) {
+                                if (response.isSuccessful()) {
+                                    Call<Cliente> clienteCall = apiCliente.REGISTER_CLIENTE("Bearer " + token, cli);
+                                    clienteCall.enqueue(new Callback<Cliente>() {
+                                        @Override
+                                        public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                                            if (response.isSuccessful()) {
+                                                Toast.makeText(CadClienteTest.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                                limparCampos();
+                                                Log.e("nao deu", "deu certo mas nao aparece: " + response.message());
+                                            } else {
+                                                Toast.makeText(CadClienteTest.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                                                Log.e("", "Message =" + response.code());
+                                                Log.e("", "Body =" + response.body());
+                                                Log.e("", "ErroBody =" + response.errorBody());
+                                                Log.e("", "response =" + response);
+                                                Log.e("nao deu", "Erro na resposta: " + response.message());
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<Cliente> call, Throwable t) {
+                                            Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                } else {
+
                                 }
-                            });
+                            }
+
+                            @Override
+                            public void onFailure(Call<Endereco> call, Throwable t) {
+                                Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                                Log.e("nao deu", "Erro na requisição: " + t.getMessage());
+                            }
+                        });
+
+                    } else {
+
+                        Pessoa pessoaEditada = new Pessoa();
+                        pessoaEditada.setId(idPessoa);
+                        pessoaEditada.setNome(edNomeCompleto.getText().toString());
+                        pessoaEditada.setComplemento(edComplemento.getText().toString());
+                        pessoaEditada.setEmail(edEmail.getText().toString());
+                        pessoaEditada.setCpf(edCPF.getText().toString());
+                        pessoaEditada.setRg(edRG.getText().toString());
+                        pessoaEditada.setBairro(edBairro.getText().toString());
+                        pessoaEditada.setNmRua(edRua.getText().toString());
+                        pessoaEditada.setCep(edCEP.getText().toString());
+                        pessoaEditada.setComplemento(edNomeCompleto.getText().toString());
+                        if (edNumero.getText().toString().equals("")) {
+                            pessoaEditada.setNumero(0);
                         } else {
-
+                            pessoaEditada.setNumero(Integer.parseInt(edNumero.getText().toString()));
                         }
+
+                        Log.d("TST", "Editando a pessoa " + pessoaEditada.toString());
+
+                        ApiPessoa apiPessoa = RetroFit.REGISTER_PESSOA();
+                        Call<Pessoa> clienteCall = apiPessoa.PUT_PESSOA_CLIENTE("Bearer " + token, pessoaEditada);
+                        clienteCall.enqueue(new Callback<Pessoa>() {
+                            @Override
+                            public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
+                                Toast.makeText(CadClienteTest.this, "Editado com sucesso.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(CadClienteTest.this, Clientes.class);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onFailure(Call<Pessoa> call, Throwable t) {
+                                Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
                     }
-
-                    @Override
-                    public void onFailure(Call<Endereco> call, Throwable t) {
-                        Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
-                        Log.e("nao deu", "Erro na requisição: " + t.getMessage());
-                    }
-                });
-
-
+                } else {
+                    Toast.makeText(CadClienteTest.this, "Verifique os campos em vermelho.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -285,7 +372,23 @@ public class CadClienteTest extends AppCompatActivity {
 
     }
 
-    private void buscaTipoUsuario(){
+    private void setaDadosCampo() {
+        Log.d("TST", "Caiu no seta dados");
+
+        edNomeCompleto.setText(pessoaCarregada.getNome());
+        edCPF.setText(pessoaCarregada.getCpf());
+        edComplemento.setText(pessoaCarregada.getComplemento());
+        edEmail.setText(pessoaCarregada.getEmail());
+        edRua.setText(pessoaCarregada.getNmRua());
+        edTelefone.setText(pessoaCarregada.getNrtelefone());
+        edBairro.setText(pessoaCarregada.getBairro());
+        edCEP.setText(pessoaCarregada.getCep());
+        edNumero.setText(String.valueOf(pessoaCarregada.getNumero()));
+        edRG.setText(pessoaCarregada.getRg());
+
+    }
+
+    private void buscaTipoUsuario() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
         String role = "";
@@ -344,30 +447,41 @@ public class CadClienteTest extends AppCompatActivity {
         spCidade.setSelection(0);
     }
 
-    public void validaCampos() {
+    public boolean validaCampos() {
+
+        boolean isErros = false;
         String nomeCompleto = edNomeCompleto.getText().toString().trim();
         if (nomeCompleto.isEmpty()) {
             edNomeCompleto.setError("Campo obrigatório");
+            isErros = true;
         }
 
         String telefone = edTelefone.getText().toString().trim();
         if (telefone.isEmpty()) {
             edTelefone.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String cpf = edCPF.getText().toString().trim();
         if (cpf.isEmpty()) {
             edCPF.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String rg = edRG.getText().toString().trim();
         if (rg.isEmpty()) {
             edRG.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String rua = edRua.getText().toString().trim();
         if (rua.isEmpty()) {
             edRua.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String complemento = edComplemento.getText().toString().trim();
@@ -375,29 +489,41 @@ public class CadClienteTest extends AppCompatActivity {
         String email = edEmail.getText().toString().trim();
         if (email.isEmpty()) {
             edEmail.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String cep = edCEP.getText().toString().trim();
         if (cep.isEmpty()) {
             edCEP.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         String numero = edNumero.getText().toString().trim();
         if (numero.isEmpty()) {
             edNumero.setError("Campo obrigatório");
+            isErros = true;
+
         }
 
         // Validação para o Spinner de Estado
         if (spEstado.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spEstado.getSelectedView();
             errorText.setError("Selecione um estado válido");
+            isErros = true;
+
         }
 
         // Validação para o Spinner de Cidade
         if (spCidade.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spCidade.getSelectedView();
             errorText.setError("Selecione uma cidade válida");
+            isErros = true;
+
         }
+
+        return isErros;
     }
 
     public void criarDentes(Cliente cliente) {
@@ -409,4 +535,33 @@ public class CadClienteTest extends AppCompatActivity {
         }
     }
 
+    private void carregaDados(Long idPessoa) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPessoa apiPessoa = RetroFit.GET_PESSOA();
+
+        Call<Pessoa> call = apiPessoa.GET_PESSOA("Bearer " + token, idPessoa);
+        call.enqueue(new Callback<Pessoa>() {
+            @Override
+            public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
+                if (response.isSuccessful()) {
+
+                    pessoaCarregada = response.body();
+                    Log.d("TST", "Achou a pessoa e retornou + " + pessoaCarregada.getNome());
+                    setaDadosCampo();
+
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Pessoa> call, Throwable t) {
+
+            }
+        });
+
+    }
 }

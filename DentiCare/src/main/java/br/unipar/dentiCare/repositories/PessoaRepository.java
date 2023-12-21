@@ -1,5 +1,6 @@
 package br.unipar.dentiCare.repositories;
 
+import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -21,6 +22,9 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
     public Pessoa findFirstByEmail(String email);
 
     UserDetails findByLogin(String login);
+
+    @Query
+    List<Pessoa> findAllByTpPessoa(TpPessoaEnum tpPessoaEnum);
 
 
 }

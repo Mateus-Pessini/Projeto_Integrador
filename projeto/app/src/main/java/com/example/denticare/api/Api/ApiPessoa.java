@@ -24,6 +24,13 @@ public interface ApiPessoa {
     @POST("pessoa")
     Call<Pessoa> REGISTER_PESSOA_WITHOUT_AUTH(@Body Pessoa pessoa);
 
+    @Headers("Content-Type: application/json")
+    @PUT("pessoa")
+    Call<Pessoa> PUT_PESSOA(@Header("Authorization") String authorization, @Body Pessoa pessoa);
+
+    @Headers("Content-Type: application/json")
+    @PUT("pessoa/cliente")
+    Call<Pessoa> PUT_PESSOA_CLIENTE(@Header("Authorization") String authorization, @Body Pessoa pessoa);
     @GET("pessoa")
     Call<List<Pessoa>> GET_ALL_PESSOA(@Header("Authorization") String authorization);
 
@@ -34,7 +41,7 @@ public interface ApiPessoa {
     Call<Pessoa> GET_PESSOA_BY_CPF(@Path("cpf") String cpf);
 
     @DELETE("pessoa/{id}")
-    Call<Pessoa> DELETAR_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);
+    Call<Void> DELETAR_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);
 
     @Headers("Content-Type: application/json")
     @PUT("pessoa")
@@ -43,4 +50,7 @@ public interface ApiPessoa {
     @Headers("Content-Type: application/json")
     @PUT("pessoa/{id}")
     Call<Pessoa> ALTERAR_DADOS_DENTISTA(@Header("Authorization") String token, @Body Pessoa pessoa, @Path("id") Long id);
+
+    @GET("pessoa/pessoa-cliente")
+    Call<List<Pessoa>> GET_PESSOA_CLIENTE(@Header("Authorization") String authorization);
 }

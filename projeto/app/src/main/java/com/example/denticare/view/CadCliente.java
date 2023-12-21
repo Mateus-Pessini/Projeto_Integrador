@@ -118,9 +118,11 @@ public class CadCliente extends AppCompatActivity {
                 Toast.makeText(CadCliente.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
             }
         });
+
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ApiCliente apiCliente = RetroFit.REGISTER_CLIENTE();
                 ApiEndereco apiEndereco = RetroFit.REGISTER_ENDERECO();
                 validaCampos();

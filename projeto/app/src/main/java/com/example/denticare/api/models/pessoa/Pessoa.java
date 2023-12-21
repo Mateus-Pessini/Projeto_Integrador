@@ -228,4 +228,15 @@ public class Pessoa {
 
         public Pessoa() {
         }
+
+        @Override
+        public String toString() {
+                return "Pessoa{" +
+                        "id=" + id +
+                        ", nome='" + nome + '\'' +
+                        ", tpPessoa=" + tpPessoa +
+                        ", cpf='" + cpf + '\'' +
+                        ", rg='" + rg + '\'' +
+                        '}';
+        }
 }

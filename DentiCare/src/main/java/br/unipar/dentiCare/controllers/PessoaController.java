@@ -1,14 +1,17 @@
 package br.unipar.dentiCare.controllers;
 
+import br.unipar.dentiCare.enums.TpPessoaEnum;
 import br.unipar.dentiCare.models.Pessoa.Pessoa;
 import br.unipar.dentiCare.models.Pessoa.PessoaDTO;
 import br.unipar.dentiCare.services.PessoaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,6 +40,12 @@ public class PessoaController {
         return pessoaService.edit(pessoa);
     }
 
+    @PutMapping(path = "/cliente")
+    @ApiOperation(value = "Edita um Cliente")
+    public Pessoa editClietne(@Valid @RequestBody Pessoa pessoa) throws Exception{
+        return pessoaService.editClietne(pessoa);
+    }
+
     @DeleteMapping(path = "/{id}")
     @ApiOperation(value = "Remove um Pessoa")
     public void remove(@PathVariable Long id) throws Exception{
@@ -47,6 +56,12 @@ public class PessoaController {
     @ApiOperation("Retorna uma lista de Pessoas")
     public List<Pessoa> findAll(){
         return pessoaService.findAll();
+    }
+
+    @GetMapping(path = "/pessoa-cliente")
+    @ApiOperation(value = "retorna pessoa tipo cliente")
+    public List<Pessoa> findAllClientes(){
+        return pessoaService.findClientes();
     }
 
     @GetMapping(path = "/{id}")
