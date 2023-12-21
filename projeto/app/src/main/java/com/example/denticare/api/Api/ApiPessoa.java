@@ -13,6 +13,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiPessoa {
 
@@ -33,6 +34,9 @@ public interface ApiPessoa {
     Call<Pessoa> PUT_PESSOA_CLIENTE(@Header("Authorization") String authorization, @Body Pessoa pessoa);
     @GET("pessoa")
     Call<List<Pessoa>> GET_ALL_PESSOA(@Header("Authorization") String authorization);
+
+    @GET("find/cliente/{nome}")
+    Call<List<Pessoa>> FIND_CLIENTES(@Header("Authorization") String authorization, @Query("nome") String nome);
 
     @GET("pessoa/{id}")
     Call<Pessoa> GET_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);
