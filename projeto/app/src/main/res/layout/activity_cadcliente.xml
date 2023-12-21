@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/prata"
     android:orientation="vertical"
-    tools:context=".view.CadCliente">
+    tools:context=".view.CadClienteTest">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -259,9 +259,64 @@
                         android:background="@android:color/black" />
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="900dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="E-mail:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+
+
+                        <TextView
+                            android:id="@+id/tvCro"
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="150dp"
+                            android:text="Cro:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="900dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextEmail"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+
+                        <EditText
+                            android:id="@+id/editCroUser"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="900dp"
+                        android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
@@ -276,15 +331,27 @@
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="250dp"
-                            android:text="Estado:"
+                            android:text="Telefone:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:id="@+id/tvEspecialidade"
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="150dp"
+                            android:text="Especialidade:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="900dp"
                         android:layout_height="40dp">
 
                         <EditText
@@ -296,24 +363,101 @@
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"/>
 
-                        <Spinner
-                            android:id="@+id/spinnerEstado"
+                        <EditText
+                            android:id="@+id/editTextTelefone"
                             android:layout_width="300dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1" />
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editTextEspecialidade"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"
+                            android:visibility="gone"/>
+
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="Telefone:"
+                            android:text="CPF:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="250dp"
+                            android:text="RG:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="40dp">
+
+                        <EditText
+                            android:id="@+id/editTextCPF"
+                            android:layout_width="400dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editTextRG"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+
+                        <EditText
+                            android:id="@+id/editTextRG2"
+                            android:layout_width="300dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/borda1"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="780dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Estado:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
@@ -330,18 +474,15 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
-                        <EditText
-                            android:id="@+id/editTextTelefone"
+                        <Spinner
+                            android:id="@+id/spinnerEstado"
                             android:layout_width="400dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:background="@drawable/borda1" />
 
                         <Spinner
                             android:id="@+id/spinnerCidade"
@@ -353,97 +494,66 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="CPF:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
                             android:text="Bairro:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="40dp">
-
-                        <EditText
-                            android:id="@+id/editTextCPF"
-                            android:layout_width="400dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
-
-                        <EditText
-                            android:id="@+id/editTextBairro"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="30dp">
-
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="RG:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
+                            android:layout_marginLeft="88dp"
                             android:text="Rua:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="75dp"
+                            android:text="CEP:"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
+
                         <EditText
-                            android:id="@+id/editTextRG"
-                            android:layout_width="400dp"
+                            android:id="@+id/editTextBairro"
+                            android:layout_width="240dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
 
                         <EditText
                             android:id="@+id/editTextRua"
-                            android:layout_width="300dp"
+                            android:layout_width="250dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
+                            android:background="@drawable/borda1"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/editTextCEP"
+                            android:layout_width="185dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="25dp"
                             android:background="@drawable/borda1"
                             android:paddingLeft="10dp"
                             android:textColor="@color/black" />
@@ -451,62 +561,14 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="30dp">
 
                         <TextView
                             android:layout_width="200dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="20dp"
-                            android:text="E-mail:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="250dp"
                             android:text="Complemento:"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="40dp">
-
-                        <EditText
-                            android:id="@+id/editTextEmail"
-                            android:layout_width="400dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/borda1"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
-
-                        <EditText
-                            android:id="@+id/editTextComplemento"
-                            android:layout_width="300dp"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="50dp"
-                            android:background="@drawable/borda1"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="30dp">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:text="CEP:"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold" />
@@ -523,18 +585,17 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="1000dp"
+                        android:layout_width="780dp"
                         android:layout_height="40dp">
 
                         <EditText
-                            android:id="@+id/editTextCEP"
+                            android:id="@+id/editTextComplemento"
                             android:layout_width="400dp"
                             android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
 
                         <EditText
                             android:id="@+id/editTextNumero"
@@ -542,9 +603,9 @@
                             android:layout_height="35dp"
                             android:layout_marginLeft="50dp"
                             android:background="@drawable/borda1"
-                            android:inputType="number"
-                            android:textColor="@color/black"
-                            android:paddingLeft="10dp"/>
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black" />
+
 
                     </LinearLayout>
 

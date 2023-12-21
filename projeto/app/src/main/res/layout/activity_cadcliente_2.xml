@@ -499,7 +499,7 @@
                         android:layout_width="500dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="450dp"
-                        android:layout_marginTop="60dp">
+                        android:layout_marginTop="30dp">
 
                         <Button
                             android:id="@+id/btCancel"

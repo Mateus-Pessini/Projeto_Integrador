@@ -57,7 +57,7 @@ public class Clientes extends AppCompatActivity {
         btAddCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Clientes.this, CadCliente.class);
+                Intent intent = new Intent(Clientes.this, CadClienteTest.class);
                 startActivity(intent);
             }
         });

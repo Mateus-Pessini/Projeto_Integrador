@@ -15,10 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import com.example.denticare.Adapter.CidadeAdapter;
 import com.example.denticare.Adapter.EstadoAdapter;
 import com.example.denticare.R;
@@ -33,35 +31,40 @@ import com.example.denticare.api.models.pessoa.Cliente;
 import com.example.denticare.api.models.pessoa.Dentes;
 import com.example.denticare.api.models.pessoa.Endereco;
 import com.example.denticare.api.models.pessoa.Estado;
-import com.example.denticare.util.DataUtils;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Base64;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CadCliente extends AppCompatActivity {
+public class CadClienteTest extends AppCompatActivity {
 
+    private LinearLayout btAgendarRecep, btSair, btMeusDados, btPdfRecep, btCadFotoRecep, btConsultaRecep, btCadClienteRecep;
     private Button btCancel, btSalvar;
 
     private EditText edNomeCompleto, edTelefone, edCPF, edRG, edRua, edComplemento, edCEP, edNumero, edEmail, edBairro;
 
     private Spinner spEstado, spCidade;
+    private TextView tvNome;
+    private ImageView ivImgDentista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadcliente_2);
+        setContentView(R.layout.activity_cadcliente);
 
         // Chame o método para ocultar a barra de navegação
         NavigationUtil.hideNavigation(this);
 
-
+        btMeusDados = findViewById(R.id.btMeusDados);
+        btAgendarRecep = findViewById(R.id.btAgendarRecep);
+        btPdfRecep = findViewById(R.id.btPdfRecep);
+        btSair = findViewById(R.id.btSair);
+        btCadFotoRecep = findViewById(R.id.btCadFotoRecep);
+        btConsultaRecep = findViewById(R.id.btConsultaRecep);
+        btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         btCancel = findViewById(R.id.btCancel);
         btSalvar = findViewById(R.id.btSalvar);
         edNomeCompleto = findViewById(R.id.editTextNomeCompleto);
@@ -76,7 +79,10 @@ public class CadCliente extends AppCompatActivity {
         edBairro = findViewById(R.id.editTextBairro);
         spEstado = findViewById(R.id.spinnerEstado);
         spCidade = findViewById(R.id.spinnerCidade);
+        tvNome = findViewById(R.id.tvNome);
+        ivImgDentista = findViewById(R.id.ivImgDentista);
 
+        buscaTipoUsuario();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
@@ -91,7 +97,7 @@ public class CadCliente extends AppCompatActivity {
                 public void onResponse(Call<List<Estado>> call, Response<List<Estado>> response) {
                     if (response.isSuccessful()) {
                         List<Estado> estados = response.body();
-                        EstadoAdapter adapter = new EstadoAdapter(CadCliente.this, estados);
+                        EstadoAdapter adapter = new EstadoAdapter(CadClienteTest.this, estados);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spEstado.setAdapter(adapter);
                     } else {
@@ -108,14 +114,65 @@ public class CadCliente extends AppCompatActivity {
             });
         }
 
+
+        btConsultaRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, Consulta2.class);
+                startActivity(intent);
+            }
+        });
+        btAgendarRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, Agenda.class);
+                startActivity(intent);
+            }
+        });
+        btPdfRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, GeraPDF.class);
+                startActivity(intent);
+            }
+        });
+
+        btCadFotoRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, SelClienteFoto.class);
+                startActivity(intent);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, NewLogin.class);
+                startActivity(intent);
+            }
+        });
+        btMeusDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, DadosDentista.class);
+                startActivity(intent);
+            }
+        });
+        btCadClienteRecep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadClienteTest.this, Clientes.class);
+                startActivity(intent);
+            }
+        });
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadCliente.this, MainActivity.class);
+                Intent intent = new Intent(CadClienteTest.this, MainActivity.class);
                 startActivity(intent);
 
                 // Exibir uma mensagem de confirmação
-                Toast.makeText(CadCliente.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadClienteTest.this, "Operação Cancelada!", Toast.LENGTH_SHORT).show();
             }
         });
         btSalvar.setOnClickListener(new View.OnClickListener() {
@@ -151,11 +208,11 @@ public class CadCliente extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<Cliente> call, Response<Cliente> response) {
                                     if (response.isSuccessful()) {
-                                        Toast.makeText(CadCliente.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CadClienteTest.this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
                                         limparCampos();
                                         Log.e("nao deu", "deu certo mas nao aparece: " + response.message());
                                     } else {
-                                        Toast.makeText(CadCliente.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CadClienteTest.this, "Não foi possível salvar.", Toast.LENGTH_SHORT).show();
                                         Log.e("", "Message =" + response.code());
                                         Log.e("", "Body =" + response.body());
                                         Log.e("", "ErroBody =" + response.errorBody());
@@ -166,7 +223,7 @@ public class CadCliente extends AppCompatActivity {
 
                                 @Override
                                 public void onFailure(Call<Cliente> call, Throwable t) {
-                                    Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } else {
@@ -176,7 +233,7 @@ public class CadCliente extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Endereco> call, Throwable t) {
-                        Toast.makeText(CadCliente.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CadClienteTest.this, "Falha com o Servidor!", Toast.LENGTH_SHORT).show();
                         Log.e("nao deu", "Erro na requisição: " + t.getMessage());
                     }
                 });
@@ -200,11 +257,11 @@ public class CadCliente extends AppCompatActivity {
                         public void onResponse(Call<List<Cidade>> call, Response<List<Cidade>> response) {
                             if (response.isSuccessful()) {
                                 List<Cidade> cidades = response.body();
-                                CidadeAdapter adapter = new CidadeAdapter(CadCliente.this, cidades);
+                                CidadeAdapter adapter = new CidadeAdapter(CadClienteTest.this, cidades);
                                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spCidade.setAdapter(adapter);
                                 spCidade.setClickable(true);
-                                Drawable ativo = ContextCompat.getDrawable(CadCliente.this, R.drawable.borda1);
+                                Drawable ativo = ContextCompat.getDrawable(CadClienteTest.this, R.drawable.borda1);
                                 spCidade.setBackground(ativo);
                             } else {
                                 // Trate o erro de resposta da API, se necessário
@@ -228,7 +285,38 @@ public class CadCliente extends AppCompatActivity {
 
     }
 
+    private void buscaTipoUsuario(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+        String role = "";
+        if (!token.isEmpty()) {
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            String[] tokenSplited = token.split("\\.");
+            String header = new String(decoder.decode(tokenSplited[0]));
+            String payload = new String(decoder.decode(tokenSplited[1]));
+            String name;
+            try {
+                name = new JSONObject(payload).getString("Name");
+                role = new JSONObject(payload).getString("Role");
+            } catch (JSONException e) {
+                name = "";
+            }
+            tvNome.setText(name);
 
+            if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
+                btCadClienteRecep.setVisibility(View.GONE);
+                btAgendarRecep.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é um Dentista");
+            } else if (role.equals(TpPessoaEnum.SECRETARIA.toString())) {
+                btMeusDados.setVisibility(View.GONE);
+                ivImgDentista.setVisibility(View.INVISIBLE);
+                //tvNomeDentista.setVisibility(View.GONE);
+                Log.d("TipoUsuario", "Usuário é uma Secretária");
+            } else {
+
+            }
+        }
+    }
 
     public void limparCampos() {
         edNomeCompleto.setText("");
@@ -299,13 +387,13 @@ public class CadCliente extends AppCompatActivity {
             edNumero.setError("Campo obrigatório");
         }
 
-// Validação para o Spinner de Estado
+        // Validação para o Spinner de Estado
         if (spEstado.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spEstado.getSelectedView();
             errorText.setError("Selecione um estado válido");
         }
 
-// Validação para o Spinner de Cidade
+        // Validação para o Spinner de Cidade
         if (spCidade.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spCidade.getSelectedView();
             errorText.setError("Selecione uma cidade válida");
@@ -320,6 +408,5 @@ public class CadCliente extends AppCompatActivity {
             //dente.setCliente(cliente);
         }
     }
-
 
 }
