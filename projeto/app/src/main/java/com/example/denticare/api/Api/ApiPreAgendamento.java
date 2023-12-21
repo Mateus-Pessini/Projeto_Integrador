@@ -22,10 +22,10 @@ public interface ApiPreAgendamento {
     Call<PreAgendamento> REGISTER_PRE_AGENDAMENTO(@Body PreAgendamento preAgendamento);
 
     @GET("pre-agendamento")
-    Call<List<ConsultaList>> GET_ALL_PRE_AGENDAMENTO(@Header("Authorization") String authorization);
+    Call<List<PreAgendamento>> GET_ALL_PRE_AGENDAMENTO(@Header("Authorization") String authorization);
 
     @DELETE("pre-agendamento/{id}")
-    Call<PreAgendamento> DELETE_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Path("id") String itemId);
+    Call<Void> DELETE_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Path("id") Long itemId);
 
     @PUT("pre-agendamento/{edit}")
     Call<PreAgendamento> EDITAR_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Path("agendamentoId") String agendamentoId, @Body PreAgendamento agendamento);

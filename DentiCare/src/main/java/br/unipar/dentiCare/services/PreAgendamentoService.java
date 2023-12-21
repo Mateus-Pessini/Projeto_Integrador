@@ -36,14 +36,10 @@ public class PreAgendamentoService {
         return pre;
     }
 
-    public PreAgendamento edit(PreAgendamento preAgendamento, Long id) throws Exception {
-        PreAgendamento p = findById(id);
+    public PreAgendamento edit(PreAgendamento preAgendamento) throws Exception {
+        PreAgendamento p = findById(preAgendamento.getId());
         p.setData(preAgendamento.getData());
-
-        Pessoa pessoa = preAgendamento.getPessoa();
-
-        pessoa.setId(preAgendamento.getPessoa().getId());
-
+        p.setPessoa(preAgendamento.getPessoa());
         return preAgendamentoRepository.saveAndFlush(p);
     }
 

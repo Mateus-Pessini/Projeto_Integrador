@@ -35,9 +35,8 @@ public class PreAgendamentoController {
 
     @PutMapping(path = "/{edit}")
     @ApiOperation(value = "Edita um Agendamento")
-    public PreAgendamento edit(@Valid @RequestBody PreAgendamento preAgendamento, @PathVariable Long id) throws Exception{
-        preAgendamento.setId(id);
-        return preAgendamentoService.edit(preAgendamento, preAgendamento.getId());
+    public PreAgendamento edit(@Valid @RequestBody PreAgendamento preAgendamento) throws Exception{
+        return preAgendamentoService.edit(preAgendamento);
     }
 
     @DeleteMapping(path = "/{id}")
