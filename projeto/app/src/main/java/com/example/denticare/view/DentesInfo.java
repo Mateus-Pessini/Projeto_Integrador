@@ -212,8 +212,14 @@ public class DentesInfo extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
-                startActivity(intent);
+                String action = getIntent().getStringExtra("edit");
+                if ("EDIT".equals(action) || "VISUALIZAR".equals(action)) {
+                    Intent intent = new Intent(DentesInfo.this, HistoricoDentario.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(DentesInfo.this, EscolhaDente.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -315,15 +321,17 @@ public class DentesInfo extends AppCompatActivity {
             @Override
             public void onResponse(Call<Tratamento> call, Response<Tratamento> response) {
                 if (response.isSuccessful()) {
-                    String edit = getIntent().getStringExtra("edit");
-                    if(edit.equals("EDIT")){
+                    String action = getIntent().getStringExtra("edit");
+                    if ("EDIT".equals(action) || "VISUALIZAR".equals(action)){
                         Toast.makeText(DentesInfo.this, "Tratamento editado com sucesso", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(DentesInfo.this, HistoricoDentario.class);
                         startActivity(intent);
+                    }else{
+                        Toast.makeText(DentesInfo.this, "Tratamento cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DentesInfo.this, Consulta2.class);
+                        startActivity(intent);
                     }
-                    Toast.makeText(DentesInfo.this, "Tratamento cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DentesInfo.this, Consulta2.class);
-                    startActivity(intent);
+
                 } else {
                     handleError(response);
                 }

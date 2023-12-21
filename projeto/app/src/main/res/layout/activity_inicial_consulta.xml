@@ -332,20 +332,14 @@
                     android:textSize="25dp"
                     android:layout_marginLeft="30dp"
                     android:id="@+id/btHisDentario"/>
-                <Button
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/botaovermelho"
-                    android:text="Finalizar Consulta"
-                    android:textSize="25dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:id="@+id/btFimConsulta"/>
+
                 <Button
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/botaoverde"
                     android:text="Iniciar Consulta"
                     android:textSize="25dp"
+                    android:layout_marginLeft="100dp"
                     android:id="@+id/btIniConsulta"/>
 
             </LinearLayout>

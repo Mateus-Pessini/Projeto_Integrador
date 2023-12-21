@@ -118,6 +118,7 @@ public class EscolhaDente extends AppCompatActivity {
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(EscolhaDente.this, InicialConsulta.class);
                 startActivity(intent);
             }

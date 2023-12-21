@@ -286,11 +286,50 @@
                         android:textSize="18dp"/>
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TableCell"
+                            android:id="@+id/TvConsultaDentes"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Mateus Pessini Scherer"
+                            android:textSize="18sp" />
+
+                        <TextView android:text="14:00"
+                            style="@style/TableCell"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/buttonDelete"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.999"
+                            android:text="Cancelar"
+                            android:background="@drawable/button_delete_style"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
                 <GridView
                     android:id="@+id/gvClientes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginVertical="30dp"
+                    android:layout_marginVertical="80dp"
                     android:layout_marginHorizontal="15dp"
                     android:numColumns="1"
                     android:background="@drawable/borda_gridview"

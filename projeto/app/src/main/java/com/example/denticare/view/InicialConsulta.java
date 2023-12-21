@@ -24,7 +24,6 @@ import java.util.Base64;
 public class InicialConsulta extends AppCompatActivity {
 
     private Button btHisDentario;
-    private Button btFimConsulta;
     private Button btIniConsulta;
     private ImageView ivImgDentista;
     private TextView tvNome;
@@ -37,7 +36,6 @@ public class InicialConsulta extends AppCompatActivity {
 
         NavigationUtil.hideNavigation(this);
 
-        btFimConsulta = findViewById(R.id.btFimConsulta);
         btIniConsulta = findViewById(R.id.btIniConsulta);
         btHisDentario = findViewById(R.id.btHisDentario);
         tvNome = findViewById(R.id.tvNome);
@@ -70,13 +68,6 @@ public class InicialConsulta extends AppCompatActivity {
             tvNome.setText(name);
         }
 
-        btFimConsulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InicialConsulta.this, Consulta2.class);
-                startActivity(intent);
-            }
-        });
         btIniConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
