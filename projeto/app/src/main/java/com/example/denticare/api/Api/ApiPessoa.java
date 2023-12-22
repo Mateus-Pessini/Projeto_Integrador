@@ -35,8 +35,8 @@ public interface ApiPessoa {
     @GET("pessoa")
     Call<List<Pessoa>> GET_ALL_PESSOA(@Header("Authorization") String authorization);
 
-    @GET("find/cliente/{nome}")
-    Call<List<Pessoa>> FIND_CLIENTES(@Header("Authorization") String authorization, @Query("nome") String nome);
+    @GET("pessoa/find/cliente/{nome}")
+    Call<List<Pessoa>> FIND_CLIENTES(@Header("Authorization") String authorization, @Path("nome") String nome);
 
     @GET("pessoa/{id}")
     Call<Pessoa> GET_PESSOA(@Header("Authorization") String authorization, @Path("id") Long id);

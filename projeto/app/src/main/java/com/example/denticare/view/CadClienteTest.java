@@ -297,6 +297,8 @@ public class CadClienteTest extends AppCompatActivity {
                         pessoaEditada.setNmRua(edRua.getText().toString());
                         pessoaEditada.setCep(edCEP.getText().toString());
                         pessoaEditada.setComplemento(edNomeCompleto.getText().toString());
+                        pessoaEditada.setNrtelefone(edTelefone.getText().toString());
+
                         if (edNumero.getText().toString().equals("")) {
                             pessoaEditada.setNumero(0);
                         } else {
@@ -506,7 +508,7 @@ public class CadClienteTest extends AppCompatActivity {
             isErros = true;
 
         }
-
+/*
         // Validação para o Spinner de Estado
         if (spEstado.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) spEstado.getSelectedView();
@@ -521,7 +523,7 @@ public class CadClienteTest extends AppCompatActivity {
             errorText.setError("Selecione uma cidade válida");
             isErros = true;
 
-        }
+        }*/
 
         return isErros;
     }
