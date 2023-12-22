@@ -98,6 +98,9 @@ public class RetroFit {
     public static ApiPreAgendamento DELETE_PRE_AGENDAMENTO(){
         return  retrofit1.create(ApiPreAgendamento.class);
     }
+    public static ApiPreAgendamento EDITAR_PRE_AGENDAMENTO(){
+        return  retrofit1.create(ApiPreAgendamento.class);
+    }
 
     public static ApiDente REGISTER_DENTES(){return retrofit1.create(ApiDente.class);}
 

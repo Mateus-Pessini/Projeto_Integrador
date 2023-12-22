@@ -35,7 +35,7 @@ public class PreAgendamentoController {
 
     @PutMapping(path = "/{edit}")
     @ApiOperation(value = "Edita um Agendamento")
-    public PreAgendamento edit(@Valid @RequestBody PreAgendamento preAgendamento) throws Exception{
+    public PreAgendamento edit(@Valid @RequestBody PreAgendamentoDTO preAgendamento) throws Exception{
         return preAgendamentoService.edit(preAgendamento);
     }
 

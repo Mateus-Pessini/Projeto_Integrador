@@ -28,6 +28,6 @@ public interface ApiPreAgendamento {
     Call<Void> DELETE_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Path("id") Long itemId);
 
     @PUT("pre-agendamento/{edit}")
-    Call<PreAgendamento> EDITAR_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Path("agendamentoId") String agendamentoId, @Body PreAgendamento agendamento);
+    Call<PreAgendamento> EDITAR_PRE_AGENDAMENTO(@Header("Authorization") String authorization, @Body PreAgendamento agendamento);
 
 }
