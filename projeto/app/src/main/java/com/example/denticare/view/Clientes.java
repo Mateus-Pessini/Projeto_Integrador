@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,9 +44,10 @@ public class Clientes extends AppCompatActivity {
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
     private ImageView ivImgDentista;
-    private TextView tvNomeDentista;
-    private Button btAddCliente;
+    private TextView tvNomeDentista, tvNome;
+    private Button btAddCliente, btBuscarCliente;
     private Pessoa listPessoaCliente;
+    private EditText txtNomeCliente;
     private GridView gvClientes;
 
     @Override
@@ -63,37 +65,29 @@ public class Clientes extends AppCompatActivity {
         btConsultaRecep = findViewById(R.id.btConsultaRecep);
         btCadClienteRecep = findViewById(R.id.btCadClienteRecep);
         ivImgDentista = findViewById(R.id.ivImgDentista);
-        tvNomeDentista = findViewById(R.id.tvNomeDentista);
         btAddCliente = findViewById(R.id.btAddCliente);
         gvClientes = findViewById(R.id.gvClientes);
+        txtNomeCliente = findViewById(R.id.txtNomeCliente);
+        btBuscarCliente = findViewById(R.id.btBuscaCliente);
+        tvNome = findViewById(R.id.tvNome);
 
         buscaTipoUsuario();
+        listaPessoas();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
-        String token = sharedPreferences.getString("token", "");
-
-        ApiPessoa apiPessoa = RetroFit.GET_PESSOA_CLIENTE();
-
-        Call<List<Pessoa>> call = apiPessoa.GET_PESSOA_CLIENTE("Bearer " + token);
-        call.enqueue(new Callback<List<Pessoa>>() {
+        btBuscarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<List<Pessoa>> call, Response<List<Pessoa>> response) {
-                if(response.isSuccessful()){
-                    List<Pessoa> listaPessoa = response.body();
+            public void onClick(View view) {
+                String parametro = txtNomeCliente.getText().toString();
+                if (!parametro.equals("")) {
+                    Log.e("TST", "parametro: " + parametro);
 
-                    PessoaAdapter pessoaAdapter = new PessoaAdapter(Clientes.this, listaPessoa);
-                    gvClientes.setAdapter(pessoaAdapter);
-
+                    buscaPessoaByNome(parametro);
                 } else {
-                    Log.e("", "Erro na resposta: " + response.errorBody());
+                    listaPessoas();
                 }
             }
-
-            @Override
-            public void onFailure(Call<List<Pessoa>> call, Throwable t) {
-                Log.e("", "Erro na requisição: " + t.getMessage());
-            }
         });
+
 
         btAddCliente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,7 +148,72 @@ public class Clientes extends AppCompatActivity {
         });
 
     }
-    private void buscaTipoUsuario(){
+
+    private void listaPessoas() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPessoa apiPessoa = RetroFit.GET_PESSOA_CLIENTE();
+
+        Call<List<Pessoa>> call = apiPessoa.GET_PESSOA_CLIENTE("Bearer " + token);
+        call.enqueue(new Callback<List<Pessoa>>() {
+            @Override
+            public void onResponse(Call<List<Pessoa>> call, Response<List<Pessoa>> response) {
+                if (response.isSuccessful()) {
+                    List<Pessoa> listaPessoa = response.body();
+
+                    PessoaAdapter pessoaAdapter = new PessoaAdapter(Clientes.this, listaPessoa);
+                    gvClientes.setAdapter(pessoaAdapter);
+
+                } else {
+                    Log.e("", "Erro na resposta: " + response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Pessoa>> call, Throwable t) {
+                Log.e("", "Erro na requisição: " + t.getMessage());
+            }
+        });
+
+    }
+
+    private void buscaPessoaByNome(String nome) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        ApiPessoa apiPessoa = RetroFit.FIND_CLIENTES();
+
+        Call<List<Pessoa>> call = apiPessoa.FIND_CLIENTES("Bearer " + token, nome);
+        call.enqueue(new Callback<List<Pessoa>>() {
+            @Override
+            public void onResponse(Call<List<Pessoa>> call, Response<List<Pessoa>> response) {
+                if (response.isSuccessful()) {
+                    List<Pessoa> listaPessoa = response.body();
+
+                    PessoaAdapter pessoaAdapter = new PessoaAdapter(Clientes.this, listaPessoa);
+                    gvClientes.setAdapter(pessoaAdapter);
+                    Log.e("TST", "Pessoas Filtro: " + listaPessoa.toString());
+
+
+                } else {
+                    Log.e("", "Erro na resposta: " + response.errorBody().toString());
+                    Log.e("", "Erro na resposta cod: " + response.message() + response.code() + response.body());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Pessoa>> call, Throwable t) {
+                Log.e("", "Erro na requisição: " + t.getMessage());
+            }
+        });
+
+
+    }
+
+    private void buscaTipoUsuario() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyToken", Context.MODE_PRIVATE);
         String token = sharedPreferences.getString("token", "");
         String role = "";
@@ -170,7 +229,7 @@ public class Clientes extends AppCompatActivity {
             } catch (JSONException e) {
                 name = "";
             }
-
+            tvNome.setText(name);
             if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
                 btCadClienteRecep.setVisibility(View.GONE);
                 btAgendarRecep.setVisibility(View.GONE);

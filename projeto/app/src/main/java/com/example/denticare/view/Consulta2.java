@@ -47,7 +47,7 @@ public class Consulta2 extends AppCompatActivity {
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
     private Button btDelete;
-    private TextView tvDentes;
+    private TextView tvDentes, tvNome;
     private ImageView ivImgDentista;
 
     @Override
@@ -67,9 +67,10 @@ public class Consulta2 extends AppCompatActivity {
         btDelete = findViewById(R.id.buttonDelete);
         tvDentes = findViewById(R.id.TvConsultaDentes);
         ivImgDentista = findViewById(R.id.ivImgDentista);
+        tvNome = findViewById(R.id.tvNome);
 
-      /*  buscaTipoUsuario();
-
+        buscaTipoUsuario();
+/*
         String token = DataUtils.getToken(Consulta2.this);
         ApiPreAgendamento apiPreAgendamento = RetroFit.GET_ALL_PRE_AGENDAMENTO();
 
@@ -186,7 +187,7 @@ public class Consulta2 extends AppCompatActivity {
             } catch (JSONException e) {
                 name = "";
             }
-
+            tvNome.setText(name);
             if (role.equals(TpPessoaEnum.DENTISTA.toString())) {
                 btCadClienteRecep.setVisibility(View.GONE);
                 btAgendarRecep.setVisibility(View.GONE);

@@ -51,6 +51,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/ivImgDentista"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@drawable/formaimage"
@@ -244,16 +245,52 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Fotos:"
                             android:textSize="35dp"
                             android:textStyle="bold"
+                            android:layout_marginRight="150dp"
                             android:textColor="@color/white"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="30dp"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cliente:"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="30dp"/>
+
+                            <TextView
+                                android:id="@+id/txtNomeCliente"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="nome"
+                                android:textSize="30dp"
+                                android:textStyle="normal"
+                                android:textColor="@color/white"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="30dp"/>
+                        </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
