@@ -46,7 +46,7 @@ public class Consulta2 extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btCadClienteRecep;
-    private Button btDelete;
+    private Button btDelete, btVoltar;
     private TextView tvDentes, tvNome;
     private ImageView ivImgDentista;
 
@@ -68,6 +68,7 @@ public class Consulta2 extends AppCompatActivity {
         tvDentes = findViewById(R.id.TvConsultaDentes);
         ivImgDentista = findViewById(R.id.ivImgDentista);
         tvNome = findViewById(R.id.tvNome);
+        btVoltar = findViewById(R.id.btVoltar);
 
         buscaTipoUsuario();
 /*
@@ -117,6 +118,13 @@ public class Consulta2 extends AppCompatActivity {
         });
 
  */
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consulta2.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tvDentes.setOnClickListener(new View.OnClickListener() {
             @Override

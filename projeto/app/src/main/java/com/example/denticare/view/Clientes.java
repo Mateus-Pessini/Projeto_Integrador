@@ -45,7 +45,7 @@ public class Clientes extends AppCompatActivity {
     private LinearLayout btCadClienteRecep;
     private ImageView ivImgDentista;
     private TextView tvNomeDentista, tvNome;
-    private Button btAddCliente, btBuscarCliente;
+    private Button btAddCliente, btBuscarCliente, btVoltar;
     private Pessoa listPessoaCliente;
     private EditText txtNomeCliente;
     private GridView gvClientes;
@@ -70,6 +70,7 @@ public class Clientes extends AppCompatActivity {
         txtNomeCliente = findViewById(R.id.txtNomeCliente);
         btBuscarCliente = findViewById(R.id.btBuscaCliente);
         tvNome = findViewById(R.id.tvNome);
+        btVoltar = findViewById(R.id.btVoltar);
 
         buscaTipoUsuario();
         listaPessoas();
@@ -88,6 +89,13 @@ public class Clientes extends AppCompatActivity {
             }
         });
 
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Clientes.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btAddCliente.setOnClickListener(new View.OnClickListener() {
             @Override

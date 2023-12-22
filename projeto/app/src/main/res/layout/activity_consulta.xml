@@ -307,6 +307,15 @@
                         android:text="Cancelar"
                         android:background="@drawable/button_delete_style"/>
                 </LinearLayout>
+                <Button
+                    android:id="@+id/btVoltar"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="450dp"
+                    android:layout_marginHorizontal="400dp"
+                    android:background="@drawable/botaoverde"
+                    android:textSize="20dp"
+                    android:text="Voltar"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

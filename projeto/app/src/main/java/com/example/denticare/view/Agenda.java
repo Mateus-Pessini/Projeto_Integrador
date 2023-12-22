@@ -48,7 +48,7 @@ public class Agenda extends AppCompatActivity {
     private LinearLayout btSair;
     private LinearLayout btMeusDados;
     private LinearLayout btAgendarRecep;
-    private Button btnData;
+    private Button btnData, btVoltar;
     private EditText edtData;
     private GridView gvAgenda;
     private SimpleDateFormat dateFormatter;
@@ -80,6 +80,7 @@ public class Agenda extends AppCompatActivity {
         gvAgenda = findViewById(R.id.gvAgenda);
         tvNome = findViewById(R.id.tvNome);
         ivImgDentista = findViewById(R.id.ivImgDentista);
+        btVoltar = findViewById(R.id.btVoltar);
 
         buscaTipoUsuario();
 
@@ -127,6 +128,14 @@ public class Agenda extends AppCompatActivity {
 
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Agenda.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btConsultaRecep.setOnClickListener(new View.OnClickListener() {
             @Override
