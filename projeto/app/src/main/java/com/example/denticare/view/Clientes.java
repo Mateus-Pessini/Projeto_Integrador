@@ -50,6 +50,7 @@ public class Clientes extends AppCompatActivity {
     private EditText txtNomeCliente;
     private GridView gvClientes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +72,7 @@ public class Clientes extends AppCompatActivity {
         btBuscarCliente = findViewById(R.id.btBuscaCliente);
         tvNome = findViewById(R.id.tvNome);
         btVoltar = findViewById(R.id.btVoltar);
+
 
         buscaTipoUsuario();
         listaPessoas();

@@ -117,7 +117,7 @@ public class CadastroPreAgendamento extends AppCompatActivity {
                     public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
                         if (response.isSuccessful()) {
                             Pessoa pessoa = new Pessoa();
-                            //pessoa = response.body();
+                            pessoa = response.body();
                             pessoa.setId(response.body().getId());
                             pre.setPessoa(pessoa);
                             Call<PreAgendamento> preAgendamentoCall = apiPreAgendamento.REGISTER_PRE_AGENDAMENTO(pre);

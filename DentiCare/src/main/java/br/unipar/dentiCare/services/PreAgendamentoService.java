@@ -30,7 +30,7 @@ public class PreAgendamentoService {
 
         pre.setData(preAgendamentoDTO.getData());
         pre.setPessoa(preAgendamentoDTO.getPessoa());
-        filtro(pre);
+        //filtro(pre);
         pre = preAgendamentoRepository.saveAndFlush(pre);
 
         return pre;
